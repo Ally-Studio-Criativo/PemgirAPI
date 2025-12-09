@@ -14,7 +14,7 @@ class MigratePalettesFromJson extends Command
     {
         $this->info('Iniciando migração de paletas...');
 
-        $jsonPath = storage_path('app/migration/palettes.json');
+        $jsonPath = database_path('data/palettes.json');
 
         if (!file_exists($jsonPath)) {
             $this->error('Arquivo palettes.json não encontrado!');

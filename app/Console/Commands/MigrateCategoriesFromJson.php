@@ -30,7 +30,7 @@ class MigrateCategoriesFromJson extends Command
         $this->info('Iniciando migração de categorias...');
 
         // Ler o arquivo JSON
-        $jsonPath = storage_path('app/migration/categories.json');
+        $jsonPath = database_path('data/categories.json');
 
         if (!file_exists($jsonPath)) {
             $this->error("Arquivo não encontrado: {$jsonPath}");

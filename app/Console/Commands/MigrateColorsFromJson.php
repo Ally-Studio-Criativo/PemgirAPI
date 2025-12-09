@@ -23,7 +23,7 @@ class MigrateColorsFromJson extends Command
             $this->call('storage:link');
         }
 
-        $jsonPath = storage_path('app/migration/colors.json');
+        $jsonPath = database_path('data/colors.json');
 
         if (!file_exists($jsonPath)) {
             $this->error('Arquivo colors.json não encontrado em: ' . $jsonPath);

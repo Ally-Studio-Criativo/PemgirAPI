@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "name": "LANÇAMENTOS",
+    "path": null,
+    "order": 1
+  },
+  {
+    "id": 2,
+    "name": "COTTONS",
+    "path": null,
+    "order": 2
+  },
+  {
+    "id": 3,
+    "name": "HELANCAS",
+    "path": null,
+    "order": 3
+  },
+  {
+    "id": 4,
+    "name": "MALHAS PARA CAMISETAS",
+    "path": null,
+    "order": 4
+  },
+  {
+    "id": 5,
+    "name": "MODINHAS",
+    "path": null,
+    "order": 5
+  },
+  {
+    "id": 6,
+    "name": "MOLETONS CARECAS",
+    "path": null,
+    "order": 6
+  },
+  {
+    "id": 7,
+    "name": "PIQUÊ",
+    "path": null,
+    "order": 7
+  },
+  {
+    "id": 8,
+    "name": "POLIPLEX",
+    "path": null,
+    "order": 8
+  },
+  {
+    "id": 9,
+    "name": "VISCOSE",
+    "path": null,
+    "order": 9
+  },
+  {
+    "id": 10,
+    "name": "RIBANAS",
+    "path": null,
+    "order": 10
+  },
+  {
+    "id": 11,
+    "name": "POLIÉSTER",
+    "path": null,
+    "order": 11
+  },
+  {
+    "id": 12,
+    "name": "POLIAMIDAS",
+    "path": null,
+    "order": 12
+  },
+  {
+    "id": 13,
+    "name": "MOLETONS FELPADOS",
+    "path": null,
+    "order": 13
+  },
+  {
+    "id": 14,
+    "name": "MOLETINHOS",
+    "path": null,
+    "order": 14
+  }
+]

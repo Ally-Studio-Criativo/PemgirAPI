@@ -31,7 +31,7 @@ class MigrateProductsFromJson extends Command
         }
 
         // Ler o arquivo JSON
-        $jsonPath = storage_path('app/migration/products.json');
+        $jsonPath = database_path('data/products.json');
 
         if (!file_exists($jsonPath)) {
             $this->error("Arquivo não encontrado: {$jsonPath}");
@@ -129,7 +129,7 @@ class MigrateProductsFromJson extends Command
 
         foreach ($images as $index => $imageName) {
             // Caminho origem
-            $sourcePath = storage_path("app/migration/categories/{$categoryName}/{$productName}/{$imageName}");
+            $sourcePath = database_path("data/categories/{$categoryName}/{$productName}/{$imageName}");
 
             if (!file_exists($sourcePath)) {
                 $this->warn("    ⚠ Imagem não encontrada: {$imageName}");

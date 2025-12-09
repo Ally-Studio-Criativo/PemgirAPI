@@ -1,0 +1,2153 @@
+{
+  "categories": [
+    {
+      "id": 0,
+      "name": "LANÇAMENTOS",
+      "label": "Lançamentos",
+      "featured": true,
+      "products": [
+        {
+          "id": "lancamentos-4550",
+          "name": "REF 4550 MALHÃO PLUS PENT. PRÉ ENCOLHIDO",
+          "categoryId": 0,
+          "composition": "100% Algodão",
+          "gramatura": 270,
+          "width": "0,98cm",
+          "yield": "1,89m/kg",
+          "images": [
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - esc_fte.png",
+            "REF 5034 - PRETO - esc_fte.png",
+            "REF 801153 - PINHEIRO - forte.png",
+            "REF 850635 - CAPUCCINO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "lancamentos-4577",
+          "name": "REF 4577 VISCOLINHO",
+          "categoryId": 0,
+          "composition": "86% viscose, 10% linho, 4% elastano",
+          "gramatura": 195,
+          "width": "1,80m",
+          "yield": "2,85m/kg",
+          "images": ["REF 30110 - OFF WHITE - única.png"]
+        },
+        {
+          "id": "lancamentos-4573",
+          "name": "REF 4573 JACARD DALLAS",
+          "categoryId": 0,
+          "composition": "87% poliamida, 13% elastano",
+          "gramatura": 380,
+          "width": "2,00m",
+          "yield": "1,32m/kg",
+          "images": [
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 5034 - esc_fte.png",
+            "REF 36552 - ROYAL - clara.png",
+            "REF 100840 - RAW MILK - esc_fte.png",
+            "REF 300548 - PRISM PIN - esc_fte.png",
+            "REF 801153 - esc_fte.png"
+          ]
+        },
+        {
+          "id": "lancamentos-4570",
+          "name": "REF 4570 ESSENCE",
+          "categoryId": 0,
+          "composition": "91,5% poliamida, 8,5% elastano",
+          "gramatura": 230,
+          "width": "1,28m",
+          "yield": "3,40m/kg",
+          "images": [
+            "REF 801153 - PINHEIRO - esc_fte.png",
+            "REF 302301 - BLOSSOM - esc_fte.png",
+            "REF 36552 - ROYAL - extra.png",
+            "REF 5034 - PRETO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 4713 - SCARLET - esc_fte.png"
+          ]
+        },
+        {
+          "id": "lancamentos-4558",
+          "name": "REF 4558 MALHÃO PLUS PENT. PRÉ ENCOLHIDO PT",
+          "categoryId": 0,
+          "composition": "100% algodão",
+          "gramatura": 270,
+          "width": "0,98cm",
+          "yield": "1,89m/kg",
+          "images": ["REF 100 PT - única.png"]
+        },
+        {
+          "id": "lancamentos-4563",
+          "name": "REF 4563 PIQUÊ PREMIUM",
+          "categoryId": 0,
+          "composition": "94% poliamida, 6% elastano",
+          "gramatura": 210,
+          "width": "1,95m",
+          "yield": "2,44m/kg",
+          "images": [
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 850635 - CAPUCCINO - esc_fte.png",
+            "REF 14250 - BORDO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 5034 - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "lancamentos-0084",
+          "name": "REF 0084 MALHA 30/1 MOULINÊ",
+          "categoryId": 0,
+          "composition": "52% poliéster 48% algodão",
+          "gramatura": 160,
+          "width": "1,20m",
+          "yield": "2,60m/kg",
+          "images": [
+            "REF 0079 - ESMERALDA - única.png",
+            "REF 0613 - MARINHO - única.png",
+            "REF 13663 - DUSTY - única.png",
+            "REF 14250 - BORDO - única.png",
+            "REF 1989 - PRETO R. - única.png"
+          ]
+        },
+        {
+          "id": "lancamentos-0630",
+          "name": "REF 0630 MALHA 30/1 PP FIADO",
+          "categoryId": 0,
+          "composition": "100% poliéster",
+          "gramatura": 150,
+          "width": "1,20m",
+          "yield": "2,80m/kg",
+          "images": [
+            "REF 0003 - OURO - esc_fte.png",
+            "REF 0075 - REF - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 12162 - LARANJA - esc_fte.png",
+            "REF 16120 - METAL - esc_fte.png",
+            "REF 16449 - TUBARÃO - esc_fte.png",
+            "REF 35035 - BIC - esc_fte.png",
+            "REF 36553 - BRASIL - esc_fte.png",
+            "REF 37851 - CAQUI - esc_fte.png",
+            "REF 38754 - AZULITO - esc_fte.png",
+            "REF 5034 - PRETO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "lancamentos-0077",
+          "name": "REF 0077 MALHA 30/1 P.A TUBOLAR",
+          "categoryId": 0,
+          "composition": "50% algodão 50% poliéster",
+          "gramatura": 160,
+          "width": "1,20m",
+          "yield": "2,60m/kg",
+          "images": [
+            "REF  36553 - BRASIL - esc_fte.png",
+            "REF 0074 - ROYAL - esc_fte.png",
+            "REF 0075 - RED - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 14250 - BORDO - esc_fte.png",
+            "REF 32125 - VERDE NEON - esc_fte.png",
+            "REF 32127 - ROSA NEON - esc_fte.png",
+            "REF 32444 - LARANJA NEON - esc_fte.png",
+            "REF 5034 - PRETO - escura.png",
+            "REF 6019 - CHUMBO - esc_fte.png",
+            "REF 850635 - CAPUCCINO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "lancamentos-4528",
+          "name": "REF 4528 FUSION",
+          "categoryId": 0,
+          "composition": "100% poliéster",
+          "gramatura": 150,
+          "width": "1,80m",
+          "yield": "3,70m/kg",
+          "images": [
+            "REF 501097 - TEOS - escura.png",
+            "REF 400196 - TIFANY - escura.png",
+            "REF 17533 - DENIM - escura.png",
+            "REF 5034 - PRETO - escura.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 250756 - DUBARRY - escura.png"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "COTTONS",
+      "label": "Cottons",
+      "products": [
+        {
+          "id": "cottons-4101",
+          "name": "REF 4101 MOLECOTTON SINTÉTICO",
+          "categoryId": 1,
+          "composition": "96% poliéster, 4% elastano",
+          "gramatura": 280,
+          "width": "1,65m",
+          "yield": "2,17m/kg",
+          "images": [
+            "REF 1128 - BRANCO - clara.png",
+            "REF 30110 - OFF WHITE - clara.png",
+            "REF 5034 - PRETO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "cottons-4217",
+          "name": "REF 4217 MOLECOTTON BENETTON COLOR",
+          "categoryId": 1,
+          "composition": "70% poliéster, 24% algodão, 6% elastano",
+          "gramatura": 340,
+          "width": "1,70m",
+          "yield": "1,73m/kg",
+          "images": ["REF 1989 - PRETO R. - única.png", "REF 950188 - DAG FIT.png"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "HELANCAS",
+      "label": "Helancas",
+      "products": [
+        {
+          "id": "helancas-0300",
+          "name": "REF 0300 HELANCA LISA TRAD",
+          "categoryId": 2,
+          "composition": "100% poliéster",
+          "gramatura": 200,
+          "width": "1,80m",
+          "yield": "2,70m/kg",
+          "images": ["REF 0613 - MARINHO - esc_fte.png", "REF 5034 - PRETO - esc_fte.png"]
+        },
+        {
+          "id": "helancas-0305",
+          "name": "REF 0305 HELANCA FELPADA",
+          "categoryId": 2,
+          "composition": "100% poliéster",
+          "gramatura": 250,
+          "width": "1,80m",
+          "yield": "2,20m/kg",
+          "images": [
+            "REF 0075 - RED - esc_fte.png",
+            "REF 0613 - MARINHO - escura.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 11533 - HAVANA - esc_fte.png",
+            "REF 12162 - LARANJA - esc_fte.png",
+            "REF 14250 - BORDO - esc_fte.png",
+            "REF 16120 - METAL - esc_fte.png",
+            "REF 36552 - ROYAL - esc_fte.png",
+            "REF 36553 - BRASIL - esc_fte.png",
+            "REF 5034 - PRETO - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "helancas-0330",
+          "name": "REF 0330 HELANCA COLLEGE TUBOLAR",
+          "categoryId": 2,
+          "composition": "100% poliéster",
+          "gramatura": 260,
+          "width": "0,98cm",
+          "yield": "1,95m/kg",
+          "images": [
+            "REF 36448 - DAG FIT - esc_fte.png",
+            "REF 0075 - RED - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 12162 - LARANJA - esc_fte.png",
+            "REF 36385 - GRENA - esc_fte.png",
+            "REF 36446 - BOURDEX - esc_fte.png",
+            "REF 36447 - MARROM - esc_fte.png",
+            "REF 36552 - ROYAL - esc_fte.png",
+            "REF 36553 - BRASIL - esc_fte.png",
+            "REF 36828 - FERRO - esc_fte.png",
+            "REF 36911 - PRATA - clara.png",
+            "REF 36912 - CÉU - clara.png",
+            "REF 37789 - CANARIO - esc_fte.png",
+            "REF 5034 - PRETO - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "helancas-0350",
+          "name": "REF 0350 HELANCA LIGHT 75-36 RAMADA",
+          "categoryId": 2,
+          "composition": "100% poliéster",
+          "gramatura": 125,
+          "width": "1,80m",
+          "yield": "4,45m/kg",
+          "images": [
+            "REF 0075 - RED - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 12162 - LARANJA - esc_fte.png",
+            "REF 13150 - SHOCK - esc_fte.png",
+            "REF 32125 - VERDE NEON - esc_fte.png",
+            "REF 32127 - ROSA NEON - esc_fte.png",
+            "REF 36552 - ROYAL - esc_fte.png",
+            "REF 36553 - BRASIL - esc_fte.png",
+            "REF 4713 - SCARLET - esc_fte.png",
+            "REF 5031 - PEROLA - clara.png",
+            "REF 5034 - PRETO - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png",
+            "REF 9600 - OURO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "helancas-0354",
+          "name": "REF 0354 HELANCA LIGHT TUBOLAR 1,20M",
+          "categoryId": 2,
+          "composition": "100% poliéster",
+          "gramatura": 110,
+          "width": "1,20m",
+          "yield": "3,78m/kg",
+          "images": [
+            "REF 0075 - RED - esc_fte.png",
+            "REF 0613 - MARINHO - escura.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 12162 - LARANJA - esc_fte.png",
+            "REF 13150 - SHOCK - esc_fte.png",
+            "REF 32125 - VERDE NEON - esc_fte.png",
+            "REF 32127 - ROSA NEON - esc_fte.png",
+            "REF 36552 - ROYAL - esc_fte.png",
+            "REF 36553 - BRASIL - esc_fte.png",
+            "REF 5034 - PRETO - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "helancas-4407",
+          "name": "REF 4407 HELANCA RAVENA",
+          "categoryId": 2,
+          "composition": "100% poliéster",
+          "gramatura": 220,
+          "width": "1,85m",
+          "yield": "2,46m/kg",
+          "images": [
+            "REF 11532 - ANGORÁ - única.png",
+            "REF 12235 - COBRE - única.png",
+            "REF 16120 - METAL - única.png",
+            "REF 401003 - OCEAN - única.png",
+            "REF 801153 - PINHEIRO - única.png"
+          ]
+        },
+        {
+          "id": "helancas-4441",
+          "name": "REF 4441 HELANCA COLEGIAL P.A RAMADA",
+          "categoryId": 2,
+          "composition": "65% poliéster, 35% algodão",
+          "gramatura": 280,
+          "width": "1,80m",
+          "yield": "1,98m/kg",
+          "images": [
+            "REF 0613 - MARINHO - escura.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 36552 - ROYAL - extra.png",
+            "REF 36553 - BRASIL - extra.png",
+            "REF 5034 - PRETO - escura.png",
+            "REF 6019 - CHUMBO - escura.png"
+          ]
+        },
+        {
+          "id": "helancas-4520",
+          "name": "REF 4520 HELANCA QUADRICULADA",
+          "categoryId": 2,
+          "composition": "100% poliéster",
+          "gramatura": 220,
+          "width": "1,80m",
+          "yield": "2,52m/kg",
+          "images": ["REF 0613 - MARINHO - escura.png"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "MALHAS PARA CAMISETAS",
+      "label": "Malhas para Camisetas",
+      "products": [
+        {
+          "id": "malhas-para-camisetas-4131",
+          "name": "REF 4131 MALHA 30-1 PT SPECIAL",
+          "categoryId": 3,
+          "composition": "100% algodão",
+          "gramatura": 175,
+          "width": "0,90cm",
+          "yield": "3,18m/kg",
+          "images": ["REF 4131 MALHA 30-1 PT SPECIAL.png"]
+        },
+        {
+          "id": "malhas-para-camisetas-0055",
+          "name": "REF 0055 MALHA 30_1 PENTEADA 1,20M",
+          "categoryId": 3,
+          "composition": "100% algodão",
+          "gramatura": 160,
+          "width": "1,20cm",
+          "yield": "2,60m/kg",
+          "images": ["REF 0055 MALHA 30_1 PENTEADA 1,20M.png"]
+        },
+        {
+          "id": "malhas-para-camisetas-0200",
+          "name": "REF 0200 MALHA 24-1 CARDADA O.E",
+          "categoryId": 3,
+          "composition": "100% algodão",
+          "gramatura": 150,
+          "width": "0,90cm",
+          "yield": "3,70m/kg",
+          "images": ["REF 1128 - BRANCO - clara.png", "REF 5034 - PRETO - esc_fte_.png"]
+        },
+        {
+          "id": "malhas-para-camisetas-0323",
+          "name": "REF 0323 MALHA FIADO SPORT",
+          "categoryId": 3,
+          "composition": "100% poliéster",
+          "gramatura": 155,
+          "width": "1,20m",
+          "yield": "2,69m/kg",
+          "images": ["REF 1128 - BRANCO - clara.png"]
+        },
+        {
+          "id": "malhas-para-camisetas-0629",
+          "name": "REF 0629 MALHA 30-1 FIADO MESCLA",
+          "categoryId": 3,
+          "composition": "100% poliéster",
+          "gramatura": 150,
+          "width": "1,20m",
+          "yield": "2,80m/kg",
+          "images": ["REF 5033D - MESCLA - única.png"]
+        },
+        {
+          "id": "malhas-para-camisetas-0780",
+          "name": "REF 0780 MALHA 28-1 P.V ANTI-PILLING",
+          "categoryId": 3,
+          "composition": "65% poliéster, 35% viscose",
+          "gramatura": 175,
+          "width": "1,20m",
+          "yield": "2,40m/kg",
+          "images": [
+            "REF 0003 - OURO - esc_fte.png",
+            "REF 0075 - RED - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 12162 - LARANJA - esc_fte.png",
+            "REF 13150 - SHOCK - esc_fte.png",
+            "REF 14250 - BORDO - esc_fte.png",
+            "REF 150919 - BEGE PM - esc_fte.png",
+            "REF 16120 - METAL - esc_fte.png",
+            "REF 16449 - TUBARAO - esc_fte.png",
+            "REF 19283 - AMAZONIA - esc_fte.png",
+            "REF 35035 - BIC - extra.png",
+            "REF 36553 - BRASIL - extra.png",
+            "REF 38754 - AZULITO - esc_fte.png",
+            "REF 5034 - PRETO - esc_fte.png",
+            "REF 650995 - UVA - esc_fte.png",
+            "REF 901002 - COBALTO - esc_fte.png",
+            "REF 952364 - BLUE SCHOOL_.png"
+          ]
+        },
+        {
+          "id": "malhas-para-camisetas-0783",
+          "name": "REF 0783 MALHA 28_1 P.V STONE",
+          "categoryId": 3,
+          "composition": "65% poliéster, 35% viscose",
+          "gramatura": 175,
+          "width": "1,20m",
+          "yield": "2,40m/kg",
+          "images": ["REF 0783 - MARINHO - única.png", "REF 5034 - PRETO - única.png"]
+        },
+        {
+          "id": "malhas-para-camisetas-0814",
+          "name": "REF 0814 MALHA FIADO CONFORT - ANTI-PILLING",
+          "categoryId": 3,
+          "composition": "100% poliéster",
+          "gramatura": 170,
+          "width": "1,20m",
+          "yield": "2,45m/kg",
+          "images": [
+            "REF 0003 - OURO - esc_fte.png",
+            "REF 0075 - RED - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 12162 - LARANJA - esc_fte.png",
+            "REF 16120 - METAL - esc_fte.png",
+            "REF 16449 - TUBARÃO - esc_fte.png",
+            "REF 35035 - BIC - esc_fte.png",
+            "REF 36553 - BRASIL - esc_fte.png",
+            "REF 37851 - CAQUI - esc_fte.png",
+            "REF 38754 - AZULITO - esc_fte.png",
+            "REF 5034 - PRETO - escura.png"
+          ]
+        },
+        {
+          "id": "malhas-para-camisetas-0922",
+          "name": "REF 0922 MALHA 30_1 MESCLA PENT. 2_",
+          "categoryId": 3,
+          "composition": "52% poliéster, 48% algodão",
+          "gramatura": 160,
+          "width": "1,20m",
+          "yield": "2,60m/kg",
+          "images": ["REF 5033D - MESCLA - única.png"]
+        },
+        {
+          "id": "malhas-para-camisetas-0923",
+          "name": "REF 0923 MALHA 30_1 MESCLA PENT. 12_",
+          "categoryId": 3,
+          "composition": "52% poliéster, 48% algodão",
+          "gramatura": 160,
+          "width": "1,20m",
+          "yield": "2,60m/kg",
+          "images": ["REF 5033D - MESCLA - única.png"]
+        },
+        {
+          "id": "malhas-para-camisetas-0924",
+          "name": "REF 0924 MALHA 30_1 MESCLA PENT. 50_ BLACK",
+          "categoryId": 3,
+          "composition": "52% poliéster, 48% algodão",
+          "gramatura": 160,
+          "width": "1,20m",
+          "yield": "2,60m/kg",
+          "images": ["REF 5033D - MESCLA - única.png"]
+        },
+        {
+          "id": "malhas-para-camisetas-0933",
+          "name": "REF 0933 MALHA 30_1 P.A STONE",
+          "categoryId": 3,
+          "composition": "50% algodão, 50% poliéster",
+          "gramatura": 160,
+          "width": "1,20m",
+          "yield": "2,60m/kg",
+          "images": [
+            "REF 0079 - ESMERALDA - única.png",
+            "REF 0613 - MARINHO - única.png",
+            "REF 4713 - SCARLET - única.png",
+            "REF 5034 - PRETO - única.png",
+            "REF 850461 - ARGILA - única.png"
+          ]
+        },
+        {
+          "id": "malhas-para-camisetas-4338",
+          "name": "REF 4338  MALHA 30-1 PENT. PT",
+          "categoryId": 3,
+          "composition": "100% algodão",
+          "gramatura": 185,
+          "width": "0,88cm",
+          "yield": "3,07m/kg",
+          "images": ["REF 100 - PT - única.png"]
+        },
+        {
+          "id": "malhas-para-camisetas-4429",
+          "name": "REF 4429 MALHA 30_1 PV MESCLA",
+          "categoryId": 3,
+          "composition": "65% poliéster, 35% viscose",
+          "gramatura": 165,
+          "width": "1,20m",
+          "yield": "2,52m/kg",
+          "images": ["REF 5033D - MESCLA - única.png"]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "MODINHAS",
+      "label": "Modinhas",
+      "products": [
+        {
+          "id": "modinhas-4291",
+          "name": "REF 4291 JACARD VISCO CRIMP",
+          "categoryId": 4,
+          "composition": "65% viscose, 31% poliéster, 4% elastano",
+          "gramatura": 320,
+          "width": "1,40m",
+          "yield": "2,32m/kg",
+          "images": [
+            "REF 5031 - PÉROLA - clara.png",
+            "REF 5034 - PRETO - esc_fte.png",
+            "REF 13150 - SHOCK - esc_fte.png",
+            "REF 18279 - AQUA - esc_fte.png",
+            "REF 502490 - SWEET PEA - esc_fte.png",
+            "REF 800162 - SKY GREEN - esc_fte.png"
+          ]
+        },
+        {
+          "id": "modinhas-4393",
+          "name": "REF 4393 BERGAMO CANELADO P.A",
+          "categoryId": 4,
+          "composition": "50% poliéster, 50% algodão",
+          "gramatura": 290,
+          "width": "1,65m",
+          "yield": "2,09m/kg",
+          "images": [
+            "REF 11532 - ANGORÁ - única.png",
+            "REF 14250 - BORDO - única.png",
+            "REF 16120 - METAL - única.png",
+            "REF 19283 - AMAZÔNIA - única.png",
+            "REF 5034 - PRETO - única.png",
+            "REF 600090 - ORCHID - única.png"
+          ]
+        },
+        {
+          "id": "modinhas-4467",
+          "name": "REF 4467 PUFF WAFER COLOR",
+          "categoryId": 4,
+          "composition": "55% poliéster, 45% algodão",
+          "gramatura": 270,
+          "width": "1,75m",
+          "yield": "2,12m/kg",
+          "images": [
+            "REF 14250 - BORDO - única.png",
+            "REF 17533 - DENIM - única.png",
+            "REF 19283 - AMAZÔNIA - única.png",
+            "REF 5034 - PRETO - única.png",
+            "REF 6019 - CHUMBO - única.png",
+            "REF 850198 - MOLE - única.png"
+          ]
+        },
+        {
+          "id": "modinhas-4531",
+          "name": "REF 4531 ELEGANCE",
+          "categoryId": 4,
+          "composition": "96% poliéster, 4% elastano",
+          "gramatura": 250,
+          "width": "1,65m",
+          "yield": "2,42m/kg",
+          "images": [
+            "REF 1128 - BRANCO - clara.png",
+            "REF 11422 - ALUMINIUM - escura.png",
+            "REF 14250 - BORDO - escura.png",
+            "REF 4705 - CAFÉ - escura.png",
+            "REF 5034 - PRETO -escura.png",
+            "REF 801153 - PINHEIRO - escura.png"
+          ]
+        },
+        {
+          "id": "modinhas-4534",
+          "name": "REF 4534 MALHA JACARD MÁLAGA",
+          "categoryId": 4,
+          "composition": "50% algodão, 50% poliéster",
+          "gramatura": 180,
+          "width": "1,12m",
+          "yield": "2,48m/kg",
+          "images": [
+            "REF 0001 - GELO - clara.png",
+            "REF 17533 - DENIM - escura.png",
+            "REF 5031 - PÉROLA - clara.png",
+            "REF 5034 - PRETO - escura.png",
+            "REF 801153 - PINHEIRO - escura.png",
+            "REF 850635 - CAPUCCINO - escura.png"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "MOLETONS CARECAS",
+      "label": "Moletons Carecas",
+      "products": [
+        {
+          "id": "moletons-carecas-0399",
+          "name": "REF 0399 MOLETOM P.A TUBOLAR LISO",
+          "categoryId": 5,
+          "composition": "50% algodão, 50% poliéster",
+          "gramatura": 290,
+          "width": "0,98cm",
+          "yield": "1,80m/kg",
+          "images": ["REF 0613 - MARINHO - esc_fte.png", "REF 5034 - PRETO - esc_fte.png"]
+        },
+        {
+          "id": "moletons-carecas-0406",
+          "name": "REF 0406 MOLETOM P.A RAMADO LISO",
+          "categoryId": 5,
+          "composition": "50% algodão, 50% poliéster",
+          "gramatura": 310,
+          "width": "1.85m",
+          "yield": "1.75m/kg",
+          "images": [
+            "REF 0613 -MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 5031 - PÉROLA - clara_.png",
+            "REF 5034 - PRETO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "moletons-carecas-0409",
+          "name": "REF 0409 MOLETOM P.A TING. 1 FIBRA TUBOLAR LISO",
+          "categoryId": 5,
+          "composition": "50% algodão, 50% poliéster",
+          "gramatura": 290,
+          "width": "0.98cm",
+          "yield": "1.80m/kg",
+          "images": ["REF 0613 - MARINHO - única.png", "REF 5034 - PRETO - única.png"]
+        },
+        {
+          "id": "moletons-carecas-4005",
+          "name": "REF 4005 MOLETOM P.A MESCLA 12_ TUB. LISO",
+          "categoryId": 5,
+          "composition": "50% algodão, 50% poliéster",
+          "gramatura": 290,
+          "width": "0.98cm",
+          "yield": "1.76m/kg",
+          "images": ["REF 5033D - MESCLA - única.png"]
+        },
+        {
+          "id": "moletons-carecas-4007",
+          "name": "REF 4007 MOLETOM P.A MESCLA 12_ BLACK RAMADO LISO",
+          "categoryId": 5,
+          "composition": "50% algodão, 50% poliéster",
+          "gramatura": 310,
+          "width": "1.85m",
+          "yield": "1.75m/kg",
+          "images": ["REF 5033D - MESCLA - única.png"]
+        },
+        {
+          "id": "moletons-carecas-4068",
+          "name": "REF 4068 MOLETOM P.A MESCLA 50_ BLACK RAMADO LISO",
+          "categoryId": 5,
+          "composition": "50% algodão, 50% poliéster",
+          "gramatura": 310,
+          "width": "1.85m",
+          "yield": "1.75m/kg",
+          "images": ["REF 5033D - MESCLA - única.png"]
+        },
+        {
+          "id": "moletons-carecas-4089",
+          "name": "REF 4089 MOLETOM PA MESCLA LISO TUBOLAR 50_ BLACK",
+          "categoryId": 5,
+          "composition": "50% algodão, 50% poliéster",
+          "gramatura": 290,
+          "width": "0.98cm",
+          "yield": "1.75m/kg",
+          "images": ["REF 5033D - MESCLA - única.png"]
+        },
+        {
+          "id": "moletons-carecas-4113",
+          "name": "REF 4113 MOLETOM BENETTON RAMADO LISO",
+          "categoryId": 5,
+          "composition": "57.5% poliéster, 42.5% algodão",
+          "gramatura": 290,
+          "width": "1.85m",
+          "yield": "1.87m/kg",
+          "images": [
+            "REF 0074 - ROYAL - única.png",
+            "REF 0079 - ESMERALDA - única.png",
+            "REF 0613 - MARINHO - única.png",
+            "REF 11533 - HAVANA -  única_.png",
+            "REF 14250 - BORDO - única.png",
+            "REF 17533 - DENIM - única.png",
+            "REF 4713 - SCARLET - única.png",
+            "REF 5034 - PRETO - única.png"
+          ]
+        },
+        {
+          "id": "moletons-carecas-4221",
+          "name": "REF 4221 MOLETOM SINTÉTICO RAMADO LISO",
+          "categoryId": 5,
+          "composition": "100% poliéster",
+          "gramatura": 300,
+          "width": "1.80m",
+          "yield": "1.85m/kg",
+          "images": ["REF 1128 - BRANCO - clara.png"]
+        },
+        {
+          "id": "moletons-carecas-4415",
+          "name": "REF 4415 MOLETOM DEVOURE COLOR LISO",
+          "categoryId": 5,
+          "composition": "65% poliéster, 35% algodão",
+          "gramatura": 300,
+          "width": "1.90m",
+          "yield": "1.75m/kg",
+          "images": [
+            "REF 0613 - MARINHO - única.png",
+            "REF 12235 - COBRE - única.png",
+            "REF 19283 - AMAZÔNIA - única.png",
+            "REF 5034 - PRETO - única.png"
+          ]
+        },
+        {
+          "id": "moletons-carecas-4485",
+          "name": "REF 4485 MOLETOM CONFORT PT PRÉ ENCOLHIDO",
+          "categoryId": 5,
+          "composition": "100% algodão",
+          "gramatura": 300,
+          "width": "1.10m",
+          "yield": "1.51m/kg",
+          "images": ["REF 100 - PT - única.png"]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "PIQUÊ",
+      "label": "Piquê",
+      "products": [
+        {
+          "id": "pique-0086",
+          "name": "REF 0086 PIQUÊ MOULINÊ COLOR",
+          "categoryId": 6,
+          "composition": "52% poliéster, 48% algodão",
+          "gramatura": 170,
+          "width": "1,20m",
+          "yield": "2,50m/kg",
+          "images": [
+            "REF 0075 - RED - única.png",
+            "REF 0079 - ESMERALDA - única.png",
+            "REF 0613 - MARINHO - única.png",
+            "REF 1989 - PRETO R. - única.png",
+            "REF 11533 - HAVANA - única.png",
+            "REF 14250 - BORDO - única.png",
+            "REF 17847 - COBALT - única.png",
+            "REF 19283 - AMAZONIA - única.png"
+          ]
+        },
+        {
+          "id": "pique-0087",
+          "name": "REF 0087 PIQUÊ 28-1 PV ANTI-PILLING",
+          "categoryId": 6,
+          "composition": "65% poliéster, 35% viscose",
+          "gramatura": 170,
+          "width": "1,20m",
+          "yield": "2,50m/kg",
+          "images": [
+            "REF 0003 - OURO - esc_fte.png",
+            "REF 0075 - RED - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 12162 - LARANJA - esc_fte.png",
+            "REF 13150 - SHOCK - esc_fte.png",
+            "REF 14250 - BORDO - esc_fte.png",
+            "REF 150912 - BEFE PM - esc_fte.png",
+            "REF 16120 - METAL - esc_fte.png",
+            "REF 16449 - TUBARÃO - esc_fte.png",
+            "REF 19283 - AMAZONIA - esc_fte.png",
+            "REF 35035 - BIC - extra.png",
+            "REF 36553 - BRASIL - extra.png",
+            "REF 38754 - AZULITO - esc_fte.png",
+            "REF 5034 - PRETO - esc_fte.png",
+            "REF 650995 - UVA - esc_fte.png",
+            "REF 901002 - COBALTO - esc_fte.png",
+            "REF 952364 - BLUE SCHOOL - esc_fte.png"
+          ]
+        },
+        {
+          "id": "pique-0525",
+          "name": "REF 0525 PIQUÊ 30-1 P.A PENTEADO",
+          "categoryId": 6,
+          "composition": "50% algodão, 50% poliéster",
+          "gramatura": 170,
+          "width": "1,20m",
+          "yield": "2,50m/kg",
+          "images": [
+            "REF 0003 - OURO - esc_fte.png",
+            "REF 0074 - ROYAL - esc_fte.png",
+            "REF 0075 - RED - esc_fte.png",
+            "REF 0079 - ESMERALDA - esc_fte.png",
+            "REF 0084 - ÍNDIGO - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 13149 - CONDESSA - clara.png",
+            "REF 14250 - BORDO - esc_fte.png",
+            "REF 16120 - METAL - esc_fte.png",
+            "REF 17763 - ANGEL - clara.png",
+            "REF 19283 - AMAZONIA - esc_fte.png",
+            "REF 35035 - BIC - extra.png",
+            "REF 36553 - BRASIL - extra.png",
+            "REF 5031 - PÉROLA - esc_fte.png",
+            "REF 5034 - PRETO - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "pique-0761",
+          "name": "REF 0761 PIQUÊ SPORT",
+          "categoryId": 6,
+          "composition": "100% poliéster",
+          "gramatura": 180,
+          "width": "1,20m",
+          "yield": "2,32m/kg",
+          "images": [
+            "REF 0075 - RED - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 16120 - METAL - esc_fte.png",
+            "REF 35035 - BIC - esc_fte.png",
+            "REF 36553 - BRASIL - esc_fte.png",
+            "REF 5034 - PRETO - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "pique-0915",
+          "name": "REF 0915 PIQUÊ DUPLO 30-1 P.A",
+          "categoryId": 6,
+          "composition": "50% algodão, 50% poliéster",
+          "gramatura": 195,
+          "width": "1,20m",
+          "yield": "2,15m/kg",
+          "images": [
+            "REF 0003 - OURO - esc_fte.png",
+            "REF 0074 - ROYAL - esc_fte.png",
+            "REF 0075 - RED - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 16449 - TUBARÃO - esc_fte.png",
+            "REF 17533 - DENIM - esc_fte.png",
+            "REF 35035 - BIC - extra.png",
+            "REF 36553 - BRASIL - extra.png",
+            "REF 38754 - AZULITO - esc_fte.png",
+            "REF 5034 - PRETO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "pique-0925",
+          "name": "REF 0925 PIQUÊ P.A PENT. MESCLA 2_",
+          "categoryId": 6,
+          "composition": "52% poliéster, 48% algodão",
+          "gramatura": 170,
+          "width": "1,20m",
+          "yield": "2,50m/kg",
+          "images": ["REF 5033D - MESCLA - única.png"]
+        },
+        {
+          "id": "pique-0926",
+          "name": "REF 0926 PIQUÊ P.A PENT. MESCLA 12_",
+          "categoryId": 6,
+          "composition": "52% poliéster, 48% algodão",
+          "gramatura": 170,
+          "width": "1,20m",
+          "yield": "2,50m/kg",
+          "images": ["REF 5033D - MESCLA - única.png"]
+        },
+        {
+          "id": "pique-0927",
+          "name": "REF 0927 PIQUÊ P.A PENT. MESCLA 50_ BLACK",
+          "categoryId": 6,
+          "composition": "52% poliéster, 48% algodão",
+          "gramatura": 170,
+          "width": "1,20m",
+          "yield": "2,50m/kg",
+          "images": ["REF 5033D - MESCLA - única.png"]
+        },
+        {
+          "id": "pique-4143",
+          "name": "REF 4143 PIQUÊ MIRAGEM COLOR",
+          "categoryId": 6,
+          "composition": "75% poliéster, 25% algodão",
+          "gramatura": 160,
+          "width": "1,20m",
+          "yield": "2,60m/kg",
+          "images": [
+            "REF 350576 - METAL_PRETO - única.png",
+            "REF 401766 - TIFANY_PRETO - única.png",
+            "REF 801974 - PINHEIRO_TEOS - única.png",
+            "REF 850622 - ARGILA_PRETO - única.png",
+            "REF 850624 - MOLE_ALGORÁ - única.png",
+            "REF 901007 - ROYAL_ARGILA - única.png"
+          ]
+        },
+        {
+          "id": "pique-4121",
+          "name": "REF 4121 PIQUÊ BENETTON COLOR",
+          "categoryId": 6,
+          "composition": "75% poliéster, 25% algodão",
+          "gramatura": 160,
+          "width": "1,20m",
+          "yield": "2,60m/kg",
+          "images": [
+            "REF 0613 - MARINHO - única.png",
+            "REF 4705 - CAFÉ - única.png",
+            "REF 4713 - SCARLET - única.png",
+            "REF 5034 - PRETO - única.png",
+            "REF 801153 - PINHEIRO - única.png",
+            "REF 850461 - ARGILA - única.png"
+          ]
+        },
+        {
+          "id": "pique-4152",
+          "name": "REF 4152 PIQUÊ BENETTON BICOLOR",
+          "categoryId": 6,
+          "composition": "75% poliéster, 25% algodão",
+          "gramatura": 160,
+          "width": "1,20m",
+          "yield": "2,60m/kg",
+          "images": [
+            "REF 250631 - PRETO_APRICOT - única.png",
+            "REF 300024 - CONDESSA MARINHO - única.png",
+            "REF 350005 - METAL_CHUMBO - única.png",
+            "REF 350576 - METAL_PRETO - única.png",
+            "REF 801973 - PRETO_PINHEIRO - única.png",
+            "REF 850623 - ARGILA_BORDO - única.png",
+            "REF 900005 - COBAL_MARINHO - única.png"
+          ]
+        },
+        {
+          "id": "pique-4253",
+          "name": "REF 4253 PIQUÊ 30-1 PENT. PT PRÉ ENCOLHIDO",
+          "categoryId": 6,
+          "composition": "100% algodão",
+          "gramatura": 185,
+          "width": "1,20m",
+          "yield": "2,25m/kg",
+          "images": ["REF 100 - PT - única.png"]
+        },
+        {
+          "id": "pique-4473",
+          "name": "REF 4473 PIQUÊ PV MESCLA - MVS",
+          "categoryId": 6,
+          "composition": "65% poliéster, 35% viscose",
+          "gramatura": 165,
+          "width": "1,20m",
+          "yield": "2,52m/kg",
+          "images": ["REF 5033D - MESCLA - única.png"]
+        },
+        {
+          "id": "pique-4504",
+          "name": "REF 4504 PIQUÊ SPORT RAJADO COLOR",
+          "categoryId": 6,
+          "composition": "100% poliéster",
+          "gramatura": 150,
+          "width": "1,20m",
+          "yield": "2,77m/kg",
+          "images": [
+            "REF 6019 - CHUMBO - única.png",
+            "REF 14250 - BORDO - única.png",
+            "REF 401003 - OCEAN - única.png",
+            "REF 19567 - VERDE MAR - única.png",
+            "REF 30110 - OFF WHITE - única.png"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "POLIPLEX",
+      "label": "Poliplex",
+      "products": [
+        {
+          "id": "poliplex-0650",
+          "name": "REF 0650 POLIPLEX",
+          "categoryId": 7,
+          "composition": "96% poliéster, 4% elastano",
+          "gramatura": 200,
+          "width": "1,80m",
+          "yield": "2,70m/kg",
+          "images": [
+            "REF 1128 - BRANCO - clara.png",
+            "REF 13149 - CONDESSA - clara.png",
+            "REF 5031 - PÉROLA - clara.png",
+            "REF 5034 - PRETO - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "VISCOSE",
+      "label": "Viscose",
+      "products": [
+        {
+          "id": "viscose-0560",
+          "name": "REF 0560 VISCOFLEX",
+          "categoryId": 8,
+          "composition": "96% viscose, 4% elastano",
+          "gramatura": 200,
+          "width": "1,80m",
+          "yield": "2,80m/kg",
+          "images": [
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - branca.png",
+            "REF 5031 - PÉROLA - clara.png",
+            "REF 14250 - BORDO - esc_fte.png",
+            "REF 5034 - PRETO - esc_fte.png",
+            "REF 801153 - PINHEIRO - esc_fte.png",
+            "REF 13150 - SHOCK - esc_fte.png",
+            "REF 300633 - ALGODÃO DOCE - esc_fte.png"
+          ]
+        },
+        {
+          "id": "viscose-4478",
+          "name": "REF 4478 SANTORINI - MODAL",
+          "categoryId": 8,
+          "composition": "95% modal, 5% elastano",
+          "gramatura": 190,
+          "width": "1,80m",
+          "yield": "2,92m/kg",
+          "images": [
+            "REF 0613 - Marinho.png",
+            "REF 1128 - Branco.png",
+            "REF 13317 - Make.png",
+            "REF 5034 - Preto.png",
+            "REF 801153 - Pinheiro.png",
+            "REF 850635 - Capuccino.png"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "RIBANAS",
+      "label": "Ribanas",
+      "products": [
+        {
+          "id": "ribanas-0454",
+          "name": "REF 0454 - RIBANA 2X1 30-1 RAMADA",
+          "categoryId": 9,
+          "composition": "49% algodão 48% poliéster 3% elastano",
+          "gramatura": "230",
+          "width": "1,20m",
+          "yield": "3,60m/kg",
+          "images": [
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 100679 - BANANA - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 250756 - DUBARRY - esc_fte.png",
+            "REF 302301 - BLOSSOM - esc_fte.png",
+            "REF 400391 - POWDER BLUE - esc_fte.png",
+            "REF 5031 - PÉROLA - esc_fte.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png",
+            "REF 801153 - PINHEIRO - escura.png",
+            "REF 850635 - CAPUCCINO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "ribanas-0688",
+          "name": "REF 0688 - RIBANA 2X1 30-1 RAMADA TING 1 FIBRA",
+          "categoryId": 9,
+          "composition": "49% algodão 48% poliéster 3% elastano",
+          "gramatura": "230",
+          "width": "1,20m",
+          "yield": "3,60m/kg",
+          "images": ["REF 0613 - MARINHO - única.png", "REF 5034 - PRETO - única.png"]
+        },
+        {
+          "id": "ribanas-0898",
+          "name": "REF 0898 - TURIM CANELADO",
+          "categoryId": 9,
+          "composition": "49% poliéster 47% algodão 4% elastano",
+          "gramatura": "190",
+          "width": "1,25m",
+          "yield": "4,22m/kg",
+          "images": [
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 5031 - PÉROLA - clara.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 11532 - ANGORÁ -  esc_fte.png",
+            "REF 13150 - SHOCK - esc_fte.png",
+            "REF 302301 - BLOSSOM - esc_fte.png",
+            "REF 402096 - CLOUD BLUE - esc_fte.png",
+            "REF 502490 - SWEET PEA - esc_fte.png",
+            "REF 801982 - CALLA GREEN - esc_fte.png",
+            "REF 850635 - CAPUCCINO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "ribanas-0986",
+          "name": "REF 0986 - TURIM STONE - TING 1 FIBRA",
+          "categoryId": 9,
+          "composition": "49% poliéster 47% algodão 4% elastano",
+          "gramatura": "190",
+          "width": "1,25m",
+          "yield": "4,22m/kg",
+          "images": ["REF 0613 - MARINHO - única.png", "REF 5034 - PRETO - única.png"]
+        },
+        {
+          "id": "ribanas-4016",
+          "name": "REF 4016 - RIBANA 2X1 30-1 MESCLA RAMADA",
+          "categoryId": 9,
+          "composition": "48,5% algodão 48,5% poliéster 3% elastano",
+          "gramatura": "230",
+          "width": "1,20m",
+          "yield": "3,60m/kg",
+          "images": ["REF 5033D MESCLA única.png"]
+        },
+        {
+          "id": "ribanas-4017",
+          "name": "REF 4017 - TURIM CANELADO MESCLA",
+          "categoryId": 9,
+          "composition": "48% algodão 48% poliéster 4% elastano",
+          "gramatura": "190",
+          "width": "1,25m",
+          "yield": "4,22m/kg",
+          "images": ["REF 5033D MESCLA única.png"]
+        },
+        {
+          "id": "ribanas-4319",
+          "name": "REF 4319 - QUEBEC",
+          "categoryId": 9,
+          "composition": "46% algodão 46% poliéster 8% elastano",
+          "gramatura": "240",
+          "width": "1,25m",
+          "yield": "3,33m/kg",
+          "images": [
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 11532 - ANGORÁ -  esc_fte.png",
+            "REF 4705 - CAFÉ - esc_fte.png",
+            "REF 4713 - SCARLET - - esc_fte.png",
+            "REF 5034 - PRETO - esc_fte.png",
+            "REF 13150 - SHOCK - esc_fte.png",
+            "REF 100840 - RAW MILK - clara.png",
+            "REF 850461 - ARGILA - esc_fte.png"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "POLIÉSTER",
+      "label": "Poliéster",
+      "products": [
+        {
+          "id": "poliester-0385",
+          "name": "REF 0385 - MALHA CREPE",
+          "categoryId": 10,
+          "composition": "100% poliéster",
+          "gramatura": "95",
+          "width": "1,65m",
+          "yield": "6,35m/kg",
+          "images": [
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 36526 - CHOCOLATE - clara.png",
+            "REF 5031 - PÉROLA - clara.png",
+            "REF 5034 - preto - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliester-0481",
+          "name": "REF 0481 - FIT SPORT",
+          "categoryId": 10,
+          "composition": "100% poliéster",
+          "gramatura": "150",
+          "width": "1,80m",
+          "yield": "3,70m/kg",
+          "images": [
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 14250 - BORDO - esc_fte.png",
+            "REF 16120 - METAL - esc_fte.png",
+            "REF 250756 - DUBARRY - esc_fte.png",
+            "REF 36552 - ROYAL - esc_fte.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png",
+            "REF 850635 - CAPUCCINO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliester-0825",
+          "name": "REF 0825 - MULTIFRESH",
+          "categoryId": 10,
+          "composition": "90% poliéster 10% elastano",
+          "gramatura": "165",
+          "width": "1,65m",
+          "yield": "3,65m/kg",
+          "images": [
+            "REF 0150 - CITRUS - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 5034 - PRETO - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png",
+            "REF 250756 - DUBARRY - esc_fte.png",
+            "REF 400196 - TIFANY - esc_fte.png",
+            "REF 750846 - esc_fte.png",
+            "REF 900248 - ROYAL - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliester-0876",
+          "name": "REF 0876 - CONFORT FIT",
+          "categoryId": 10,
+          "composition": "91% poliéster 9% elastano",
+          "gramatura": "305",
+          "width": "1,65m",
+          "yield": "2,00m/kg",
+          "images": [
+            "REF 0006 - CHICLETES - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 13150 - SHOCK - esc_fte.png",
+            "REF 14250 - BORDO - esc_fte.png",
+            "REF 36552 - ROYAL - esc_fte.png",
+            "REF 4713 - SCARLET - esc_fte.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliester-0878",
+          "name": "REF 0878 - CONFORT FIT CIRRÊ",
+          "categoryId": 10,
+          "composition": "91% poliéster 9% elastano",
+          "gramatura": "280",
+          "width": "1,65m",
+          "yield": "2,15m/kg",
+          "images": [
+            "REF 0006 - CHICLETES - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 13150 - SHOCK - esc_fte.png",
+            "REF 14250 - BORDO - esc_fte.png",
+            "REF 36552 - ROYAL - esc_fte.png",
+            "REF 4713 - SCARLET - esc_fte.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliester-4071",
+          "name": "REF 4071 - THERMO CONFORT (levemente felpado)",
+          "categoryId": 10,
+          "composition": "100% poliéster",
+          "gramatura": "150",
+          "width": "1,60m",
+          "yield": "4,17m/kg",
+          "images": [
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 13149 - CONDESSA - clara.png",
+            "REF 30110 - OFF WHITE - clara.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliester-4201",
+          "name": "REF 4201 - FIT ARIZONA",
+          "categoryId": 10,
+          "composition": "100% poliéster",
+          "gramatura": "140",
+          "width": "1,80m",
+          "yield": "3,97m/kg",
+          "images": [
+            "REF 0075 - RED - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 16120 - METAL - esc_fte.png",
+            "REF 36552 - ROYAL - esc_fte.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliester-4293",
+          "name": "REF 4293 - PRÓ CONFORT",
+          "categoryId": 10,
+          "composition": "100% poliéster",
+          "gramatura": "120",
+          "width": "1,80m",
+          "yield": "4,63m/kg",
+          "images": [
+            "REF 0075 - RED - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 36552 - ROYAL - esc_fte.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliester-4327",
+          "name": "REF 4327 - CONFORT FIT FELPADO",
+          "categoryId": 10,
+          "composition": "91% poliéster 9% elastano",
+          "gramatura": "300",
+          "width": "1,65m",
+          "yield": "2,02m/kg",
+          "images": [
+            "FELPA.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 5031 - PÉROLA - esc_fte.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliester-4328",
+          "name": "REF 4328 - CONFORT FIT CIRRÊ FELPADO",
+          "categoryId": 10,
+          "composition": "91% poliéster 9% elastano",
+          "gramatura": "280",
+          "width": "1,65m",
+          "yield": "2,23m/kg",
+          "images": ["REF 5034 - PRETO - única.png"]
+        },
+        {
+          "id": "poliester-4335",
+          "name": "REF 4335 - SPORTER",
+          "categoryId": 10,
+          "composition": "100% poliéster",
+          "gramatura": "150",
+          "width": "1,80m",
+          "yield": "3,70m/kg",
+          "images": [
+            "REF 0150 - CITRUS - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 600375 - PINK - esc_fte.png",
+            "REF 700402 - LARANJA NEON - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliester-4340",
+          "name": "REF 4340 - FIT MARATHON",
+          "categoryId": 10,
+          "composition": "100% poliéster",
+          "gramatura": "130",
+          "width": "1,80m",
+          "yield": "4,27m/kg",
+          "images": [
+            "REF 0075 - REF - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 16120 - METAL - esc_fte.png",
+            "REF 36552 - ROYAL - esc_fte.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliester-4356",
+          "name": "REF 4356 - MEGA FIT",
+          "categoryId": 10,
+          "composition": "88% poliéster 12% elastano",
+          "gramatura": "340",
+          "width": "1,60m",
+          "yield": "1,84m/kg",
+          "images": [
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 4705 - CAFÉ - esc_fte.png",
+            "REF 4713 - SCARLET - esc_fte.png",
+            "REF 5034 - preto - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliester-4359",
+          "name": "REF 4359 - FIT SPORT RAJADO COLOR (furadinho)",
+          "categoryId": 10,
+          "composition": "100% poliéster",
+          "gramatura": "150",
+          "width": "1,80m",
+          "yield": "3,70m/kg",
+          "images": [
+            "REF 0074 - ROYAL - única.png",
+            "REF 0075 - RED - única.png",
+            "REF 19567 - VERDE MARINE - única.png",
+            "REF 30110 - OFF WHITE - única.png"
+          ]
+        },
+        {
+          "id": "poliester-4406",
+          "name": "REF 4406 - CARRARA COLOR",
+          "categoryId": 10,
+          "composition": "100% poliéster",
+          "gramatura": "140",
+          "width": "1,80m",
+          "yield": "3,97m/kg",
+          "images": [
+            "REF 11532 -  ANGORÁ - única.png",
+            "REF 16120 - METAL - única.png",
+            "REF 250421 - APRICOT - única.png",
+            "REF 400196 - TIFANY - única.png",
+            "REF 401003 - OCEAN - única.png"
+          ]
+        },
+        {
+          "id": "poliester-4412",
+          "name": "REF 4412 - FIT SQUARE",
+          "categoryId": 10,
+          "composition": "100% poliéster",
+          "gramatura": "135",
+          "width": "1,85m",
+          "yield": "4,00m/kg",
+          "images": [
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 13663 - DUSTY - esc_fte.png",
+            "REF 36552 - ROYAL - esc_fte.png",
+            "REF 400196 - TIFANY - esc_fte.png",
+            "REF 501097 - TEOS - esc_fte.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliester-4430",
+          "name": "REF 4430 - FIT CONFORT",
+          "categoryId": 10,
+          "composition": "100% poliéster",
+          "gramatura": "145",
+          "width": "1,75m",
+          "yield": "3,94m/kg",
+          "images": ["REF 1128 - BRANCO - clara.png"]
+        },
+        {
+          "id": "poliester-4444",
+          "name": "REF 4444 - SPORTER LIGTH",
+          "categoryId": 10,
+          "composition": "100% poliéster",
+          "gramatura": "110",
+          "width": "1,80m",
+          "yield": "5,05m/kg",
+          "images": [
+            "REF 0150 - CITRUS - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 36552 - ROYAL - esc_fte.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 600375 - PINK - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliester-4464",
+          "name": "REF 4464 - FIT COLUMBIA",
+          "categoryId": 10,
+          "composition": "91% poliéster 9% elastano",
+          "gramatura": "170",
+          "width": "1,65m",
+          "yield": "3,56m/kg",
+          "images": [
+            "REF 0075 - RED - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 15521 - SPRING - esc _ fte.png",
+            "REF 16120 - METAL - esc_fte.png",
+            "REF 36552 - ROYAL - esc_fte.png",
+            "REF 501097 - TEOS - esc_fte.png",
+            "REF 5034 - preto - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliester-4481",
+          "name": "REF 4481 - VANCOUVER",
+          "categoryId": 10,
+          "composition": "83% poliéster 17% elastano",
+          "gramatura": "290",
+          "width": "1,60m",
+          "yield": "2,15m/kg",
+          "images": [
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 14250 - BORDO - esc_fte.png",
+            "REF 19283 - AMAZONIA - esc_fte.png",
+            "REF 4705 - CAFÉ - esc_fte.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 850635 - CAPUCCINO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliester-4517",
+          "name": "REF 4517 - BALI SPORT",
+          "categoryId": 10,
+          "composition": "94% poliéster 6% elastano",
+          "gramatura": "190",
+          "width": "1,65m",
+          "yield": "3,19m/kg",
+          "images": ["REF 1128 - BRANCO - clara.png", "REF 5034 - PRETO - esc_fte.png"]
+        },
+        {
+          "id": "poliester-4525",
+          "name": "REF 4525 - FIT AURORA",
+          "categoryId": 10,
+          "composition": "96% poliéster 4% elastano",
+          "gramatura": "180",
+          "width": "1,65m",
+          "yield": "3,37m/kg",
+          "images": [
+            "REF 1128 - BRANCO - clara.png",
+            "REF 11532 - ANGORÁ - esc_fte.png",
+            "REF 17533 - DENIM - escura.png",
+            "REF 250756 - DUBARRY - esc_fte.png",
+            "REF 400391 - POWDER BLUE - esc_fte.png",
+            "REF 501097 - TEOS - escura.png",
+            "REF 5034 - preto - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliester-4542",
+          "name": "REF 4542 - BALI CONFORT",
+          "categoryId": 10,
+          "composition": "94% poliéster 6% elastano",
+          "gramatura": "180",
+          "width": "1,65m",
+          "yield": "3,37m/kg",
+          "images": [
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 5031 - PÉROLA - esc_fte.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png",
+            "REF 850635 - CAPUCCINO - esc_fte.png"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "POLIAMIDAS",
+      "label": "Poliamidas",
+      "products": [
+        {
+          "id": "poliamidas-0850",
+          "name": "REF 0850 - CREPE SPORT",
+          "categoryId": 11,
+          "composition": "100% poliamida",
+          "gramatura": 100,
+          "width": "1,80m",
+          "yield": "5,50m/kg",
+          "images": [
+            "REF 0075 - RED - esc_fte.png",
+            "REF 0150 - CITRUS - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png",
+            "REF 13150 - SHOCK - esc_fte.png",
+            "REF 36552 - ROYAL - extra.png",
+            "REF 302301 - BLOSSOM - esc_fte.png",
+            "REF 400196 - TIFANY - esc_fte.png",
+            "REF 400391 - POWDER BLUE - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliamidas-0855",
+          "name": "REF 0855 POLIFRESH",
+          "categoryId": 11,
+          "composition": "88% poliamida 12% elastano",
+          "gramatura": 350,
+          "width": "1,60m",
+          "yield": "1,70m/kg",
+          "images": [
+            "REF 0074 - ROYAL esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 14250 - BORDO - esc_fte.png",
+            "REF 4705 - CAFÉ - esc_fte.png",
+            "REF 5034 - PRETO - esc_fte.png",
+            "REF 801153 - PINHEIRO - esc_fte.png",
+            "REF 850635 - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliamidas-0866",
+          "name": "REF 0866 - FRESH LIGHT",
+          "categoryId": 11,
+          "composition": "90% poliamida 10% elastano",
+          "gramatura": 180,
+          "width": "1,60m",
+          "yield": "3,50m/kg",
+          "images": [
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png",
+            "REF 11532 - Angorá esc_fte.png",
+            "REF 13150 - SHOCK - esc_fte.png",
+            "REF 100679 - BANANA - esc_fte.png",
+            "REF 302301 - BLOSSOM - esc_fte.png",
+            "REF 400391 - POWDER BLUE - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliamidas-0957",
+          "name": "REF 0957 - FORROTEX",
+          "categoryId": 11,
+          "composition": "100% poliamida",
+          "gramatura": 140,
+          "width": "0,98cm",
+          "yield": "3,65m/kg",
+          "images": [
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 36526 CHOCOLATE - clara.png",
+            "REF 5034 - preto - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliamidas-4297",
+          "name": "REF 4297 - ULTRA FRESH",
+          "categoryId": 11,
+          "composition": "90% poliamida 10% elastano",
+          "gramatura": 260,
+          "width": "1,70m",
+          "yield": "2,26m/kg",
+          "images": [
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 5034 - PRETO - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png",
+            "REF 300548 - PRISM PINK - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliamidas-4300",
+          "name": "REF 4300 MEGA FRESH",
+          "categoryId": 11,
+          "composition": "84% poliamida 16% elastano",
+          "gramatura": 310,
+          "width": "1,65m",
+          "yield": "1,95m/kg",
+          "images": [
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 250756 - DUBARRY esc_fte.png",
+            "REF 4705 CAFÉ - esc_fte.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png",
+            "REF 850635 - CAPUCCIONO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliamidas-4306",
+          "name": "REF 4306 MONTREAL",
+          "categoryId": 11,
+          "composition": "100% poliamida",
+          "gramatura": 145,
+          "width": "1,80m",
+          "yield": "3,83m/kg",
+          "images": [
+            "REF 0074 - ROYAL - extra.png",
+            "REF 0150 - CITRUS - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 18279 - AQUA - extra.png",
+            "REF 250756 - DUBARRY - esc_fte.png",
+            "REF 400196 - TIFANY - esc_fte.png",
+            "REF 4713 - SCARLET esc_fte.png",
+            "REF 5034 - PRETO - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliamidas-4330",
+          "name": "REF 4330 MONTREAL LIGHT",
+          "categoryId": 11,
+          "composition": "100% poliamida",
+          "gramatura": 100,
+          "width": "1,80m",
+          "yield": "5,55m/kg",
+          "images": [
+            "REF 0074 - ROYAL esc_fte.png",
+            "REF 0150 - CITRUS - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 4713 - SCARLET esc_fte.png",
+            "REF 5034 - PRETO - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png",
+            "REF 18279 - AQUA - extra.png",
+            "REF 250756 - DUBARRY - esc_fte.png",
+            "REF 400196 - TIFANY - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliamidas-4455",
+          "name": "REF 4455 SUPREME",
+          "categoryId": 11,
+          "composition": "100% poliamida",
+          "gramatura": 270,
+          "width": "1,80m",
+          "yield": "2,06m/kg",
+          "images": [
+            "REF 0150 - CITRUS - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 14250 - BORDO - esc_fte.png",
+            "REF 19283 -AMAZÔNIA - esc_fte.png",
+            "REF 401003 - OCEAN esc_fte.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliamidas-4461",
+          "name": "REF 4461 - SARDENHA",
+          "categoryId": 11,
+          "composition": "95% poliamida 5% elastano",
+          "gramatura": 130,
+          "width": "1,65m",
+          "yield": "4,66m/kg",
+          "images": [
+            "REF 0074 - ROYAL esc_fte.png",
+            "REF 0150 - CITRUS - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 13150 - SHOCK - esc_fte.png",
+            "REF 14250 - BORDO - esc_fte.png",
+            "REF 4713 - SCARLET esc_fte.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliamidas-4493",
+          "name": "REF 4493 - SICILIA",
+          "categoryId": 11,
+          "composition": "83% poliamida 17% elastano",
+          "gramatura": 290,
+          "width": "1,60m",
+          "yield": "2,15m/kg",
+          "images": [
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 14250 - BORDO - esc_fte.png",
+            "REF 19283 - AMAZÔNIA - esc_fte.png",
+            "REF 4705 - CAFÉ - esc_fte.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 850635 - CAPUCCINO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "poliamidas-4496",
+          "name": "REF 4496 - ATENAS",
+          "categoryId": 11,
+          "composition": "91% poliamida 9% elastano",
+          "gramatura": 180,
+          "width": "1,60m",
+          "yield": "3,47m/kg",
+          "images": [
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png",
+            "REF 11532 - ANGORÁ -  esc_fte.png",
+            "REF 13150 - SHOCK - esc_fte.png",
+            "REF 19283 - AMAZONIA - esc_fte.png",
+            "REF 100679 - BANANA - esc_fte.png",
+            "REF 302301 - BLOSSOM - esc_fte.png",
+            "REF 400391 - POWDER BLUE - esc_fte.png"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "MOLETONS FELPADOS",
+      "label": "Moletons Felpados",
+      "products": [
+        {
+          "id": "moletons-felpados-0222",
+          "name": "REF 0222 - MOLETOM P.A OE RAMADO FELPADO",
+          "categoryId": 12,
+          "composition": "50% algodão, 50% poliéster",
+          "gramatura": 320,
+          "width": "1,80m",
+          "yield": "1,74m/kg",
+          "images": ["REF 0613 - MARINHO - esc_fte.png", "REF 5034 - preto - esc_fte.png"]
+        },
+        {
+          "id": "moletons-felpados-0400",
+          "name": "REF 0400 - MOLETOM P.A TUBOLAR FELPADO",
+          "categoryId": 12,
+          "composition": "50% algodão, 50% poliéster",
+          "gramatura": 290,
+          "width": "0,98cm",
+          "yield": "1,80m/kg",
+          "images": [
+            "REF 0074 - ROYAL esc_fte.png",
+            "REF 0075 - RED - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 11532 - ANGORÁ - esc_fte.png",
+            "REF 13149 - CONDESSA - clara.png",
+            "REF 13150 - SHOCK - esc_fte.png",
+            "REF 14250 - BORDO - esc_fte.png",
+            "REF 19283 - AMAZÔNIA - esc_fte.png",
+            "REF 400196 - TIFANY - esc_fte.png",
+            "REF 400391 - POWDER BLUE - esc_fte.png",
+            "REF 4705 - CAFÉ - esc_fte.png",
+            "REF 4713 - SCARLET esc_fte.png",
+            "REF 5031 - PÉROLA - clara.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png",
+            "REF 850635 - CAPUCCINO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "moletons-felpados-0403",
+          "name": "REF 0403 - MOLETOM P.A RAMADO FELPADO",
+          "categoryId": 12,
+          "composition": "50% algodão, 50% poliéster",
+          "gramatura": 320,
+          "width": "1,85m",
+          "yield": "1,70m/kg",
+          "images": [
+            "REF 0074 - ROYAL esc_fte.png",
+            "REF 0075 - RED - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 11532 - ANGORÁ - esc_fte.png",
+            "REF 13149 - CONDESSA - clara.png",
+            "REF 13150 - SHOCK - esc_fte.png",
+            "REF 14250 - BORDO - esc_fte.png",
+            "REF 19283 - AMAZÔNIA - esc_fte.png",
+            "REF 400196 - TIFANY - esc_fte.png",
+            "REF 400391 - POWDER BLUE - esc_fte.png",
+            "REF 4705 - CAFÉ - esc_fte.png",
+            "REF 4713 - SCARLET esc_fte.png",
+            "REF 5031 - PÉROLA - clara.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png",
+            "REF 850635 - CAPUCCINO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "moletons-felpados-0408",
+          "name": "REF 0408 - MOLETOM P.A TING. 1 FIBRA RAMADO FELPADO",
+          "categoryId": 12,
+          "composition": "50% algodão, 50% poliéster",
+          "gramatura": 290,
+          "width": "1,85m",
+          "yield": "1,85m/kg",
+          "images": ["REF 0613 - MARINHO - única.png", "REF 5034 - PRETO - única.png"]
+        },
+        {
+          "id": "moletons-felpados-0446",
+          "name": "REF 0446 -  MOLETOM PA TUBOLAR FELPADO TING. 1 FIBRA",
+          "categoryId": 12,
+          "composition": "50% algodão, 50% poliéster",
+          "gramatura": 280,
+          "width": "0,98cm",
+          "yield": "1,85m/kg",
+          "images": [
+            "REF 0613 - MARINHO - única.png",
+            "REF 5034 - PRETO - única.png",
+            "REF 6019 - CHUMBO - única.png"
+          ]
+        },
+        {
+          "id": "moletons-felpados-0803",
+          "name": "REF 0803 - MOLETOM PA MESCLA TUBOLAR FELPADO CLARO 2_ BLACK",
+          "categoryId": 12,
+          "composition": "50% algodão, 50% poliéster",
+          "gramatura": 290,
+          "width": "0,96cm",
+          "yield": "1,80m/kg",
+          "images": ["REF 5033D - MESCLA - única.png"]
+        },
+        {
+          "id": "moletons-felpados-0804",
+          "name": "REF 0804 - MOLETOM PA MESCLA TUBOLAR FELPADO MÉDIO 12_ BLACK",
+          "categoryId": 12,
+          "composition": "50% algodão, 50% poliéster",
+          "gramatura": 290,
+          "width": "0,96cm",
+          "yield": "1,80m/kg",
+          "images": ["REF 5033D - MESCLA - única.png"]
+        },
+        {
+          "id": "moletons-felpados-0807",
+          "name": "REF 0807 - MOLETOM P.A OE TUBOLAR FELPADO",
+          "categoryId": 12,
+          "composition": "50% algodão, 50% poliéster",
+          "gramatura": 285,
+          "width": "0,98cm",
+          "yield": "1,80m/kg",
+          "images": [
+            "REF 0074 - ROYAL esc_fte.png",
+            "REF 0075 - RED - esc_fte.png",
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 11532 - ANGORÁ - esc_fte.png",
+            "REF 13149 - CONDESSA - clara.png",
+            "REF 19283 - AMAZÔNIA - esc_fte.png",
+            "REF 5034 - preto - esc_fte.png",
+            "REF 6019 - CHUMBO - esc_fte.png"
+          ]
+        },
+        {
+          "id": "moletons-felpados-4006",
+          "name": "REF 4006 - MOLETOM P.A MESCLA 12_ RAMADO FELPADO",
+          "categoryId": 12,
+          "composition": "50% algodão, 50% poliéster",
+          "gramatura": 310,
+          "width": "1,85m",
+          "yield": "1,75m/kg",
+          "images": ["REF 5033D - MESCLA - única.png"]
+        },
+        {
+          "id": "moletons-felpados-4069",
+          "name": "REF 4069 - MOLETOM P.A MESCLA 50_ BLACK RAMADO FELPADO",
+          "categoryId": 12,
+          "composition": "50% algodão, 50% poliéster",
+          "gramatura": 310,
+          "width": "1,85m",
+          "yield": "1,75m/kg",
+          "images": ["REF 5033D - MESCLA - única.png"]
+        },
+        {
+          "id": "moletons-felpados-4090",
+          "name": "REF 4090 - MOLETOM P.A MESCLA 50_ BLACK TUB. FELPADO",
+          "categoryId": 12,
+          "composition": "50% algodão, 50% poliéster",
+          "gramatura": 290,
+          "width": "0,96cm",
+          "yield": "1,80m/kg",
+          "images": ["REF 5033DD - MESCLA - única_.png"]
+        },
+        {
+          "id": "moletons-felpados-4112",
+          "name": "REF 4112 - MOLETOM BENETTON RAMADO FELPADO",
+          "categoryId": 12,
+          "composition": "57,5% poliéster, 42,5% algodão",
+          "gramatura": 290,
+          "width": "1,85m",
+          "yield": "1,87m/kg",
+          "images": [
+            "REF 0074 - ROYAL - única.png",
+            "REF 0079 - ESMERALDA - única.png",
+            "REF 0613 - MARINHO - única.png",
+            "REF 11533 - HAVANA - única.png",
+            "REF 14250 - BORDO - única.png",
+            "REF 17533 - DENIM - única.png",
+            "REF 4713 - SCARLET - única.png",
+            "REF 5034 - PRETO - única.png"
+          ]
+        },
+        {
+          "id": "moletons-felpados-4223",
+          "name": "REF 4223 - MOLETOM SINTÉTICO RAMADO FELPADO",
+          "categoryId": 12,
+          "composition": "100% poliéster",
+          "gramatura": 300,
+          "width": "1,80m",
+          "yield": "1,85m/kg",
+          "images": ["REF 1128 - BRANCO - clara.png"]
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "MOLETINHOS",
+      "label": "Moletinhos",
+      "products": [
+        {
+          "id": "moletinhos-0520",
+          "name": "REF 0520 MOLETINHO P.A TUBULAR FELPADO",
+          "categoryId": 13,
+          "composition": "50% algodão 50% poliéster",
+          "gramatura": 200,
+          "width": "0,96cm",
+          "yield": "2,60m/kg",
+          "images": [
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 5031 - PÉROLA - esc_fte.png",
+            "REF 5034 - preto - esc_fte.png"
+          ]
+        },
+        {
+          "id": "moletinhos-0540",
+          "name": "REF 0540 MOLETINHO P.A RAMADO FELPADO",
+          "categoryId": 13,
+          "composition": "50% algodão 50% poliéster",
+          "gramatura": 200,
+          "width": "1,80m",
+          "yield": "2,75m/kg",
+          "images": ["REF 0540 - CORES SOB ENCOMENDA - única.png"]
+        },
+        {
+          "id": "moletinhos-4000",
+          "name": "REF 4000 MOLETINHO P.A MESCLA 12_ TUBULAR LISO",
+          "categoryId": 13,
+          "composition": "50% algodão 50% poliéster",
+          "gramatura": 200,
+          "width": "0,98cm",
+          "yield": "2,55m/kg",
+          "images": ["REF 5033D - MESCLA - única.png"]
+        },
+        {
+          "id": "moletinhos-4001",
+          "name": "REF 4001 MOLETINHO P.A MESCLA 12_ TUBULAR FELPADO",
+          "categoryId": 13,
+          "composition": "50% algodão 50% poliéster",
+          "gramatura": 200,
+          "width": "0,96cm",
+          "yield": "2,60m/kg",
+          "images": ["REF 5033D - MESCLA - única.png"]
+        },
+        {
+          "id": "moletinhos-4002",
+          "name": "REF 4002 MOLETINHO P.A MESCLA 12_ RAMADO FELPADO",
+          "categoryId": 13,
+          "composition": "50% algodão 50% poliéster",
+          "gramatura": 200,
+          "width": "1,80m",
+          "yield": "2,70m/kg",
+          "images": ["REF 5033D - MESCLA - única.png"]
+        },
+        {
+          "id": "moletinhos-4003",
+          "name": "REF 4003 MOLETINHO P.A MESCLA 12_ RAMADO LISO",
+          "categoryId": 13,
+          "composition": "50% algodão 50% poliéster",
+          "gramatura": 195,
+          "width": "1,95m",
+          "yield": "2,63m/kg",
+          "images": ["REF 5033D - MESCLA - única.png"]
+        },
+        {
+          "id": "moletinhos-4066",
+          "name": "REF 4066 MOLETINHO P.A MESCLA 50_ BLACK TUB. LISO",
+          "categoryId": 13,
+          "composition": "50% algodão 50% poliéster",
+          "gramatura": 200,
+          "width": "0,98cm",
+          "yield": "2,55m/kg",
+          "images": ["REF 5033D - MESCLA - única.png"]
+        },
+        {
+          "id": "moletinhos-4067",
+          "name": "REF 4067 MOLETINHO P.A MESCLA 50_ BLACK TUB. FELPADO",
+          "categoryId": 13,
+          "composition": "50% algodão 50% poliéster",
+          "gramatura": 200,
+          "width": "0,96cm",
+          "yield": "2,60m/kg",
+          "images": ["REF 5033D - MESCLA - única.png"]
+        },
+        {
+          "id": "moletinhos-4153",
+          "name": "REF 4153 MOLETINHO P.A RAMADO LISO",
+          "categoryId": 13,
+          "composition": "50% algodão 50% poliéster",
+          "gramatura": 200,
+          "width": "1,95m",
+          "yield": "2,55m/kg",
+          "images": [
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 5031 - PÉROLA - clara.png",
+            "REF 5034 - preto - esc_fte.png"
+          ]
+        },
+        {
+          "id": "moletinhos-4155",
+          "name": "REF 4155 MOLETINHO P.A RAMADO TING. 1 FIBRA",
+          "categoryId": 13,
+          "composition": "50% algodão 50% poliéster",
+          "gramatura": 200,
+          "width": "1,95m",
+          "yield": "2,55m/kg",
+          "images": ["REF 0613 - MARINHO - única.png", "REF 5034 - preto - única.png"]
+        },
+        {
+          "id": "moletinhos-4156",
+          "name": "REF 4156 MOLETINHO P.A TUBULAR LISO",
+          "categoryId": 13,
+          "composition": "50% algodão 50% poliéster",
+          "gramatura": 200,
+          "width": "0,98cm",
+          "yield": "2,55m/kg",
+          "images": [
+            "REF 0613 - MARINHO - esc_fte.png",
+            "REF 1128 - BRANCO - clara.png",
+            "REF 5031 - PÉROLA - clara.png",
+            "REF 5034 - preto - esc_fte.png"
+          ]
+        }
+      ]
+    }
+  ]
+}

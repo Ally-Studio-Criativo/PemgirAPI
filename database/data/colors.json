@@ -1,0 +1,672 @@
+{
+  "2026": [
+    {
+      "ref": "0001",
+      "name": "Gelo Clara ",
+      "type": null,
+      "filename": "0001_GELO_CLARA_.png"
+    },
+    {
+      "ref": "0003",
+      "name": "1",
+      "type": null,
+      "filename": "0003_1.jpg"
+    },
+    {
+      "ref": "0064",
+      "name": "Preto",
+      "type": "Stone",
+      "filename": "0064_PRETO_STONE_1.png"
+    },
+    {
+      "ref": "0074",
+      "name": "1",
+      "type": null,
+      "filename": "0074_1.jpg"
+    },
+    {
+      "ref": "0075",
+      "name": "1",
+      "type": null,
+      "filename": "0075_1.jpg"
+    },
+    {
+      "ref": "0078",
+      "name": "32444",
+      "type": null,
+      "filename": "0078_32444.jpg"
+    },
+    {
+      "ref": "0079",
+      "name": "Esmeralda",
+      "type": null,
+      "filename": "0079_ESMERALDA.png"
+    },
+    {
+      "ref": "0079",
+      "name": "Esmeralda",
+      "type": "Mouline",
+      "filename": "0079_ESMERALDA_MOULINE.png"
+    },
+    {
+      "ref": "0150",
+      "name": "Citrus",
+      "type": "Forte",
+      "filename": "0150_CITRUS_FORTE.png"
+    },
+    {
+      "ref": "0613",
+      "name": "Marinho",
+      "type": "Escura",
+      "filename": "0613_MARINHO_ESCURA_1.png"
+    },
+    {
+      "ref": "0613",
+      "name": "Marinho",
+      "type": "Mouline",
+      "filename": "0613_MARINHO_MOULINE.png"
+    },
+    {
+      "ref": "0613",
+      "name": "Marinho",
+      "type": "Stone",
+      "filename": "0613_MARINHO_STONE.png"
+    },
+    {
+      "ref": "0922",
+      "name": "Mescla 2 ",
+      "type": null,
+      "filename": "0922_MESCLA_2_.png"
+    },
+    {
+      "ref": "0923",
+      "name": "Mescla 12 ",
+      "type": null,
+      "filename": "0923_MESCLA_12_.png"
+    },
+    {
+      "ref": "0924",
+      "name": "Mescla 50 ",
+      "type": null,
+      "filename": "0924_MESCLA_50_.png"
+    },
+    {
+      "ref": "0933",
+      "name": "0079",
+      "type": null,
+      "filename": "0933_0079.jpg"
+    },
+    {
+      "ref": "100679",
+      "name": "Banana",
+      "type": null,
+      "filename": "100679_BANANA.jpg"
+    },
+    {
+      "ref": "1128",
+      "name": "Branco",
+      "type": "Clara",
+      "filename": "1128_BRANCO_CLARA.png"
+    },
+    {
+      "ref": "11422",
+      "name": "Aluminiun",
+      "type": null,
+      "filename": "11422_ALUMINIUN.jpg"
+    },
+    {
+      "ref": "11532",
+      "name": "Angora",
+      "type": "Escura",
+      "filename": "11532_ANGORA_ESCURA.png"
+    },
+    {
+      "ref": "12162",
+      "name": "Laranja",
+      "type": "Forte",
+      "filename": "12162_LARANJA_FORTE.png"
+    },
+    {
+      "ref": "12235",
+      "name": "Cobre",
+      "type": null,
+      "filename": "12235_COBRE.png"
+    },
+    {
+      "ref": "13149",
+      "name": "1",
+      "type": null,
+      "filename": "13149_1.jpg"
+    },
+    {
+      "ref": "13150",
+      "name": "Shock Forte ",
+      "type": null,
+      "filename": "13150_SHOCK_FORTE_.png"
+    },
+    {
+      "ref": null,
+      "name": "13663",
+      "type": null,
+      "filename": "13663.jpg"
+    },
+    {
+      "ref": "13663",
+      "name": "Dusty",
+      "type": "Escura",
+      "filename": "13663_DUSTY_ESCURA_1.png"
+    },
+    {
+      "ref": "14250",
+      "name": "Bordo Forte ",
+      "type": null,
+      "filename": "14250_BORDO_FORTE_.png"
+    },
+    {
+      "ref": "14250",
+      "name": "Bordo",
+      "type": "Mouline",
+      "filename": "14250_BORDO_MOULINE.png"
+    },
+    {
+      "ref": "15408",
+      "name": "Orchidea",
+      "type": null,
+      "filename": "15408_ORCHIDEA.jpg"
+    },
+    {
+      "ref": "16120",
+      "name": "Metal",
+      "type": "Escura",
+      "filename": "16120_METAL_ESCURA_2.png"
+    },
+    {
+      "ref": "17533",
+      "name": "1",
+      "type": null,
+      "filename": "17533_1.jpg"
+    },
+    {
+      "ref": "18279",
+      "name": "Aqua Forte ",
+      "type": null,
+      "filename": "18279_AQUA_FORTE_.png"
+    },
+    {
+      "ref": "1989",
+      "name": "Preto",
+      "type": "Mouline",
+      "filename": "1989_PRETO_MOULINE.png"
+    },
+    {
+      "ref": "20200721",
+      "name": "164203",
+      "type": null,
+      "filename": "20200721_164203_1.jpg"
+    },
+    {
+      "ref": "20200721",
+      "name": "172209",
+      "type": null,
+      "filename": "20200721_172209_1.jpg"
+    },
+    {
+      "ref": "20200722",
+      "name": "133027",
+      "type": null,
+      "filename": "20200722_133027.jpg"
+    },
+    {
+      "ref": "20200722",
+      "name": "133208",
+      "type": null,
+      "filename": "20200722_133208.jpg"
+    },
+    {
+      "ref": "250262",
+      "name": "Peach Nougat",
+      "type": null,
+      "filename": "250262_PEACH_NOUGAT.jpg"
+    },
+    {
+      "ref": "250756",
+      "name": "Dubarry",
+      "type": null,
+      "filename": "250756_DUBARRY.jpg"
+    },
+    {
+      "ref": "300633",
+      "name": "Algodao Doce",
+      "type": null,
+      "filename": "300633_ALGODAO_DOCE.jpg"
+    },
+    {
+      "ref": "302301",
+      "name": "Blossom",
+      "type": null,
+      "filename": "302301_BLOSSOM.jpg"
+    },
+    {
+      "ref": "36553",
+      "name": "Brasil",
+      "type": null,
+      "filename": "36553_BRASIL.jpg"
+    },
+    {
+      "ref": "400196",
+      "name": "Tifany",
+      "type": "Escura",
+      "filename": "400196_TIFANY_ESCURA.png"
+    },
+    {
+      "ref": "400391",
+      "name": "Powder Blue",
+      "type": null,
+      "filename": "400391_POWDER_BLUE.jpg"
+    },
+    {
+      "ref": "401003",
+      "name": "Ocean",
+      "type": "Forte",
+      "filename": "401003_OCEAN_FORTE.jpg"
+    },
+    {
+      "ref": "401775",
+      "name": "Silver Lake",
+      "type": null,
+      "filename": "401775_SILVER_LAKE.jpg"
+    },
+    {
+      "ref": "470",
+      "name": "Cafe",
+      "type": null,
+      "filename": "470_CAFE.jpg"
+    },
+    {
+      "ref": "4713",
+      "name": "1",
+      "type": null,
+      "filename": "4713_1.jpg"
+    },
+    {
+      "ref": "4713",
+      "name": "Scarlet",
+      "type": "Stone",
+      "filename": "4713_SCARLET_STONE.png"
+    },
+    {
+      "ref": "501097",
+      "name": "Teos",
+      "type": null,
+      "filename": "501097_TEOS.jpg"
+    },
+    {
+      "ref": "5031",
+      "name": "1",
+      "type": null,
+      "filename": "5031_1.jpg"
+    },
+    {
+      "ref": "5034",
+      "name": "1",
+      "type": null,
+      "filename": "5034_1.jpg"
+    },
+    {
+      "ref": "6019",
+      "name": "Chumbo",
+      "type": "Escura",
+      "filename": "6019_CHUMBO_ESCURA.png"
+    },
+    {
+      "ref": "650764",
+      "name": "Violet",
+      "type": null,
+      "filename": "650764_VIOLET_1.jpg"
+    },
+    {
+      "ref": "701307",
+      "name": "Tangerine",
+      "type": null,
+      "filename": "701307_TANGERINE.jpg"
+    },
+    {
+      "ref": "751605",
+      "name": "Pimenta",
+      "type": null,
+      "filename": "751605_PIMENTA.jpg"
+    },
+    {
+      "ref": "800162",
+      "name": "Sky Green",
+      "type": null,
+      "filename": "800162_Sky_Green.png"
+    },
+    {
+      "ref": "801153",
+      "name": "Pinheiro",
+      "type": null,
+      "filename": "801153_PINHEIRO.jpg"
+    },
+    {
+      "ref": "801982",
+      "name": "Calla Green",
+      "type": null,
+      "filename": "801982_CALLA_GREEN.jpg"
+    },
+    {
+      "ref": null,
+      "name": "850461",
+      "type": null,
+      "filename": "850461.jpg"
+    },
+    {
+      "ref": "850461",
+      "name": "Argila",
+      "type": null,
+      "filename": "850461_ARGILA_1.jpg"
+    },
+    {
+      "ref": "850635",
+      "name": "Capuccino",
+      "type": null,
+      "filename": "850635_CAPUCCINO.jpg"
+    }
+  ],
+  "2027": [
+    {
+      "ref": "0001",
+      "name": "Gelo",
+      "type": "Clara",
+      "filename": "0001 - Gelo Clara.png"
+    },
+    {
+      "ref": "0003",
+      "name": "Ouro",
+      "type": "Forte",
+      "filename": "0003 - Ouro Forte.png"
+    },
+    {
+      "ref": "0074",
+      "name": "Royal",
+      "type": "Forte",
+      "filename": "0074 - Royal Forte.png"
+    },
+    {
+      "ref": "0075",
+      "name": "Red",
+      "type": "Forte",
+      "filename": "0075- Red Forte.png"
+    },
+    {
+      "ref": "0150",
+      "name": "Citrus",
+      "type": "Forte",
+      "filename": "0150 - Citrus Forte.png"
+    },
+    {
+      "ref": "0613",
+      "name": "Marinho",
+      "type": "Escura",
+      "filename": "0613 - Marinho Escura.png"
+    },
+    {
+      "ref": "100640",
+      "name": "Raw Milk",
+      "type": "Clara",
+      "filename": "100640 - Raw Milk Clara.png"
+    },
+    {
+      "ref": "100679",
+      "name": "Banana",
+      "type": "Escura",
+      "filename": "100679 - Banana Escura.png"
+    },
+    {
+      "ref": "1128",
+      "name": "Branco",
+      "type": "Clara",
+      "filename": "1128 - Branco Clara.png"
+    },
+    {
+      "ref": "11422",
+      "name": "Aluminium",
+      "type": "Escura",
+      "filename": "11422 - Aluminium Escura.png"
+    },
+    {
+      "ref": "11532",
+      "name": "Angorá",
+      "type": "Escura",
+      "filename": "11532 - Angorá Escura.png"
+    },
+    {
+      "ref": "12162",
+      "name": "Laranja",
+      "type": "Forte",
+      "filename": "12162 - Laranja Forte.png"
+    },
+    {
+      "ref": "12235",
+      "name": "Cobre",
+      "type": "Escura",
+      "filename": "12235 - Cobre Escura.png"
+    },
+    {
+      "ref": "13149",
+      "name": "Condessa",
+      "type": "Clara",
+      "filename": "13149 - Condessa Clara.png"
+    },
+    {
+      "ref": "13150",
+      "name": "Shock",
+      "type": "Forte",
+      "filename": "13150 - Shock Forte.png"
+    },
+    {
+      "ref": "13317",
+      "name": "Make",
+      "type": "Escura",
+      "filename": "13317 - Make Escura.png"
+    },
+    {
+      "ref": "13663",
+      "name": "Dusty",
+      "type": "Escura",
+      "filename": "13663 - Dusty Escura.png"
+    },
+    {
+      "ref": "14250",
+      "name": "Bordô Forte ",
+      "type": null,
+      "filename": "14250 - Bordô Forte_.png"
+    },
+    {
+      "ref": "15408",
+      "name": "Orquídea",
+      "type": "Escura",
+      "filename": "15408 - Orquídea Escura.png"
+    },
+    {
+      "ref": "16120",
+      "name": "Metal",
+      "type": "Escura",
+      "filename": "16120 - Metal Escura.png"
+    },
+    {
+      "ref": "17533",
+      "name": "Denim",
+      "type": "Forte",
+      "filename": "17533 - Denim Forte.png"
+    },
+    {
+      "ref": "19283",
+      "name": "Amazônia",
+      "type": "Forte",
+      "filename": "19283 - Amazônia Forte.png"
+    },
+    {
+      "ref": "250262",
+      "name": "Peach Nougat",
+      "type": "Escura",
+      "filename": "250262 - Peach Nougat Escura.png"
+    },
+    {
+      "ref": "250756",
+      "name": "Dubarry",
+      "type": "Escura",
+      "filename": "250756 - Dubarry Escura.png"
+    },
+    {
+      "ref": "300548",
+      "name": "Prism Pink",
+      "type": "Escura",
+      "filename": "300548 - Prism Pink Escura.png"
+    },
+    {
+      "ref": "300633",
+      "name": "Algodão Doce",
+      "type": "Escura",
+      "filename": "300633 - Algodão Doce Escura.png"
+    },
+    {
+      "ref": "302301",
+      "name": "Blosson",
+      "type": "Escura",
+      "filename": "302301 - Blosson Escura.png"
+    },
+    {
+      "ref": "32125",
+      "name": "Verde",
+      "type": "Neon",
+      "filename": "32125 - Verde Neon.png"
+    },
+    {
+      "ref": "32127",
+      "name": "Rosa",
+      "type": "Neon",
+      "filename": "32127 - Rosa Neon.png"
+    },
+    {
+      "ref": "32444",
+      "name": "Laranja",
+      "type": "Neon",
+      "filename": "32444 - Laranja Neon.png"
+    },
+    {
+      "ref": "36553",
+      "name": "Brasil",
+      "type": "Extra",
+      "filename": "36553 - Brasil Extra.png"
+    },
+    {
+      "ref": "400196",
+      "name": "Tifany",
+      "type": "Escura",
+      "filename": "400196 - Tifany Escura.png"
+    },
+    {
+      "ref": "400391",
+      "name": "Powder Blue",
+      "type": "Escura",
+      "filename": "400391 - Powder Blue Escura.png"
+    },
+    {
+      "ref": "401003",
+      "name": "Ocean",
+      "type": "Forte",
+      "filename": "401003 - Ocean Forte.png"
+    },
+    {
+      "ref": "401775",
+      "name": "Silver Lake",
+      "type": "Escura",
+      "filename": "401775 - Silver Lake Escura.png"
+    },
+    {
+      "ref": "402096",
+      "name": "Cloud Blue",
+      "type": "Escura",
+      "filename": "402096 - Cloud Blue Escura.png"
+    },
+    {
+      "ref": "4705",
+      "name": "Café",
+      "type": "Forte",
+      "filename": "4705 - Café Forte.png"
+    },
+    {
+      "ref": "4713",
+      "name": "Scarlet",
+      "type": "Forte",
+      "filename": "4713 - Scarlet Forte.png"
+    },
+    {
+      "ref": "501097",
+      "name": "Teos",
+      "type": "Forte",
+      "filename": "501097 - Teos Forte.png"
+    },
+    {
+      "ref": "502190",
+      "name": "Sweet Pea",
+      "type": "Escura",
+      "filename": "502190 - Sweet Pea Escura.png"
+    },
+    {
+      "ref": "5031",
+      "name": "Pérola",
+      "type": "Clara",
+      "filename": "5031 - Pérola Clara.png"
+    },
+    {
+      "ref": "5034",
+      "name": "Preto",
+      "type": "Escura",
+      "filename": "5034 - Preto Escura.png"
+    },
+    {
+      "ref": "600090",
+      "name": "Orchid",
+      "type": "Escura",
+      "filename": "600090 - Orchid Escura.png"
+    },
+    {
+      "ref": "6019",
+      "name": "Chumbo",
+      "type": "Escura",
+      "filename": "6019 - Chumbo Escura.png"
+    },
+    {
+      "ref": "800162",
+      "name": "Sky Green",
+      "type": "Forte",
+      "filename": "800162 - Sky Green Forte.png"
+    },
+    {
+      "ref": "801153",
+      "name": "Pinheiro",
+      "type": "Forte",
+      "filename": "801153 - Pinheiro Forte.png"
+    },
+    {
+      "ref": "801982",
+      "name": "Calla Green",
+      "type": "Forte",
+      "filename": "801982 - Calla Green Forte.png"
+    },
+    {
+      "ref": "850461",
+      "name": "Argila",
+      "type": "Escura",
+      "filename": "850461 - Argila Escura.png"
+    },
+    {
+      "ref": "850635",
+      "name": "Capucciono",
+      "type": "Escura",
+      "filename": "850635 - Capucciono Escura.png"
+    }
+  ]
+}
