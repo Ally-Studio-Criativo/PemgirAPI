@@ -54,7 +54,7 @@ class ProductImageController extends Controller
             }
 
             $request->file('image')->move($publicPath, $filename);
-            $path = "images/products/{$filename}";
+            $path = "app/public/images/products/{$filename}";
 
             $image = ProductImage::create([
                 'product_id' => $product->id,
@@ -139,7 +139,9 @@ class ProductImageController extends Controller
 
         // Delete image file from public directory
         if ($image->path) {
-            $fullPath = public_path($image->path);
+            // Remover o prefixo 'app/public/' e usar storage_path
+            $imagePath = str_replace('app/public/', '', $image->path);
+            $fullPath = storage_path('app/public/' . $imagePath);
             if (file_exists($fullPath)) {
                 unlink($fullPath);
             }
