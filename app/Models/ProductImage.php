@@ -12,6 +12,8 @@ class ProductImage extends Model
         'ref',
         'color_name',
         'image_type',
+        'in_2027_palette',
+        'has_cuff_collar',
         'filename',
         'path',
         'order',
@@ -20,6 +22,8 @@ class ProductImage extends Model
     protected $casts = [
         'product_id' => 'integer',
         'order' => 'integer',
+        'in_2027_palette' => 'boolean',
+        'has_cuff_collar' => 'boolean',
     ];
 
     /**
@@ -28,5 +32,17 @@ class ProductImage extends Model
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
+    }
+
+    /**
+     * Get the color information based on ref
+     */
+    public function color()
+    {
+        if (!$this->ref) {
+            return null;
+        }
+
+        return Color::where('ref', $this->ref)->first();
     }
 }

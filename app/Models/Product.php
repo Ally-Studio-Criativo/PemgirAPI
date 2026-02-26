@@ -17,13 +17,16 @@ class Product extends Model
         'gramatura',
         'width',
         'yield',
+        'observations',
         'order',
+        'is_launch',
     ];
 
     protected $casts = [
         'category_id' => 'integer',
         'gramatura' => 'integer',
         'order' => 'integer',
+        'is_launch' => 'boolean',
     ];
 
     /**

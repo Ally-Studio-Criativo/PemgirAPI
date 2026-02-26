@@ -20,6 +20,11 @@ class ProductController extends Controller
             $query->where('category_id', $request->category_id);
         }
 
+        // Filter by launch status
+        if ($request->has('is_launch')) {
+            $query->where('is_launch', $request->boolean('is_launch'));
+        }
+
         $products = $query->orderBy('order')->get();
 
         return response()->json($products);
@@ -38,7 +43,9 @@ class ProductController extends Controller
             'gramatura' => 'nullable|integer',
             'width' => 'nullable|string|max:255',
             'yield' => 'nullable|string|max:255',
+            'observations' => 'nullable|string',
             'order' => 'integer',
+            'is_launch' => 'boolean',
         ]);
 
         $product = Product::create($validated);
@@ -71,7 +78,9 @@ class ProductController extends Controller
             'gramatura' => 'nullable|integer',
             'width' => 'nullable|string|max:255',
             'yield' => 'nullable|string|max:255',
+            'observations' => 'nullable|string',
             'order' => 'sometimes|integer',
+            'is_launch' => 'sometimes|boolean',
         ]);
 
         $product->update($validated);

@@ -12,6 +12,7 @@ use App\Http\Controllers\Api\ProductImageController;
 use App\Http\Controllers\Api\ImageController;
 use App\Http\Controllers\Api\CampaignController;
 use App\Http\Controllers\Admin\CampaignController as AdminCampaignController;
+use App\Http\Controllers\Api\LandingPageImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::prefix('v1')->group(function () {
     Route::get('products', [ProductController::class, 'index']);
     Route::get('products/{product}', [ProductController::class, 'show']);
     Route::get('campaign/active', [CampaignController::class, 'active']);
+    Route::get('landing-page-images', [LandingPageImageController::class, 'index']);
 
     // Protected Routes (require authentication)
     Route::middleware('auth:sanctum')->group(function () {
@@ -82,6 +84,9 @@ Route::prefix('v1')->group(function () {
         Route::get('campaigns/{campaign}', [AdminCampaignController::class, 'show']);
         Route::put('campaigns/{campaign}', [AdminCampaignController::class, 'update']);
         Route::delete('campaigns/{campaign}', [AdminCampaignController::class, 'destroy']);
+
+        // Landing Page Images Management
+        Route::post('landing-page-images', [LandingPageImageController::class, 'upload']);
     });
 
 });

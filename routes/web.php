@@ -2,8 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 
-// Serve Quasar SPA for all routes (except /api)
-Route::get('/{any}', function () {
+// Serve Quasar SPA for all routes (except /api and static files)
+Route::get('/{any}', function ($any) {
+    // If the requested path is a file that exists, serve it directly
+    $filePath = public_path($any);
+
+    if (file_exists($filePath) && is_file($filePath)) {
+        return response()->file($filePath);
+    }
+
+    // Otherwise, serve the SPA
     $indexPath = public_path('index.html');
 
     if (!file_exists($indexPath)) {

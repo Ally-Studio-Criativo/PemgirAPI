@@ -34,6 +34,8 @@ class ProductImageController extends Controller
                 'ref' => 'nullable|string|max:255',
                 'color_name' => 'nullable|string|max:255',
                 'image_type' => 'nullable|string|max:255',
+                'in_2027_palette' => 'boolean',
+                'has_cuff_collar' => 'boolean',
                 'order' => 'integer|min:0',
             ]);
 
@@ -61,6 +63,8 @@ class ProductImageController extends Controller
                 'ref' => $validated['ref'] ?? null,
                 'color_name' => $validated['color_name'] ?? null,
                 'image_type' => $validated['image_type'] ?? null,
+                'in_2027_palette' => $validated['in_2027_palette'] ?? false,
+                'has_cuff_collar' => $validated['has_cuff_collar'] ?? false,
                 'filename' => $filename,
                 'path' => $path,
                 'order' => $validated['order'],
@@ -94,6 +98,8 @@ class ProductImageController extends Controller
             'ref' => 'sometimes|nullable|string|max:255',
             'color_name' => 'sometimes|nullable|string|max:255',
             'image_type' => 'sometimes|nullable|string|max:255',
+            'in_2027_palette' => 'sometimes|boolean',
+            'has_cuff_collar' => 'sometimes|boolean',
             'order' => 'sometimes|integer|min:0',
         ]);
 
