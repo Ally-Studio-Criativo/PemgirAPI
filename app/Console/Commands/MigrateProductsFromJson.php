@@ -153,7 +153,7 @@ class MigrateProductsFromJson extends Command
                 ProductImage::create([
                     'product_id' => $product->id,
                     'filename' => $safeFileName,
-                    'path' => "app/public/images/products/{$safeFileName}",
+                    'path' => "storage/images/products/{$safeFileName}",
                     'ref' => $metadata['ref'],
                     'color_name' => $metadata['color'],
                     'image_type' => $metadata['type'],
