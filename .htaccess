@@ -6,7 +6,6 @@
     RewriteRule ^\.env - [F,L]
     RewriteRule ^\.git - [F,L]
     RewriteRule ^vendor/ - [F,L]
-    RewriteRule ^storage/(?!app/public/) - [F,L]
     RewriteRule ^bootstrap/cache/ - [F,L]
     RewriteRule ^database/ - [F,L]
     RewriteRule ^config/ - [F,L]
