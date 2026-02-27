@@ -21,3 +21,7 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+
+# Imagens obsoletas (migradas para banco de dados)
+/database/data/categories/
+/public/categories/
