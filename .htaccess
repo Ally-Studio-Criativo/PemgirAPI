@@ -1,0 +1,46 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /PemgirAPI/
+
+    # Bloquear acesso a diretórios e arquivos sensíveis do Laravel
+    RewriteRule ^\.env - [F,L]
+    RewriteRule ^\.git - [F,L]
+    RewriteRule ^vendor/ - [F,L]
+    RewriteRule ^storage/(?!app/public/) - [F,L]
+    RewriteRule ^bootstrap/cache/ - [F,L]
+    RewriteRule ^database/ - [F,L]
+    RewriteRule ^config/ - [F,L]
+    RewriteRule ^routes/ - [F,L]
+    RewriteRule ^app/ - [F,L]
+
+    # Se o arquivo ou diretório existir em public/, servir diretamente
+    RewriteCond %{REQUEST_URI} !^/PemgirAPI/public/
+    RewriteCond %{DOCUMENT_ROOT}/PemgirAPI/public%{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{DOCUMENT_ROOT}/PemgirAPI/public%{REQUEST_FILENAME} -d
+    RewriteRule ^(.*)$ public/$1 [L]
+
+    # Caso contrário, redirecionar para o index.php do Laravel
+    RewriteCond %{REQUEST_URI} !^/PemgirAPI/public/
+    RewriteRule ^(.*)$ public/index.php [L]
+</IfModule>
+
+# Prevenir listagem de diretórios
+Options -Indexes
+
+# Proteger arquivos sensíveis
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "(composer\.(json|lock)|package(-lock)?\.json|\.env|\.gitignore|\.htaccess)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Configurações de segurança
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
