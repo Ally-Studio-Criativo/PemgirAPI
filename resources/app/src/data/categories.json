@@ -1,0 +1,50 @@
+[
+  {
+    "name": "COTTONS",
+    "firstProductName": "REF 4091 COTTON 40-1 PENT. COMPAC",
+    "image": "/categories/COTTONS/REF 4091 COTTON 40-1 PENT. COMPAC/REF 0075 - RED_.png",
+    "path": "/produtos?categoria=COTTONS"
+  },
+  {
+    "name": "HELANCAS",
+    "firstProductName": "REF 0300 HELANCA LISA TRAD",
+    "image": "/categories/HELANCAS/REF 0300 HELANCA LISA TRAD/REF 0613 - MARINHO - esc_fte.png",
+    "path": "/produtos?categoria=HELANCAS"
+  },
+  {
+    "name": "CAMISETAS",
+    "firstProductName": "REF 0780 MALHA 28-1 P.V ANTI-PILLING",
+    "image": "/categories/MALHAS PARA CAMISETAS/REF 0780 MALHA 28-1 P.V ANTI-PILLING/REF 0003 - OURO - esc_fte.png",
+    "path": "/produtos?categoria=MALHAS%20PARA%20CAMISETAS"
+  },
+  {
+    "name": "MODINHAS",
+    "firstProductName": "REF 4151 MALHA DUPLA FACE POÁ",
+    "image": "/categories/MODINHAS/REF 4151 MALHA DUPLA FACE POÁ/REF 32002 - RED_MARINHO - única.png",
+    "path": "/produtos?categoria=MODINHAS"
+  },
+  {
+    "name": "MOLETONS CARECAS",
+    "firstProductName": "REF 0339 MOLETOM P.A TUBOLAR LISO",
+    "image": "/categories/MOLETONS CARECAS/REF 0339 MOLETOM P.A TUBOLAR LISO/REF 0613 - MARINHO - esc_fte.png",
+    "path": "/produtos?categoria=MOLETONS%20CARECAS"
+  },
+  {
+    "name": "PIQUÊ",
+    "firstProductName": "REF 0086 PIQUÊ MOULINÊ COLOR",
+    "image": "/categories/PIQUÊ/REF 0086 PIQUÊ MOULINÊ COLOR/Malha_Jersey_Azul_Acinzentado_Petroleo.png",
+    "path": "/produtos?categoria=PIQU%C3%8A"
+  },
+  {
+    "name": "POLIPLEX",
+    "firstProductName": "REF 0650 POLIPLEX",
+    "image": "/categories/POLIPLEX/REF 0650 POLIPLEX/REF 1128.png",
+    "path": "/produtos?categoria=POLIPLEX"
+  },
+  {
+    "name": "VISCOSE",
+    "firstProductName": "REF 0560 VISCOFLEX",
+    "image": "/categories/VISCOSE/REF 0560 VISCOFLEX/Malha_Jersey_0613_Marinho.png",
+    "path": "/produtos?categoria=VISCOSE"
+  }
+]

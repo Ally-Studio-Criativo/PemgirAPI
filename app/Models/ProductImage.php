@@ -23,7 +23,6 @@ class ProductImage extends Model
         'product_id' => 'integer',
         'order' => 'integer',
         'in_2027_palette' => 'boolean',
-        'has_cuff_collar' => 'boolean',
     ];
 
     /**

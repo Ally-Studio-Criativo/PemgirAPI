@@ -13,11 +13,13 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Product::with(['category', 'images']);
+        $query = Product::with(['category', 'categories', 'images']);
 
-        // Filter by category
+        // Filter by category (suporta múltiplas categorias)
         if ($request->has('category_id')) {
-            $query->where('category_id', $request->category_id);
+            $query->whereHas('categories', function ($q) use ($request) {
+                $q->where('categories.id', $request->category_id);
+            });
         }
 
         // Filter by launch status
@@ -36,7 +38,9 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'category_id' => 'required|exists:categories,id',
+            'category_id' => 'nullable|exists:categories,id', // Mantido para compatibilidade
+            'category_ids' => 'required|array|min:1', // Novo campo para múltiplas categorias
+            'category_ids.*' => 'exists:categories,id',
             'name' => 'required|string|max:255',
             'reference' => 'nullable|string|max:255',
             'composition' => 'nullable|string',
@@ -48,9 +52,21 @@ class ProductController extends Controller
             'is_launch' => 'boolean',
         ]);
 
+        // Separar category_ids antes de criar
+        $categoryIds = $validated['category_ids'];
+        unset($validated['category_ids']);
+
+        // Manter primeira categoria em category_id para compatibilidade
+        if (!isset($validated['category_id']) && !empty($categoryIds)) {
+            $validated['category_id'] = $categoryIds[0];
+        }
+
         $product = Product::create($validated);
 
-        return response()->json($product->load(['category', 'images']), 201);
+        // Sincronizar categorias na tabela pivot
+        $product->categories()->sync($categoryIds);
+
+        return response()->json($product->load(['category', 'categories', 'images']), 201);
     }
 
     /**
@@ -58,7 +74,7 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        $product = Product::with(['category', 'images'])->findOrFail($id);
+        $product = Product::with(['category', 'categories', 'images'])->findOrFail($id);
 
         return response()->json($product);
     }
@@ -71,7 +87,9 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
 
         $validated = $request->validate([
-            'category_id' => 'sometimes|exists:categories,id',
+            'category_id' => 'sometimes|nullable|exists:categories,id',
+            'category_ids' => 'sometimes|array|min:1',
+            'category_ids.*' => 'exists:categories,id',
             'name' => 'sometimes|string|max:255',
             'reference' => 'nullable|string|max:255',
             'composition' => 'nullable|string',
@@ -83,9 +101,22 @@ class ProductController extends Controller
             'is_launch' => 'sometimes|boolean',
         ]);
 
+        // Se category_ids foi enviado, sincronizar categorias
+        if (isset($validated['category_ids'])) {
+            $categoryIds = $validated['category_ids'];
+            unset($validated['category_ids']);
+
+            // Atualizar category_id com a primeira categoria para compatibilidade
+            if (!empty($categoryIds)) {
+                $validated['category_id'] = $categoryIds[0];
+            }
+
+            $product->categories()->sync($categoryIds);
+        }
+
         $product->update($validated);
 
-        return response()->json($product->load(['category', 'images']));
+        return response()->json($product->load(['category', 'categories', 'images']));
     }
 
     /**

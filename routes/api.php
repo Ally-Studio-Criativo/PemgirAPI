@@ -87,6 +87,8 @@ Route::prefix('v1')->group(function () {
 
         // Landing Page Images Management
         Route::post('landing-page-images', [LandingPageImageController::class, 'upload']);
+        Route::post('admin/landing-page-images/video-url', [LandingPageImageController::class, 'updateVideoUrl']);
+        Route::delete('admin/landing-page-images/{type}', [LandingPageImageController::class, 'deleteVideo']);
     });
 
 });

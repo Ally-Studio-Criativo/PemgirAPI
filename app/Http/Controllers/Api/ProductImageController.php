@@ -35,7 +35,7 @@ class ProductImageController extends Controller
                 'color_name' => 'nullable|string|max:255',
                 'image_type' => 'nullable|string|max:255',
                 'in_2027_palette' => 'boolean',
-                'has_cuff_collar' => 'boolean',
+                'has_cuff_collar' => 'nullable|string',
                 'order' => 'integer|min:0',
             ]);
 
@@ -49,14 +49,14 @@ class ProductImageController extends Controller
             $extension = $request->file('image')->getClientOriginalExtension();
             $filename = "product_{$product->id}_img_{$validated['order']}.{$extension}";
 
-            // Save directly to public/images/products/
-            $publicPath = public_path('images/products');
-            if (!file_exists($publicPath)) {
-                mkdir($publicPath, 0755, true);
+            // Save to storage/app/public/images/products/
+            $storagePath = storage_path('app/public/images/products');
+            if (!file_exists($storagePath)) {
+                mkdir($storagePath, 0755, true);
             }
 
-            $request->file('image')->move($publicPath, $filename);
-            $path = "images/products/{$filename}";
+            $request->file('image')->move($storagePath, $filename);
+            $path = "storage/images/products/{$filename}";
 
             $image = ProductImage::create([
                 'product_id' => $product->id,
@@ -64,7 +64,7 @@ class ProductImageController extends Controller
                 'color_name' => $validated['color_name'] ?? null,
                 'image_type' => $validated['image_type'] ?? null,
                 'in_2027_palette' => $validated['in_2027_palette'] ?? false,
-                'has_cuff_collar' => $validated['has_cuff_collar'] ?? false,
+                'has_cuff_collar' => $validated['has_cuff_collar'] ?? null,
                 'filename' => $filename,
                 'path' => $path,
                 'order' => $validated['order'],
@@ -99,7 +99,7 @@ class ProductImageController extends Controller
             'color_name' => 'sometimes|nullable|string|max:255',
             'image_type' => 'sometimes|nullable|string|max:255',
             'in_2027_palette' => 'sometimes|boolean',
-            'has_cuff_collar' => 'sometimes|boolean',
+            'has_cuff_collar' => 'sometimes|nullable|string',
             'order' => 'sometimes|integer|min:0',
         ]);
 
@@ -143,9 +143,11 @@ class ProductImageController extends Controller
             ->where('id', $imageId)
             ->firstOrFail();
 
-        // Delete image file from public directory
+        // Delete image file from storage
         if ($image->path) {
-            $fullPath = public_path($image->path);
+            // Remove 'storage/' prefix to get actual file path
+            $filePath = str_replace('storage/', '', $image->path);
+            $fullPath = storage_path('app/public/' . $filePath);
             if (file_exists($fullPath)) {
                 unlink($fullPath);
             }

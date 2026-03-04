@@ -12,6 +12,7 @@ class Color extends Model
         'palette_id',
         'ref',
         'name',
+        'description',
         'type',
         'image',
         'order',

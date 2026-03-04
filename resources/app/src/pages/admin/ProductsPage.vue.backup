@@ -1,0 +1,412 @@
+<template>
+  <q-page class="q-pa-md">
+    <div class="row items-center justify-between q-mb-md">
+      <div class="text-h5 text-weight-bold">Produtos</div>
+      <q-btn
+        color="primary"
+        icon="add"
+        label="Novo Produto"
+        @click="openDialog(null)"
+      />
+    </div>
+
+    <!-- Table -->
+    <q-table
+      :rows="products"
+      :columns="columns"
+      row-key="id"
+      :loading="loading"
+      flat
+      bordered
+      class="shadow-1"
+    >
+      <template v-slot:body-cell-images="props">
+        <q-td :props="props">
+          <q-badge color="primary" :label="props.row.images_count || 0" />
+        </q-td>
+      </template>
+
+      <template v-slot:body-cell-actions="props">
+        <q-td :props="props">
+          <q-btn
+            flat
+            dense
+            round
+            icon="image"
+            color="purple"
+            @click="openImagesDialog(props.row)"
+          >
+            <q-tooltip>Gerenciar Imagens</q-tooltip>
+          </q-btn>
+          <q-btn
+            flat
+            dense
+            round
+            icon="edit"
+            color="primary"
+            @click="openDialog(props.row)"
+          >
+            <q-tooltip>Editar</q-tooltip>
+          </q-btn>
+          <q-btn
+            flat
+            dense
+            round
+            icon="delete"
+            color="negative"
+            @click="confirmDelete(props.row)"
+          >
+            <q-tooltip>Excluir</q-tooltip>
+          </q-btn>
+        </q-td>
+      </template>
+    </q-table>
+
+    <!-- Dialog Form -->
+    <q-dialog v-model="showDialog" persistent>
+      <q-card style="min-width: 600px">
+        <q-card-section>
+          <div class="text-h6">{{ isEdit ? 'Editar' : 'Novo' }} Produto</div>
+        </q-card-section>
+
+        <q-card-section class="q-pt-none">
+          <q-form @submit="saveProduct">
+            <div class="row q-col-gutter-md">
+              <div class="col-12">
+                <q-select
+                  v-model="form.category_id"
+                  :options="categoriesOptions"
+                  option-value="value"
+                  option-label="label"
+                  emit-value
+                  map-options
+                  label="Categoria *"
+                  outlined
+                  dense
+                  :rules="[val => !!val || 'Categoria é obrigatória']"
+                />
+              </div>
+
+              <div class="col-12">
+                <q-input
+                  v-model="form.name"
+                  label="Nome do Produto *"
+                  outlined
+                  dense
+                  :rules="[val => !!val || 'Nome é obrigatório']"
+                />
+              </div>
+
+              <div class="col-12 col-md-6">
+                <q-input
+                  v-model="form.reference"
+                  label="Referência"
+                  outlined
+                  dense
+                />
+              </div>
+
+              <div class="col-12 col-md-6">
+                <q-input
+                  v-model.number="form.order"
+                  label="Ordem"
+                  type="number"
+                  outlined
+                  dense
+                />
+              </div>
+
+              <div class="col-12">
+                <q-input
+                  v-model="form.composition"
+                  label="Composição"
+                  type="textarea"
+                  outlined
+                  rows="2"
+                />
+              </div>
+
+              <div class="col-12 col-md-4">
+                <q-input
+                  v-model.number="form.gramatura"
+                  label="Gramatura (g/m²)"
+                  type="number"
+                  outlined
+                  dense
+                />
+              </div>
+
+              <div class="col-12 col-md-4">
+                <q-input
+                  v-model="form.width"
+                  label="Largura"
+                  outlined
+                  dense
+                />
+              </div>
+
+              <div class="col-12 col-md-4">
+                <q-input
+                  v-model="form.yield"
+                  label="Rendimento"
+                  outlined
+                  dense
+                />
+              </div>
+            </div>
+
+            <div class="row justify-end q-gutter-sm q-mt-md">
+              <q-btn
+                label="Cancelar"
+                color="grey-7"
+                flat
+                @click="showDialog = false"
+              />
+              <q-btn
+                type="submit"
+                label="Salvar"
+                color="primary"
+                :loading="saving"
+              />
+            </div>
+          </q-form>
+        </q-card-section>
+      </q-card>
+    </q-dialog>
+
+    <!-- Dialog Imagens -->
+    <q-dialog v-model="showImagesDialog" maximized>
+      <q-card>
+        <q-card-section class="row items-center bg-primary text-white">
+          <div class="text-h6">Imagens do Produto: {{ selectedProduct?.name }}</div>
+          <q-space />
+          <q-btn icon="close" flat round dense v-close-popup />
+        </q-card-section>
+
+        <q-card-section>
+          <!-- Upload Area -->
+          <q-uploader
+            url="/api/v1/products/images"
+            label="Adicionar Imagens"
+            multiple
+            accept="image/*"
+            style="width: 100%"
+            class="q-mb-md"
+            color="primary"
+          >
+            <template v-slot:header="scope">
+              <div class="row no-wrap items-center q-pa-sm q-gutter-xs">
+                <q-btn v-if="scope.queuedFiles.length > 0" icon="clear_all" @click="scope.removeQueuedFiles" round dense flat>
+                  <q-tooltip>Limpar Todos</q-tooltip>
+                </q-btn>
+                <q-btn v-if="scope.uploadedFiles.length > 0" icon="done_all" @click="scope.removeUploadedFiles" round dense flat>
+                  <q-tooltip>Remover Enviados</q-tooltip>
+                </q-btn>
+                <q-spinner v-if="scope.isUploading" class="q-uploader__spinner" />
+                <div class="col">
+                  <div class="q-uploader__title">Enviar Imagens</div>
+                  <div class="q-uploader__subtitle">{{ scope.uploadSizeLabel }} / {{ scope.uploadProgressLabel }}</div>
+                </div>
+                <q-btn v-if="scope.canAddFiles" type="a" icon="add_box" round dense flat>
+                  <q-uploader-add-trigger />
+                  <q-tooltip>Selecionar Arquivos</q-tooltip>
+                </q-btn>
+                <q-btn v-if="scope.canUpload" icon="cloud_upload" @click="scope.upload" round dense flat>
+                  <q-tooltip>Enviar</q-tooltip>
+                </q-btn>
+              </div>
+            </template>
+          </q-uploader>
+
+          <!-- Grid de Imagens -->
+          <div class="row q-col-gutter-md">
+            <div v-for="image in productImages" :key="image.id" class="col-12 col-sm-6 col-md-4 col-lg-3">
+              <q-card>
+                <q-img :src="image.url" style="height: 200px">
+                  <div class="absolute-top-right q-pa-xs">
+                    <q-btn
+                      round
+                      dense
+                      size="sm"
+                      icon="delete"
+                      color="negative"
+                      @click="deleteImage(image)"
+                    />
+                  </div>
+                </q-img>
+                <q-card-section>
+                  <q-input
+                    v-model.number="image.order"
+                    label="Ordem"
+                    type="number"
+                    dense
+                    outlined
+                  />
+                </q-card-section>
+              </q-card>
+            </div>
+
+            <div v-if="productImages.length === 0" class="col-12 text-center q-pa-xl text-grey-6">
+              Nenhuma imagem cadastrada
+            </div>
+          </div>
+        </q-card-section>
+      </q-card>
+    </q-dialog>
+  </q-page>
+</template>
+
+<script>
+import { defineComponent, ref } from 'vue'
+import { useQuasar } from 'quasar'
+
+export default defineComponent({
+  name: 'ProductsPage',
+
+  setup() {
+    const $q = useQuasar()
+
+    const products = ref([])
+    const productImages = ref([])
+    const loading = ref(false)
+    const saving = ref(false)
+    const showDialog = ref(false)
+    const showImagesDialog = ref(false)
+    const isEdit = ref(false)
+    const selectedProduct = ref(null)
+
+    const categoriesOptions = ref([
+      { label: 'Selecione uma categoria', value: null }
+    ])
+
+    const form = ref({
+      id: null,
+      category_id: null,
+      name: '',
+      reference: '',
+      composition: '',
+      gramatura: null,
+      width: '',
+      yield: '',
+      order: 0
+    })
+
+    const columns = [
+      { name: 'id', label: 'ID', field: 'id', align: 'left', sortable: true },
+      { name: 'category', label: 'Categoria', field: 'category_name', align: 'left', sortable: true },
+      { name: 'name', label: 'Nome', field: 'name', align: 'left', sortable: true },
+      { name: 'reference', label: 'Referência', field: 'reference', align: 'left' },
+      { name: 'images', label: 'Imagens', field: 'images_count', align: 'center' },
+      { name: 'order', label: 'Ordem', field: 'order', align: 'center', sortable: true },
+      { name: 'actions', label: 'Ações', align: 'center' }
+    ]
+
+    const openDialog = (product) => {
+      if (product) {
+        isEdit.value = true
+        form.value = { ...product }
+      } else {
+        isEdit.value = false
+        form.value = {
+          id: null,
+          category_id: null,
+          name: '',
+          reference: '',
+          composition: '',
+          gramatura: null,
+          width: '',
+          yield: '',
+          order: 0
+        }
+      }
+      showDialog.value = true
+    }
+
+    const openImagesDialog = (product) => {
+      selectedProduct.value = product
+      productImages.value = [] // Aqui você carregaria as imagens da API
+      showImagesDialog.value = true
+    }
+
+    const saveProduct = () => {
+      saving.value = true
+
+      setTimeout(() => {
+        saving.value = false
+        showDialog.value = false
+
+        $q.notify({
+          type: 'positive',
+          message: `Produto ${isEdit.value ? 'atualizado' : 'criado'} com sucesso!`,
+          position: 'top'
+        })
+
+        loadProducts()
+      }, 1000)
+    }
+
+    const confirmDelete = (product) => {
+      $q.dialog({
+        title: 'Confirmar Exclusão',
+        message: `Deseja realmente excluir o produto "${product.name}"?`,
+        cancel: { label: 'Cancelar', flat: true },
+        ok: { label: 'Excluir', color: 'negative' },
+        persistent: true
+      }).onOk(() => {
+        $q.notify({
+          type: 'positive',
+          message: 'Produto excluído com sucesso!',
+          position: 'top'
+        })
+        loadProducts()
+      })
+    }
+
+    const deleteImage = () => {
+      // Aqui você usará: await api.delete(`/products/images/${image.id}`)
+      $q.dialog({
+        title: 'Confirmar Exclusão',
+        message: 'Deseja realmente excluir esta imagem?',
+        cancel: { label: 'Cancelar', flat: true },
+        ok: { label: 'Excluir', color: 'negative' },
+        persistent: true
+      }).onOk(() => {
+        $q.notify({
+          type: 'positive',
+          message: 'Imagem excluída com sucesso!',
+          position: 'top'
+        })
+      })
+    }
+
+    const loadProducts = () => {
+      loading.value = true
+      setTimeout(() => {
+        products.value = []
+        loading.value = false
+      }, 500)
+    }
+
+    loadProducts()
+
+    return {
+      products,
+      productImages,
+      columns,
+      loading,
+      saving,
+      showDialog,
+      showImagesDialog,
+      isEdit,
+      selectedProduct,
+      form,
+      categoriesOptions,
+      openDialog,
+      openImagesDialog,
+      saveProduct,
+      confirmDelete,
+      deleteImage
+    }
+  }
+})
+</script>

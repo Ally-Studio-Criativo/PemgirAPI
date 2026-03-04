@@ -1,0 +1,1 @@
+import{a2 as s}from"./index-DQMhPSJ1.js";const n={async getAll(){return(await s.get("/users")).data},async getById(e){return(await s.get(`/users/${e}`)).data},async create(e){return(await s.post("/users",e)).data},async update(e,t){return(await s.put(`/users/${e}`,t)).data},async delete(e){return(await s.delete(`/users/${e}`)).data}};export{n as u};

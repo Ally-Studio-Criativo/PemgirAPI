@@ -30,11 +30,21 @@ class Product extends Model
     ];
 
     /**
-     * Get the category that owns the product
+     * Get the category that owns the product (mantido para compatibilidade)
+     * @deprecated Use categories() para relacionamento many-to-many
      */
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    /**
+     * Get all categories for this product (many-to-many)
+     */
+    public function categories(): BelongsToMany
+    {
+        return $this->belongsToMany(Category::class, 'category_product')
+            ->withTimestamps();
     }
 
     /**
