@@ -129,6 +129,22 @@
 
     <q-page-container>
       <router-view />
+
+      <!-- Botão flutuante do WhatsApp -->
+      <div class="whatsapp-float-container">
+        <q-btn
+          fab
+          icon="img:/icons/whatsapp.svg"
+          color="green"
+          size="lg"
+          @click="openWhatsApp"
+          class="whatsapp-float-btn"
+        >
+          <q-tooltip anchor="center left" self="center right" :offset="[10, 0]" class="bg-green text-body2">
+            Fale conosco pelo WhatsApp
+          </q-tooltip>
+        </q-btn>
+      </div>
     </q-page-container>
 
     <q-footer
@@ -363,6 +379,7 @@
         </div>
       </div>
     </q-footer>
+
   </q-layout>
 </template>
 
@@ -426,6 +443,11 @@ export default defineComponent({
       return { background: 'transparent' }
     })
 
+    const openWhatsApp = () => {
+      const message = encodeURIComponent('Olá! Gostaria de mais informações sobre os produtos.')
+      window.open(`https://wa.me/5547992934775?text=${message}`, '_blank')
+    }
+
     return {
       leftDrawerOpen,
       $q,
@@ -433,6 +455,7 @@ export default defineComponent({
       navigateToSection,
       isProductsPage,
       headerStyle,
+      openWhatsApp,
     }
   },
 })
@@ -586,5 +609,27 @@ export default defineComponent({
   background: #e9ecef !important;
   margin: 0 24px;
   opacity: 0.6;
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float-container {
+  position: fixed !important;
+  bottom: 18px !important;
+  right: 18px !important;
+  z-index: 9999 !important;
+}
+
+.whatsapp-float-btn {
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.5) !important;
+  transition: all 0.3s ease !important;
+}
+
+.whatsapp-float-btn:hover {
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.7) !important;
+  transform: scale(1.1) !important;
+}
+
+.whatsapp-float-btn img {
+  filter: brightness(0) invert(1);
 }
 </style>

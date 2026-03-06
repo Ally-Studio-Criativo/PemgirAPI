@@ -92,28 +92,29 @@
             <div
               :class="`row ${$q.platform.is.desktop ? 'text-h2' : 'hero-mobile-text'} justify-center items-center q-px-xl`">
               <div class="col-12 col-md-6">
-                <span :class="`${$q.platform.is.desktop ? 'text-h2' : 'hero-mobile-title'} text-bold`">{{
-                  t('hero.title1') }}</span>
-                <span :class="`${$q.platform.is.desktop ? 'text-h2' : 'hero-mobile-title'} text-weight-light`">{{
-                  t('hero.title2') }}</span>
+                <div :class="`${$q.platform.is.desktop ? 'text-h2' : 'hero-mobile-title'}`" v-html="landingTexts.hero_title"></div>
                 <div class="row q-gutter-md q-mt-md-lg q-mt-sm">
                   <div class="col-2" v-if="$q.platform.is.desktop">
                     <hr />
                   </div>
                   <div class="col-12 col-md-7">
                     <q-btn rounded outline color="white" text-color="white" :size="$q.platform.is.desktop ? 'lg' : 'md'"
-                      :label="buttonLabel" to="produtos" no-caps class="hover-btn" />
+                      to="produtos" no-caps class="hover-btn">
+                      <span v-html="landingTexts.hero_button"></span>
+                    </q-btn>
                   </div>
                 </div>
               </div>
               <div class="col-12 col-md-6 text-right gt-sm">
                 <div>
                   <q-btn color="white" text-color="black" class="q-mt-md q-mb-md"
-                    icon="img:https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" round />
+                    icon="img:https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" round
+                    @click="openInstagram" />
                 </div>
                 <div>
                   <q-btn color="white" text-color="black" class="q-mt-md q-mb-md"
-                    icon="img:https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" round />
+                    icon="img:https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" round
+                    @click="openYouTube" />
                 </div>
               </div>
             </div>
@@ -472,19 +473,16 @@
             </div>
           </div>
           <div class="col-12 col-md-4 q-pl-md">
-            <div class="text-h6 text-grey-6 text-uppercase q-mb-sm">
-              {{ t('about.company.subtitle') }}
+            <div class="text-h6 text-grey-6 text-uppercase q-mb-sm" v-html="landingTexts.about_company_subtitle">
             </div>
-            <div :class="`text-h2 text-bold text-grey-9 ${$q.platform.is.desktop ? 'q-mb-lg' : 'q-mb-sm'}`">
-              {{ t('about.company.title') }}
+            <div :class="`text-h2 text-bold text-grey-9 ${$q.platform.is.desktop ? 'q-mb-lg' : 'q-mb-sm'}`" v-html="landingTexts.about_company_title">
             </div>
             <div class="text-h6 text-grey-7" style="line-height: 1.6">
               <div class="row q-col-gutter-md items-center">
                 <div class="col-2" v-if="$q.platform.is.desktop">
                   <hr />
                 </div>
-                <div class="col">
-                  {{ t('about.company.description') }}
+                <div class="col" v-html="landingTexts.about_company_description">
                 </div>
               </div>
             </div>
@@ -494,19 +492,16 @@
         <!-- Seção Mais de 130 Produtos -->
         <div class="row justify-center">
           <div :class="`col-12 col-md-4 ${$q.platform.is.desktop ? 'q-pr-md' : 'q-pl-md'} q-mb-md`">
-            <div class="text-h6 text-grey-6 text-right text-uppercase q-mb-sm">
-              {{ t('about.products.subtitle') }}
+            <div class="text-h6 text-grey-6 text-right text-uppercase q-mb-sm" v-html="landingTexts.about_products_subtitle">
             </div>
-            <div :class="`text-h2 text-bold text-grey-9 text-right ${$q.platform.is.desktop ? 'q-mb-lg' : 'q-mb-sm'}`">
-              {{ t('about.products.title') }}
+            <div :class="`text-h2 text-bold text-grey-9 text-right ${$q.platform.is.desktop ? 'q-mb-lg' : 'q-mb-sm'}`" v-html="landingTexts.about_products_title">
             </div>
             <div class="text-h6 text-grey-7" style="line-height: 1.6">
               <div class="row q-col-gutter-md items-center">
                 <div class="col-2" v-if="$q.platform.is.desktop">
                   <hr />
                 </div>
-                <div class="col">
-                  {{ t('about.products.description') }}
+                <div class="col" v-html="landingTexts.about_products_description">
                 </div>
               </div>
             </div>
@@ -544,20 +539,24 @@
                   :autoplay="3000" v-model="currentSlideCertifications" ref="carouselCertificationsRef"
                   style="width: 100%">
                   <Slide v-for="(certification, index) in certifications" :key="index">
-                    <div class="column items-center q-ma-md shadow-3"
+                    <div class="column items-center q-mx-md"
                       :style="{
-                        width: certification.vertical ? '50px' : '100%',
-                        height: certification.vertical ? '300px' : 'auto',
+                        width: certification.vertical ? '180px' : '100%',
+                        height: certification.vertical ? '250px' : 'auto',
                       }">
-                      <div :style="{
-                        width: '100%',
-                        height: '100%' ,
-                        transform: certification.vertical ? 'rotate(90deg)' : 'none'
-                      }">
-                        <q-img :src="certification.image"
-                          style="width: 100%; height: 100%"
-                          position="center" />
-                      </div>
+                      <img
+                        class="shadow-3"
+                        v-if="certification.vertical"
+                        :src="certification.image"
+                        style="height: 100%;"
+                      />
+                      <q-img
+                        v-else :src="certification.image"
+                        style="width: 100%; height: 100%"
+                        class="shadow-3"
+                        fit="contain"
+                        position="center"
+                      />
                     </div>
                   </Slide>
 
@@ -637,9 +636,11 @@
           </div>
 
           <!-- Imagem -->
-          <q-img v-if="lightboxImage" :src="lightboxImage" fit="contain" class="lightbox-image"
-            style="max-height: 70vh; width: auto; cursor: pointer;"
-            @click="showLightbox = false" />
+          <img v-if="lightboxImage" :src="lightboxImage"
+            style="max-height: 70vh; max-width: 95vw; width: auto; object-fit: contain; cursor: pointer;"
+            @click="showLightbox = false"
+            @error="(evt) => console.error('Image load error:', evt)"
+            @load="() => console.log('✅ Image loaded successfully!')" />
         </div>
       </q-card>
     </q-dialog>
@@ -647,7 +648,7 @@
 </template>
 
 <script>
-import { defineComponent, ref, computed, onMounted } from 'vue'
+import { defineComponent, ref, computed, onMounted, watch } from 'vue'
 import { useQuasar } from 'quasar'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
@@ -664,7 +665,7 @@ export default defineComponent({
   },
   setup() {
     const $q = useQuasar()
-    const { t } = useI18n()
+    const { t, locale } = useI18n()
     const $router = useRouter()
 
     const slide = ref(1)
@@ -685,6 +686,52 @@ export default defineComponent({
       prancheta2: null,
       hero_video: null
     })
+
+    const landingTexts = ref({
+      hero_title: '',
+      hero_button: '',
+      about_company_subtitle: '',
+      about_company_title: '',
+      about_company_description: '',
+      about_products_subtitle: '',
+      about_products_title: '',
+      about_products_description: ''
+    })
+
+    const loadLandingTexts = async () => {
+      try {
+        const response = await api.get('/landing-page-texts')
+        const texts = response.data
+
+        // Map locale (pt-BR, en-US, es-ES) to database fields (text_pt, text_en, text_es)
+        const localeMap = {
+          'pt-BR': 'pt',
+          'en-US': 'en',
+          'es-ES': 'es'
+        }
+        const currentLocale = localeMap[locale.value] || 'pt'
+
+        texts.forEach(text => {
+          const textField = 'text_' + currentLocale
+          const value = text[textField] || ''
+
+          if (text.section === 'hero_video') {
+            if (text.key === 'title') landingTexts.value.hero_title = value
+            if (text.key === 'button') landingTexts.value.hero_button = value
+          } else if (text.section === 'about_company') {
+            if (text.key === 'subtitle') landingTexts.value.about_company_subtitle = value
+            if (text.key === 'title') landingTexts.value.about_company_title = value
+            if (text.key === 'description') landingTexts.value.about_company_description = value
+          } else if (text.section === 'about_products') {
+            if (text.key === 'subtitle') landingTexts.value.about_products_subtitle = value
+            if (text.key === 'title') landingTexts.value.about_products_title = value
+            if (text.key === 'description') landingTexts.value.about_products_description = value
+          }
+        })
+      } catch (error) {
+        console.error('Erro ao carregar textos da landing page:', error)
+      }
+    }
 
     // Load landing page images from database
     const loadLandingImages = async () => {
@@ -734,6 +781,12 @@ export default defineComponent({
     // Load images on mount
     onMounted(() => {
       loadLandingImages()
+      loadLandingTexts()
+    })
+
+    // Reload texts when locale changes
+    watch(locale, () => {
+      loadLandingTexts()
     })
 
     const next = (carousel) => {
@@ -1045,8 +1098,18 @@ export default defineComponent({
       showLightbox.value = true
     }
 
+    const openImageLightboxWithColorData = (imageUrl, colorData) => {
+      selectedColorData.value = colorData
+      lightboxImage.value = imageUrl
+      showLightbox.value = true
+    }
+
     const openInstagram = () => {
-      window.open('https://www.instagram.com/pemgir_malhas/', '_blank')
+      window.open('https://www.instagram.com/pemgir/', '_blank')
+    }
+
+    const openYouTube = () => {
+      window.open('https://www.youtube.com/@pemgirmalhas6699', '_blank')
     }
 
     return {
@@ -1067,6 +1130,7 @@ export default defineComponent({
       isLoadingReviews,
       toggleLeftDrawer,
       landingImages,
+      landingTexts,
       getHeroVideoUrl,
       $q,
 
@@ -1098,7 +1162,9 @@ export default defineComponent({
       colorSearchFilter,
       selectedPaletteYear,
       openImageLightbox,
+      openImageLightboxWithColorData,
       openInstagram,
+      openYouTube,
       loadFeaturedProducts,
 
       // Campaign data
@@ -1204,8 +1270,13 @@ export default defineComponent({
     },
 
     openImageLightboxWithColor(imagePath) {
-      this.selectedColorData = this.getColorData(imagePath)
-      this.openImageLightbox(imagePath)
+      console.log('🖼️ Opening lightbox with image:', imagePath)
+      const colorData = this.getColorData(imagePath)
+      console.log('📊 Selected color data:', colorData)
+      console.log('🔍 Calling openImageLightboxWithColorData...')
+
+      // Usar a função do setup que tem acesso direto às refs
+      this.openImageLightboxWithColorData(imagePath, colorData)
     },
   },
 })

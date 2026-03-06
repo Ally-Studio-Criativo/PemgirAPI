@@ -179,6 +179,309 @@
       </q-card-section>
     </q-card>
 
+    <!-- Seção de Textos da Landing Page -->
+    <q-card flat bordered class="q-mt-xl">
+      <q-card-section class="bg-grey-2">
+        <div>
+          <div class="text-h6 text-weight-bold">Textos da Landing Page</div>
+          <div class="text-caption text-grey-7">Personalize os textos que aparecem na página inicial</div>
+        </div>
+      </q-card-section>
+
+      <q-separator />
+
+      <q-card-section v-if="loadingTexts" class="text-center q-pa-xl">
+        <q-spinner color="primary" size="60px" />
+        <div class="q-mt-md text-grey-7">Carregando textos...</div>
+      </q-card-section>
+
+      <q-card-section v-else class="q-pa-none">
+        <!-- Tabs de Idiomas -->
+        <q-tabs v-model="currentTextSection" dense class="text-grey bg-grey-1" active-color="primary" indicator-color="primary" align="left">
+          <q-tab name="pt" label="🇧🇷 Português" />
+          <q-tab name="en" label="🇺🇸 English" />
+          <q-tab name="es" label="🇪🇸 Español" />
+        </q-tabs>
+
+        <q-separator />
+
+        <q-tab-panels v-model="currentTextSection" animated>
+          <!-- Português -->
+          <q-tab-panel name="pt" class="q-pa-lg">
+            <q-expansion-item
+              v-model="expandedSection"
+              group="pt-sections"
+              name="hero_video"
+              default-opened
+              expand-separator
+              header-class="bg-primary text-white"
+            >
+              <template v-slot:header>
+                <q-item-section>
+                  <q-item-label class="text-subtitle1 text-weight-bold">Hero Section</q-item-label>
+                  <q-item-label caption class="text-white">Primeira seção da página</q-item-label>
+                </q-item-section>
+              </template>
+
+              <q-card>
+                <q-card-section>
+                  <div v-for="text in getSectionTexts('hero_video')" :key="text.id" class="q-mb-md">
+                    <div class="text-subtitle2 q-mb-sm">{{ text.key === 'title' ? 'Título Principal' : 'Texto do Botão' }}</div>
+                    <q-editor
+                      v-model="text.text_pt"
+                      min-height="5rem"
+                      :toolbar="editorToolbar"
+                      :fonts="editorFonts"
+                    />
+                  </div>
+                </q-card-section>
+              </q-card>
+            </q-expansion-item>
+
+            <q-expansion-item
+              group="pt-sections"
+              expand-separator
+              header-class="bg-blue-grey-1"
+            >
+              <template v-slot:header>
+                <q-item-section>
+                  <q-item-label class="text-subtitle1 text-weight-bold text-blue-grey-9">Sobre - Parte 1</q-item-label>
+                  <q-item-label caption class="text-grey-7">Sobre a Empresa</q-item-label>
+                </q-item-section>
+              </template>
+
+              <q-card>
+                <q-card-section>
+                  <div v-for="text in getSectionTexts('about_company')" :key="text.id" class="q-mb-md">
+                    <div class="text-subtitle2 q-mb-sm">{{ text.key === 'subtitle' ? 'Subtítulo' : text.key === 'title' ? 'Título' : 'Descrição' }}</div>
+                    <q-editor
+                      v-model="text.text_pt"
+                      :min-height="text.key === 'description' ? '8rem' : '5rem'"
+                      :toolbar="editorToolbar"
+                      :fonts="editorFonts"
+                    />
+                  </div>
+                </q-card-section>
+              </q-card>
+            </q-expansion-item>
+
+            <q-expansion-item
+              group="pt-sections"
+              expand-separator
+              header-class="bg-blue-grey-1"
+            >
+              <template v-slot:header>
+                <q-item-section>
+                  <q-item-label class="text-subtitle1 text-weight-bold text-blue-grey-9">Sobre - Parte 2</q-item-label>
+                  <q-item-label caption class="text-grey-7">Mais de 130 Produtos</q-item-label>
+                </q-item-section>
+              </template>
+
+              <q-card>
+                <q-card-section>
+                  <div v-for="text in getSectionTexts('about_products')" :key="text.id" class="q-mb-md">
+                    <div class="text-subtitle2 q-mb-sm">{{ text.key === 'subtitle' ? 'Subtítulo' : text.key === 'title' ? 'Título' : 'Descrição' }}</div>
+                    <q-editor
+                      v-model="text.text_pt"
+                      :min-height="text.key === 'description' ? '8rem' : '5rem'"
+                      :toolbar="editorToolbar"
+                      :fonts="editorFonts"
+                    />
+                  </div>
+                </q-card-section>
+              </q-card>
+            </q-expansion-item>
+          </q-tab-panel>
+
+          <!-- English -->
+          <q-tab-panel name="en" class="q-pa-lg">
+            <q-expansion-item
+              group="en-sections"
+              default-opened
+              expand-separator
+              header-class="bg-primary text-white"
+            >
+              <template v-slot:header>
+                <q-item-section>
+                  <q-item-label class="text-subtitle1 text-weight-bold">Hero Section</q-item-label>
+                  <q-item-label caption class="text-white">First page section</q-item-label>
+                </q-item-section>
+              </template>
+
+              <q-card>
+                <q-card-section>
+                  <div v-for="text in getSectionTexts('hero_video')" :key="text.id" class="q-mb-md">
+                    <div class="text-subtitle2 q-mb-sm">{{ text.key === 'title' ? 'Main Title' : 'Button Text' }}</div>
+                    <q-editor
+                      v-model="text.text_en"
+                      min-height="5rem"
+                      :toolbar="editorToolbar"
+                      :fonts="editorFonts"
+                    />
+                  </div>
+                </q-card-section>
+              </q-card>
+            </q-expansion-item>
+
+            <q-expansion-item
+              group="en-sections"
+              expand-separator
+              header-class="bg-blue-grey-1"
+            >
+              <template v-slot:header>
+                <q-item-section>
+                  <q-item-label class="text-subtitle1 text-weight-bold text-blue-grey-9">About - Part 1</q-item-label>
+                  <q-item-label caption class="text-grey-7">About the Company</q-item-label>
+                </q-item-section>
+              </template>
+
+              <q-card>
+                <q-card-section>
+                  <div v-for="text in getSectionTexts('about_company')" :key="text.id" class="q-mb-md">
+                    <div class="text-subtitle2 q-mb-sm">{{ text.key === 'subtitle' ? 'Subtitle' : text.key === 'title' ? 'Title' : 'Description' }}</div>
+                    <q-editor
+                      v-model="text.text_en"
+                      :min-height="text.key === 'description' ? '8rem' : '5rem'"
+                      :toolbar="editorToolbar"
+                      :fonts="editorFonts"
+                    />
+                  </div>
+                </q-card-section>
+              </q-card>
+            </q-expansion-item>
+
+            <q-expansion-item
+              group="en-sections"
+              expand-separator
+              header-class="bg-blue-grey-1"
+            >
+              <template v-slot:header>
+                <q-item-section>
+                  <q-item-label class="text-subtitle1 text-weight-bold text-blue-grey-9">About - Part 2</q-item-label>
+                  <q-item-label caption class="text-grey-7">More than 130 Products</q-item-label>
+                </q-item-section>
+              </template>
+
+              <q-card>
+                <q-card-section>
+                  <div v-for="text in getSectionTexts('about_products')" :key="text.id" class="q-mb-md">
+                    <div class="text-subtitle2 q-mb-sm">{{ text.key === 'subtitle' ? 'Subtitle' : text.key === 'title' ? 'Title' : 'Description' }}</div>
+                    <q-editor
+                      v-model="text.text_en"
+                      :min-height="text.key === 'description' ? '8rem' : '5rem'"
+                      :toolbar="editorToolbar"
+                      :fonts="editorFonts"
+                    />
+                  </div>
+                </q-card-section>
+              </q-card>
+            </q-expansion-item>
+          </q-tab-panel>
+
+          <!-- Español -->
+          <q-tab-panel name="es" class="q-pa-lg">
+            <q-expansion-item
+              group="es-sections"
+              default-opened
+              expand-separator
+              header-class="bg-primary text-white"
+            >
+              <template v-slot:header>
+                <q-item-section>
+                  <q-item-label class="text-subtitle1 text-weight-bold">Hero Section</q-item-label>
+                  <q-item-label caption class="text-white">Primera sección de la página</q-item-label>
+                </q-item-section>
+              </template>
+
+              <q-card>
+                <q-card-section>
+                  <div v-for="text in getSectionTexts('hero_video')" :key="text.id" class="q-mb-md">
+                    <div class="text-subtitle2 q-mb-sm">{{ text.key === 'title' ? 'Título Principal' : 'Texto del Botón' }}</div>
+                    <q-editor
+                      v-model="text.text_es"
+                      min-height="5rem"
+                      :toolbar="editorToolbar"
+                      :fonts="editorFonts"
+                    />
+                  </div>
+                </q-card-section>
+              </q-card>
+            </q-expansion-item>
+
+            <q-expansion-item
+              group="es-sections"
+              expand-separator
+              header-class="bg-blue-grey-1"
+            >
+              <template v-slot:header>
+                <q-item-section>
+                  <q-item-label class="text-subtitle1 text-weight-bold text-blue-grey-9">Sobre - Parte 1</q-item-label>
+                  <q-item-label caption class="text-grey-7">Sobre la Empresa</q-item-label>
+                </q-item-section>
+              </template>
+
+              <q-card>
+                <q-card-section>
+                  <div v-for="text in getSectionTexts('about_company')" :key="text.id" class="q-mb-md">
+                    <div class="text-subtitle2 q-mb-sm">{{ text.key === 'subtitle' ? 'Subtítulo' : text.key === 'title' ? 'Título' : 'Descripción' }}</div>
+                    <q-editor
+                      v-model="text.text_es"
+                      :min-height="text.key === 'description' ? '8rem' : '5rem'"
+                      :toolbar="editorToolbar"
+                      :fonts="editorFonts"
+                    />
+                  </div>
+                </q-card-section>
+              </q-card>
+            </q-expansion-item>
+
+            <q-expansion-item
+              group="es-sections"
+              expand-separator
+              header-class="bg-blue-grey-1"
+            >
+              <template v-slot:header>
+                <q-item-section>
+                  <q-item-label class="text-subtitle1 text-weight-bold text-blue-grey-9">Sobre - Parte 2</q-item-label>
+                  <q-item-label caption class="text-grey-7">Más de 130 Productos</q-item-label>
+                </q-item-section>
+              </template>
+
+              <q-card>
+                <q-card-section>
+                  <div v-for="text in getSectionTexts('about_products')" :key="text.id" class="q-mb-md">
+                    <div class="text-subtitle2 q-mb-sm">{{ text.key === 'subtitle' ? 'Subtítulo' : text.key === 'title' ? 'Título' : 'Descripción' }}</div>
+                    <q-editor
+                      v-model="text.text_es"
+                      :min-height="text.key === 'description' ? '8rem' : '5rem'"
+                      :toolbar="editorToolbar"
+                      :fonts="editorFonts"
+                    />
+                  </div>
+                </q-card-section>
+              </q-card>
+            </q-expansion-item>
+          </q-tab-panel>
+        </q-tab-panels>
+      </q-card-section>
+
+      <q-separator />
+
+      <q-card-section class="q-pa-md">
+        <div class="row justify-end">
+          <q-btn
+            label="Salvar Textos"
+            color="primary"
+            icon="save"
+            @click="saveAllTexts"
+            :loading="savingTexts"
+            unelevated
+            size="md"
+          />
+        </div>
+      </q-card-section>
+    </q-card>
+
     <!-- Seção de Vídeo Hero -->
     <q-card flat bordered class="q-mt-lg">
       <q-card-section class="bg-grey-2">
@@ -405,6 +708,78 @@ export default {
     const uploadImageTitle = ref('')
     const landingPageImages = ref([])
     const heroVideo = ref(null)
+
+    // Textos da Landing Page
+    const landingTexts = ref([])
+    const loadingTexts = ref(false)
+    const savingTexts = ref(false)
+    const currentTextSection = ref('pt')
+    const expandedSection = ref('hero_video')
+
+    // Configuração da toolbar do editor
+    const editorToolbar = [
+      [
+        {
+          label: $q.lang.editor.align,
+          icon: $q.iconSet.editor.align,
+          fixedLabel: true,
+          list: 'only-icons',
+          options: ['left', 'center', 'right', 'justify']
+        }
+      ],
+      ['bold', 'italic', 'strike', 'underline', 'subscript', 'superscript'],
+      ['token', 'hr', 'link'],
+      ['print', 'fullscreen'],
+      [
+        {
+          label: $q.lang.editor.formatting,
+          icon: $q.iconSet.editor.formatting,
+          list: 'no-icons',
+          options: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'code']
+        },
+        {
+          label: $q.lang.editor.fontSize,
+          icon: $q.iconSet.editor.fontSize,
+          fixedLabel: true,
+          fixedIcon: true,
+          list: 'no-icons',
+          options: ['size-1', 'size-2', 'size-3', 'size-4', 'size-5', 'size-6', 'size-7']
+        },
+        {
+          label: $q.lang.editor.defaultFont,
+          icon: $q.iconSet.editor.font,
+          fixedIcon: true,
+          list: 'no-icons',
+          options: [
+            'default_font',
+            'arial',
+            'arial_black',
+            'comic_sans',
+            'courier_new',
+            'impact',
+            'lucida_grande',
+            'times_new_roman',
+            'verdana'
+          ]
+        },
+        'removeFormat'
+      ],
+      ['quote', 'unordered', 'ordered', 'outdent', 'indent'],
+      ['undo', 'redo'],
+      ['viewsource']
+    ]
+
+    // Configuração das fontes customizadas
+    const editorFonts = {
+      arial: 'Arial',
+      arial_black: 'Arial Black',
+      comic_sans: 'Comic Sans MS',
+      courier_new: 'Courier New',
+      impact: 'Impact',
+      lucida_grande: 'Lucida Grande',
+      times_new_roman: 'Times New Roman',
+      verdana: 'Verdana'
+    }
 
     const form = ref({
       id: null,
@@ -685,10 +1060,64 @@ export default {
       }
     }
 
+    // Carregar textos da API
+    const loadTexts = async () => {
+      loadingTexts.value = true
+      try {
+        const response = await api.get('/landing-page-texts')
+        landingTexts.value = response.data
+      } catch (error) {
+        console.error('Erro ao carregar textos:', error)
+        $q.notify({
+          type: 'negative',
+          message: 'Erro ao carregar textos'
+        })
+      } finally {
+        loadingTexts.value = false
+      }
+    }
+
+    // Obter textos de uma seção específica
+    const getSectionTexts = (section) => {
+      return landingTexts.value.filter(text => text.section === section)
+    }
+
+    // Salvar todos os textos
+    const saveAllTexts = async () => {
+      savingTexts.value = true
+      try {
+        const textsToUpdate = landingTexts.value.map(text => ({
+          id: text.id,
+          text_pt: text.text_pt,
+          text_en: text.text_en,
+          text_es: text.text_es
+        }))
+
+        await api.post('/landing-page-texts/bulk-update', {
+          texts: textsToUpdate
+        })
+
+        $q.notify({
+          type: 'positive',
+          message: 'Textos atualizados com sucesso!',
+          icon: 'check_circle'
+        })
+      } catch (error) {
+        console.error('Erro ao salvar textos:', error)
+        $q.notify({
+          type: 'negative',
+          message: error.response?.data?.message || 'Erro ao salvar textos'
+        })
+      } finally {
+        savingTexts.value = false
+      }
+    }
+
     onMounted(() => {
       loadCampaign()
       loadLandingPageImages()
       loadHeroVideo()
+      loadTexts()
     })
 
     return {
@@ -718,7 +1147,17 @@ export default {
       confirmDeleteVideo,
       onFileSelected,
       closeUploadDialog,
-      uploadImage
+      uploadImage,
+      // Textos da Landing Page
+      landingTexts,
+      editorToolbar,
+      editorFonts,
+      loadingTexts,
+      savingTexts,
+      currentTextSection,
+      expandedSection,
+      getSectionTexts,
+      saveAllTexts
     }
   }
 }

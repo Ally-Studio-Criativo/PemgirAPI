@@ -160,7 +160,7 @@ export default {
     restricted: 'Acesso restrito',
     internet: 'Clique para ter acesso à nossa internet',
     adminPanel: 'Painel Administrativo',
-    data: 'Para questões ao Tratamento de Dados Pessoais: dpo@pemgir.com.br',
+    data: "Para questões ao Tratamento de Dados Pessoais: dpo{'@'}pemgir.com.br",
     developed: 'Desenvolvido por allystudiocriativo',
   },
 

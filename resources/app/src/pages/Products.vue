@@ -345,7 +345,7 @@
 
                     <div class="text-h6 text-bold q-mb-md">
                       {{ t('productDetails.weight') }}:
-                      <span class="text-weight-regular">{{ product?.gramatura }}</span>
+                      <span class="text-weight-regular">{{ product?.gramatura }} m²</span>
                     </div>
 
                     <div class="text-h6 text-bold q-mb-md">
@@ -364,7 +364,7 @@
                     <div v-else class="q-mb-lg"></div>
 
                     <div class="card-infos-btn-wrapper">
-                      <q-btn color="green" rounded size="lg" no-caps>
+                      <q-btn color="green" rounded size="lg" no-caps @click="sendWhatsApp">
                         <img
                           src="/icons/whatsapp.svg"
                           alt="WhatsApp"
@@ -967,6 +967,16 @@ export default defineComponent({
     // Observar mudanças na rota (não executar imediatamente, pois já executa no onMounted)
     watch(() => [$route.params.productId, $route.query.categoria], loadProductFromUrl)
 
+    // Função para enviar mensagem pelo WhatsApp
+    const sendWhatsApp = () => {
+      if (product.value) {
+        const productName = normalizeDisplayText(product.value.name)
+        const productRef = product.value.ref
+        const message = encodeURIComponent(`Olá! Gostaria de mais informações sobre o produto:\n${productName} - ${productRef}`)
+        window.open(`https://wa.me/5547992934775?text=${message}`, '_blank')
+      }
+    }
+
     return {
       drawer,
       drawerCategory,
@@ -992,6 +1002,7 @@ export default defineComponent({
       shareProduct,
       productNotFound,
       redirectCountdown,
+      sendWhatsApp,
       t,
       $q,
       columns: [

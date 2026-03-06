@@ -13,6 +13,7 @@ use App\Http\Controllers\Api\ImageController;
 use App\Http\Controllers\Api\CampaignController;
 use App\Http\Controllers\Admin\CampaignController as AdminCampaignController;
 use App\Http\Controllers\Api\LandingPageImageController;
+use App\Http\Controllers\Api\LandingPageTextController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,8 @@ Route::prefix('v1')->group(function () {
     Route::get('products/{product}', [ProductController::class, 'show']);
     Route::get('campaign/active', [CampaignController::class, 'active']);
     Route::get('landing-page-images', [LandingPageImageController::class, 'index']);
+    Route::get('landing-page-texts', [LandingPageTextController::class, 'index']);
+    Route::get('landing-page-texts/sections', [LandingPageTextController::class, 'getBySections']);
 
     // Protected Routes (require authentication)
     Route::middleware('auth:sanctum')->group(function () {
@@ -87,8 +90,15 @@ Route::prefix('v1')->group(function () {
 
         // Landing Page Images Management
         Route::post('landing-page-images', [LandingPageImageController::class, 'upload']);
+        Route::post('admin/landing-page-images', [LandingPageImageController::class, 'upload']);
         Route::post('admin/landing-page-images/video-url', [LandingPageImageController::class, 'updateVideoUrl']);
         Route::delete('admin/landing-page-images/{type}', [LandingPageImageController::class, 'deleteVideo']);
+
+        // Landing Page Texts Management
+        Route::post('landing-page-texts', [LandingPageTextController::class, 'store']);
+        Route::put('landing-page-texts/{text}', [LandingPageTextController::class, 'update']);
+        Route::post('landing-page-texts/bulk-update', [LandingPageTextController::class, 'bulkUpdate']);
+        Route::delete('landing-page-texts/{text}', [LandingPageTextController::class, 'destroy']);
     });
 
 });

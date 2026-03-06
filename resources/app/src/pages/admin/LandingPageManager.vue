@@ -1,5 +1,68 @@
 <template>
   <q-page class="q-pa-md">
+    <!-- Seção: Textos da Landing Page -->
+    <div class="q-mb-xl">
+      <div class="row items-center justify-between q-mb-md">
+        <div>
+          <div class="text-h5 text-weight-bold">Textos da Landing Page</div>
+          <div class="text-body2 text-grey-7">Edite os textos em português, inglês e espanhol</div>
+        </div>
+        <q-btn color="primary" icon="save" label="Salvar Textos" @click="saveAllTexts" :loading="savingTexts" />
+      </div>
+
+      <q-card v-if="!loadingTexts" bordered flat>
+        <q-tabs v-model="currentTextSection" dense class="text-grey" active-color="primary" indicator-color="primary" align="left">
+          <q-tab name="about_company" label="Sobre a Empresa" />
+          <q-tab name="about_products" label="Mais de 130 Produtos" />
+          <q-tab name="hero_video" label="Hero Video" />
+        </q-tabs>
+
+        <q-separator />
+
+        <q-tab-panels v-model="currentTextSection" animated>
+          <!-- Sobre a Empresa -->
+          <q-tab-panel name="about_company">
+            <div class="q-gutter-md">
+              <div v-for="text in getSectionTexts('about_company')" :key="text.id" class="q-mb-md">
+                <div class="text-overline">{{ text.key.toUpperCase() }}</div>
+                <q-input v-model="text.text_pt" label="Português" filled dense class="q-mb-sm" :type="text.key === 'description' ? 'textarea' : 'text'" />
+                <q-input v-model="text.text_en" label="English" filled dense class="q-mb-sm" :type="text.key === 'description' ? 'textarea' : 'text'" />
+                <q-input v-model="text.text_es" label="Español" filled dense :type="text.key === 'description' ? 'textarea' : 'text'" />
+              </div>
+            </div>
+          </q-tab-panel>
+
+          <!-- Mais de 130 Produtos -->
+          <q-tab-panel name="about_products">
+            <div class="q-gutter-md">
+              <div v-for="text in getSectionTexts('about_products')" :key="text.id" class="q-mb-md">
+                <div class="text-overline">{{ text.key.toUpperCase() }}</div>
+                <q-input v-model="text.text_pt" label="Português" filled dense class="q-mb-sm" :type="text.key === 'description' ? 'textarea' : 'text'" />
+                <q-input v-model="text.text_en" label="English" filled dense class="q-mb-sm" :type="text.key === 'description' ? 'textarea' : 'text'" />
+                <q-input v-model="text.text_es" label="Español" filled dense :type="text.key === 'description' ? 'textarea' : 'text'" />
+              </div>
+            </div>
+          </q-tab-panel>
+
+          <!-- Hero Video -->
+          <q-tab-panel name="hero_video">
+            <div class="q-gutter-md">
+              <div v-for="text in getSectionTexts('hero_video')" :key="text.id" class="q-mb-md">
+                <div class="text-overline">{{ text.key.toUpperCase() }}</div>
+                <q-input v-model="text.text_pt" label="Português" filled dense class="q-mb-sm" />
+                <q-input v-model="text.text_en" label="English" filled dense class="q-mb-sm" />
+                <q-input v-model="text.text_es" label="Español" filled dense />
+              </div>
+            </div>
+          </q-tab-panel>
+        </q-tab-panels>
+      </q-card>
+
+      <q-skeleton v-else height="400px" />
+    </div>
+
+    <q-separator class="q-my-xl" />
+
     <!-- Seção: Vídeo Hero -->
     <div class="q-mb-xl">
       <div class="row items-center justify-between q-mb-md">
@@ -185,6 +248,13 @@ export default defineComponent({
     const $q = useQuasar()
     const STORAGE_URL = process.env.API_URL_IMG
 
+    // Textos
+    const landingTexts = ref([])
+    const loadingTexts = ref(false)
+    const savingTexts = ref(false)
+    const currentTextSection = ref('about_company')
+
+    // Imagens
     const images = ref([])
     const loading = ref(false)
     const showUploadDialog = ref(false)
@@ -330,11 +400,76 @@ export default defineComponent({
       }
     }
 
+    // Carregar textos da API
+    const loadTexts = async () => {
+      loadingTexts.value = true
+      try {
+        const response = await api.get('/landing-page-texts')
+        landingTexts.value = response.data
+      } catch (error) {
+        console.error('Erro ao carregar textos:', error)
+        $q.notify({
+          type: 'negative',
+          message: 'Erro ao carregar textos',
+          position: 'top'
+        })
+      } finally {
+        loadingTexts.value = false
+      }
+    }
+
+    // Obter textos de uma seção específica
+    const getSectionTexts = (section) => {
+      return landingTexts.value.filter(text => text.section === section)
+    }
+
+    // Salvar todos os textos
+    const saveAllTexts = async () => {
+      savingTexts.value = true
+      try {
+        const textsToUpdate = landingTexts.value.map(text => ({
+          id: text.id,
+          text_pt: text.text_pt,
+          text_en: text.text_en,
+          text_es: text.text_es
+        }))
+
+        await api.post('/landing-page-texts/bulk-update', {
+          texts: textsToUpdate
+        })
+
+        $q.notify({
+          type: 'positive',
+          message: 'Textos atualizados com sucesso!',
+          position: 'top'
+        })
+      } catch (error) {
+        console.error('Erro ao salvar textos:', error)
+        $q.notify({
+          type: 'negative',
+          message: error.response?.data?.message || 'Erro ao salvar textos',
+          position: 'top'
+        })
+      } finally {
+        savingTexts.value = false
+      }
+    }
+
     onMounted(() => {
+      loadTexts()
       loadImages()
     })
 
     return {
+      // Textos
+      landingTexts,
+      loadingTexts,
+      savingTexts,
+      currentTextSection,
+      getSectionTexts,
+      saveAllTexts,
+
+      // Imagens
       images,
       loading,
       showUploadDialog,

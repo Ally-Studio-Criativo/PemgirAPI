@@ -159,7 +159,7 @@ export default {
     nfe: 'the program to view NFe',
     restricted: 'Restricted access',
     internet: 'Click to access our internet',
-    data: 'For Personal Data Processing issues: dpo@pemgir.com.br',
+    data: "For Personal Data Processing issues: dpo{'@'}pemgir.com.br",
     developed: 'Developed by allystudiocriativo',
   },
 }

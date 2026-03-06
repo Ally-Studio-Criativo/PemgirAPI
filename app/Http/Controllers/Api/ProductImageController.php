@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 class ProductImageController extends Controller
 {
@@ -29,8 +29,17 @@ class ProductImageController extends Controller
         try {
             $product = Product::findOrFail($productId);
 
+            // Log request details for debugging
+            \Log::info('ProductImage upload attempt', [
+                'product_id' => $productId,
+                'has_file' => $request->hasFile('image'),
+                'file_size' => $request->hasFile('image') ? $request->file('image')->getSize() : null,
+                'mime_type' => $request->hasFile('image') ? $request->file('image')->getMimeType() : null,
+            ]);
+
+            // Validate request
             $validated = $request->validate([
-                'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:5120', // 5MB max
+                'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:10240', // 10MB max
                 'ref' => 'nullable|string|max:255',
                 'color_name' => 'nullable|string|max:255',
                 'image_type' => 'nullable|string|max:255',
@@ -51,11 +60,25 @@ class ProductImageController extends Controller
 
             // Save to storage/app/public/images/products/
             $storagePath = storage_path('app/public/images/products');
+
+            // Check if directory exists and is writable
             if (!file_exists($storagePath)) {
-                mkdir($storagePath, 0755, true);
+                \Log::info('Creating directory', ['path' => $storagePath]);
+                if (!mkdir($storagePath, 0755, true)) {
+                    throw new \Exception("Failed to create directory: {$storagePath}");
+                }
             }
 
-            $request->file('image')->move($storagePath, $filename);
+            if (!is_writable($storagePath)) {
+                throw new \Exception("Directory is not writable: {$storagePath}");
+            }
+
+            // Move uploaded file
+            \Log::info('Moving file', ['from' => $request->file('image')->getRealPath(), 'to' => $storagePath . '/' . $filename]);
+            if (!$request->file('image')->move($storagePath, $filename)) {
+                throw new \Exception("Failed to move uploaded file to: {$storagePath}/{$filename}");
+            }
+
             $path = "storage/images/products/{$filename}";
 
             $image = ProductImage::create([
@@ -70,10 +93,26 @@ class ProductImageController extends Controller
                 'order' => $validated['order'],
             ]);
 
+            \Log::info('Image uploaded successfully', ['image_id' => $image->id]);
+
             return response()->json($image, 201);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            \Log::error('Validation error uploading image', [
+                'product_id' => $productId,
+                'errors' => $e->errors(),
+                'trace' => $e->getTraceAsString()
+            ]);
+
+            return response()->json([
+                'message' => 'Validation error',
+                'errors' => $e->errors()
+            ], 422);
         } catch (\Exception $e) {
             \Log::error('Error uploading image', [
+                'product_id' => $productId,
                 'error' => $e->getMessage(),
+                'file' => $e->getFile(),
+                'line' => $e->getLine(),
                 'trace' => $e->getTraceAsString()
             ]);
 
