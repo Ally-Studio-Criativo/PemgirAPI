@@ -32,14 +32,59 @@ class LandingPageImageController extends Controller
      */
     public function upload(Request $request)
     {
-        $validated = $request->validate([
-            'image' => 'nullable|file|mimes:jpeg,png,jpg,webp|max:10240',
-            'video' => 'nullable|file|mimes:mp4,mov,avi|max:102400', // 100MB max para vídeos
-            'type' => 'required|string|in:lancamentos,produtos,cartela,instagram,prancheta1,prancheta2,hero_video'
-        ]);
+        try {
+            // Log comprehensive request details for debugging
+            \Log::info('LandingPageImage upload attempt', [
+                'has_image' => $request->hasFile('image'),
+                'has_video' => $request->hasFile('video'),
+                'image_size' => $request->hasFile('image') ? $request->file('image')->getSize() : null,
+                'video_size' => $request->hasFile('video') ? $request->file('video')->getSize() : null,
+                'image_size_kb' => $request->hasFile('image') ? round($request->file('image')->getSize() / 1024, 2) . 'KB' : null,
+                'video_size_mb' => $request->hasFile('video') ? round($request->file('video')->getSize() / 1024 / 1024, 2) . 'MB' : null,
+                'image_mime' => $request->hasFile('image') ? $request->file('image')->getMimeType() : null,
+                'video_mime' => $request->hasFile('video') ? $request->file('video')->getMimeType() : null,
+                'image_name' => $request->hasFile('image') ? $request->file('image')->getClientOriginalName() : null,
+                'video_name' => $request->hasFile('video') ? $request->file('video')->getClientOriginalName() : null,
+                'image_error' => $request->hasFile('image') ? $request->file('image')->getError() : null,
+                'video_error' => $request->hasFile('video') ? $request->file('video')->getError() : null,
+                'image_error_msg' => $request->hasFile('image') ? $request->file('image')->getErrorMessage() : null,
+                'video_error_msg' => $request->hasFile('video') ? $request->file('video')->getErrorMessage() : null,
+                'image_valid' => $request->hasFile('image') ? $request->file('image')->isValid() : null,
+                'video_valid' => $request->hasFile('video') ? $request->file('video')->isValid() : null,
+                'all_files' => array_keys($request->allFiles()),
+                'all_input_keys' => array_keys($request->all()),
+                'type' => $request->input('type'),
+                'content_length' => $request->header('Content-Length'),
+                'content_type' => $request->header('Content-Type'),
+                'php_upload_max' => ini_get('upload_max_filesize'),
+                'php_post_max' => ini_get('post_max_size'),
+                'php_memory_limit' => ini_get('memory_limit'),
+                'php_max_execution' => ini_get('max_execution_time'),
+            ]);
 
-        $type = $validated['type'];
-        $imageRecord = LandingPageImage::where('type', $type)->first();
+            $validated = $request->validate([
+                'image' => 'nullable|file|mimes:jpeg,png,jpg,webp|max:10240',
+                'video' => 'nullable|file|mimes:mp4,mov,avi|max:102400', // 100MB max para vídeos
+                'type' => 'required|string|in:lancamentos,produtos,cartela,instagram,prancheta1,prancheta2,hero_video'
+            ]);
+
+            $type = $validated['type'];
+            $imageRecord = LandingPageImage::where('type', $type)->first();
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            \Log::error('LandingPageImage validation error', [
+                'errors' => $e->errors(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            throw $e;
+        } catch (\Exception $e) {
+            \Log::error('LandingPageImage upload error', [
+                'error' => $e->getMessage(),
+                'file' => $e->getFile(),
+                'line' => $e->getLine(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            throw $e;
+        }
 
         if (!$imageRecord) {
             return response()->json(['error' => 'Tipo não encontrado'], 404);
@@ -77,30 +122,52 @@ class LandingPageImageController extends Controller
         }
 
         // Mover novo arquivo
-        $newSize = $uploadedFile->getSize();
-        $uploadedFile->move($storagePath, $filename);
+        try {
+            $newSize = $uploadedFile->getSize();
 
-        // Atualizar banco com filename, path e size (incluindo storage/ no path)
-        $newPath = "storage/{$directory}/{$filename}";
-        $imageRecord->update([
-            'filename' => $filename,
-            'path' => $newPath,
-            'size' => $newSize
-        ]);
-        $updatedRecord = $imageRecord->fresh();
+            \Log::info('Moving landing file', [
+                'from' => $uploadedFile->getRealPath(),
+                'to' => $storagePath . '/' . $filename,
+                'directory_exists' => File::exists($storagePath),
+                'directory_writable' => is_writable($storagePath)
+            ]);
 
-        \Log::info('Landing File Uploaded', [
-            'type' => $type,
-            'old' => $imageRecord->filename,
-            'new' => $filename,
-            'size' => round($newSize / 1024, 2) . ' KB',
-            'is_video' => $isVideo
-        ]);
+            $uploadedFile->move($storagePath, $filename);
 
-        return response()->json([
-            'message' => ($isVideo ? 'Vídeo' : 'Imagem') . ' atualizado com sucesso',
-            'image' => $updatedRecord
-        ]);
+            // Atualizar banco com filename, path e size (incluindo storage/ no path)
+            $newPath = "storage/{$directory}/{$filename}";
+            $imageRecord->update([
+                'filename' => $filename,
+                'path' => $newPath,
+                'size' => $newSize
+            ]);
+            $updatedRecord = $imageRecord->fresh();
+
+            \Log::info('Landing File Uploaded Successfully', [
+                'type' => $type,
+                'old' => $imageRecord->filename,
+                'new' => $filename,
+                'size' => round($newSize / 1024, 2) . ' KB',
+                'is_video' => $isVideo,
+                'final_path' => $newPath
+            ]);
+
+            return response()->json([
+                'message' => ($isVideo ? 'Vídeo' : 'Imagem') . ' atualizado com sucesso',
+                'image' => $updatedRecord
+            ]);
+        } catch (\Exception $e) {
+            \Log::error('Error moving landing file', [
+                'type' => $type,
+                'filename' => $filename,
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+
+            return response()->json([
+                'error' => 'Erro ao salvar arquivo: ' . $e->getMessage()
+            ], 500);
+        }
     }
 
     /**
