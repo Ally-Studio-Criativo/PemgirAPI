@@ -29,12 +29,25 @@ class ProductImageController extends Controller
         try {
             $product = Product::findOrFail($productId);
 
-            // Log request details for debugging
+            // Log comprehensive request details for debugging
             \Log::info('ProductImage upload attempt', [
                 'product_id' => $productId,
                 'has_file' => $request->hasFile('image'),
                 'file_size' => $request->hasFile('image') ? $request->file('image')->getSize() : null,
+                'file_size_kb' => $request->hasFile('image') ? round($request->file('image')->getSize() / 1024, 2) . 'KB' : null,
                 'mime_type' => $request->hasFile('image') ? $request->file('image')->getMimeType() : null,
+                'original_name' => $request->hasFile('image') ? $request->file('image')->getClientOriginalName() : null,
+                'error' => $request->hasFile('image') ? $request->file('image')->getError() : null,
+                'error_message' => $request->hasFile('image') ? $request->file('image')->getErrorMessage() : null,
+                'is_valid' => $request->hasFile('image') ? $request->file('image')->isValid() : null,
+                'all_files' => array_keys($request->allFiles()),
+                'all_input_keys' => array_keys($request->all()),
+                'content_length' => $request->header('Content-Length'),
+                'content_type' => $request->header('Content-Type'),
+                'php_upload_max' => ini_get('upload_max_filesize'),
+                'php_post_max' => ini_get('post_max_size'),
+                'php_max_file_uploads' => ini_get('max_file_uploads'),
+                'php_memory_limit' => ini_get('memory_limit'),
             ]);
 
             // Validate request
