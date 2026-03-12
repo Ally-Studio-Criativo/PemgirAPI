@@ -25,3 +25,7 @@ yarn-error.log
 # Imagens obsoletas (migradas para banco de dados)
 /database/data/categories/
 /public/categories/
+
+# Vídeos de depoimentos (arquivos grandes)
+/public/depoimentos/*.mp4
+/resources/app/public/depoimentos/*.mp4
