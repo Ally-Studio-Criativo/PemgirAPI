@@ -1,0 +1,1 @@
+import{a3 as s}from"./index-Csp0d570.js";const n={async getAll(){return(await s.get("/categories")).data},async getById(e){return(await s.get(`/categories/${e}`)).data},async create(e){return(await s.post("/categories",e)).data},async update(e,t){return(await s.put(`/categories/${e}`,t)).data},async delete(e){return(await s.delete(`/categories/${e}`)).data}};export{n as c};

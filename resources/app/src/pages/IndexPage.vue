@@ -379,16 +379,17 @@
           </div>
         </div>
 
-        <!-- Testimonials Carousel -->
+        <!-- Testimonials Carousel (Intercalado com Vídeos) -->
         <div v-else class="testimonials-carousel-container">
           <q-carousel v-model="testimony" transition-prev="slide-right" transition-next="slide-left" swipeable animated
             control-color="primary" padding arrows flat class="testimonials-carousel" :autoplay="5000"
             :slides-to-show="1" :slides-to-scroll="1" height="auto">
-            <q-carousel-slide v-for="(group, idx) in getReviewGroups()" :key="'review-group-' + idx" :name="idx">
+            <q-carousel-slide v-for="(group, idx) in getMixedTestimonials()" :key="'testimonial-' + idx" :name="idx">
               <!-- Desktop Layout -->
               <div v-if="$q.platform.is.desktop" class="row q-col-gutter-lg">
-                <div v-for="review in group" :key="review.id" class="col-6">
-                  <div class="testimonial-card">
+                <div v-for="(item, itemIdx) in group" :key="'item-' + itemIdx" class="col-6">
+                  <!-- Card de depoimento escrito -->
+                  <div v-if="item.type === 'review'" class="testimonial-card">
                     <!-- Header: Quote Icon and Stars -->
                     <div class="testimonial-header">
                       <div class="quote-icon">
@@ -396,24 +397,38 @@
                       </div>
                       <div class="testimonial-rating">
                         <q-icon v-for="star in 5" :key="star" name="star"
-                          :color="star <= review.rating ? 'amber-5' : 'grey-4'" size="18px" />
+                          :color="star <= item.data.rating ? 'amber-5' : 'grey-4'" size="18px" />
                       </div>
                     </div>
 
                     <!-- Review Text -->
-                    <div class="testimonial-text">"{{ review.text }}"</div>
+                    <div class="testimonial-text">"{{ item.data.text }}"</div>
 
                     <!-- Author Info -->
                     <div class="testimonial-author">
                       <q-avatar size="50px" class="testimonial-avatar">
-                        <img :src="review.profilePhoto" :alt="review.name"
+                        <img :src="item.data.profilePhoto" :alt="item.data.name"
                           @error="$event.target.src = 'https://cdn.quasar.dev/img/boy-avatar.png'" />
                       </q-avatar>
                       <div class="author-info">
-                        <div class="author-name">{{ review.name }}</div>
+                        <div class="author-name">{{ item.data.name }}</div>
                         <div class="author-source">
-                          {{ t('testimonials.rating', { source: review.source }) }}
+                          {{ t('testimonials.rating', { source: item.data.source }) }}
                         </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Card de vídeo -->
+                  <div v-else-if="item.type === 'video'" class="video-testimonial-card">
+                    <div class="video-wrapper">
+                      <div
+                        class="video-placeholder"
+                        :style="{ backgroundImage: item.data.poster ? `url(${item.data.poster})` : 'none' }"
+                        @click="openVideoDialog(item.data)"
+                      >
+                        <q-icon name="play_circle" size="80px" color="white" class="play-icon" />
+                        <div class="video-title">{{ item.data.title }}</div>
                       </div>
                     </div>
                   </div>
@@ -422,8 +437,9 @@
 
               <!-- Mobile Layout -->
               <div v-else class="row justify-center">
-                <div v-for="review in group" :key="review.id" class="col-12">
-                  <div class="testimonial-card mobile">
+                <div v-for="(item, itemIdx) in group" :key="'item-mobile-' + itemIdx" class="col-12">
+                  <!-- Card de depoimento escrito -->
+                  <div v-if="item.type === 'review'" class="testimonial-card mobile">
                     <!-- Header: Quote Icon and Stars -->
                     <div class="testimonial-header">
                       <div class="quote-icon">
@@ -431,24 +447,38 @@
                       </div>
                       <div class="testimonial-rating">
                         <q-icon v-for="star in 5" :key="star" name="star"
-                          :color="star <= review.rating ? 'amber-5' : 'grey-4'" size="16px" />
+                          :color="star <= item.data.rating ? 'amber-5' : 'grey-4'" size="16px" />
                       </div>
                     </div>
 
                     <!-- Review Text -->
-                    <div class="testimonial-text mobile">"{{ review.text }}"</div>
+                    <div class="testimonial-text mobile">"{{ item.data.text }}"</div>
 
                     <!-- Author Info -->
                     <div class="testimonial-author mobile">
                       <q-avatar size="40px" class="testimonial-avatar">
-                        <img :src="review.profilePhoto" :alt="review.name"
+                        <img :src="item.data.profilePhoto" :alt="item.data.name"
                           @error="$event.target.src = 'https://cdn.quasar.dev/img/boy-avatar.png'" />
                       </q-avatar>
                       <div class="author-info">
-                        <div class="author-name">{{ review.name }}</div>
+                        <div class="author-name">{{ item.data.name }}</div>
                         <div class="author-source">
-                          {{ t('testimonials.rating', { source: review.source }) }}
+                          {{ t('testimonials.rating', { source: item.data.source }) }}
                         </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Card de vídeo -->
+                  <div v-else-if="item.type === 'video'" class="video-testimonial-card">
+                    <div class="video-wrapper">
+                      <div
+                        class="video-placeholder"
+                        :style="{ backgroundImage: item.data.poster ? `url(${item.data.poster})` : 'none' }"
+                        @click="openVideoDialog(item.data)"
+                      >
+                        <q-icon name="play_circle" size="60px" color="white" class="play-icon" />
+                        <div class="video-title">{{ item.data.title }}</div>
                       </div>
                     </div>
                   </div>
@@ -459,6 +489,55 @@
         </div>
       </div>
     </section>
+
+    <!-- Video Dialog -->
+    <q-dialog v-model="showVideoDialog" maximized transition-show="slide-up" transition-hide="slide-down">
+      <q-card class="bg-black">
+        <q-btn
+          icon="close"
+          flat
+          round
+          v-close-popup
+          color="white"
+          size="lg"
+          class="absolute-top-right q-ma-lg"
+          style="z-index: 1000"
+        />
+
+        <div class="column items-center justify-center" style="height: 100vh; padding: 20px;">
+          <div v-if="currentVideo" style="width: 100%; max-width: 1200px; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+            <div class="text-center q-mb-md">
+              <div class="text-h4 text-white text-weight-bold">
+                {{ currentVideo.title }}
+              </div>
+            </div>
+
+            <video
+              ref="videoPlayerRef"
+              controls
+              autoplay
+              preload="auto"
+              class="video-player-fullscreen"
+              playsinline
+              @loadstart="() => { videoReady = false; console.log('Video loading started:', currentVideo.src) }"
+              @loadedmetadata="() => console.log('Video metadata loaded')"
+              @canplay="() => { videoReady = true; console.log('Video can play') }"
+              @error="(e) => { console.error('Video error:', e, currentVideo.src); videoReady = true }"
+              style="width: 100%; height: auto; max-height: calc(100vh - 120px); border-radius: 8px;"
+            >
+              <source :src="currentVideo.src" type="video/mp4">
+              Seu navegador não suporta vídeos HTML5.
+            </video>
+
+            <!-- Loading indicator -->
+            <div v-if="!videoReady" class="absolute-center text-white">
+              <q-spinner-dots size="50px" color="white" />
+              <div class="q-mt-md">Carregando vídeo...</div>
+            </div>
+          </div>
+        </div>
+      </q-card>
+    </q-dialog>
 
     <section id="about" class="container" :style="`margin-top: ${$q.platform.is.desktop ? '100px' : '50px'}`">
       <div :class="$q.platform.is.desktop ? 'q-pa-lg' : ''">
@@ -863,6 +942,87 @@ export default defineComponent({
 
     const isLoadingReviews = ref(false)
 
+    // Vídeos de depoimentos
+    const testimonialVideos = ref([
+      {
+        src: '/depoimentos/depoimento-marcondes.mp4',
+        poster: '/depoimentos/capa-marcondes.jpg',
+        title: 'Marcondes',
+        index: 0,
+      },
+      {
+        src: '/depoimentos/depoimento-john-style.mp4',
+        poster: '/depoimentos/capa-john-style.jpg',
+        title: 'John Style',
+        index: 1,
+      },
+    ])
+
+    // Estado do dialog de vídeo
+    const showVideoDialog = ref(false)
+    const currentVideo = ref(null)
+    const videoPlayerRef = ref(null)
+    const videoReady = ref(false)
+
+    // Função para intercalar depoimentos escritos e vídeos
+    // Padrão: 1 escrito, 1 vídeo, 1 escrito, 1 vídeo, resto escritos
+    const getMixedTestimonials = () => {
+      const mixed = []
+      const isDesktop = $q.platform.is.desktop
+      const itemsPerSlide = isDesktop ? 2 : 1
+
+      // Criar array com todos os itens intercalados
+      const allItems = []
+
+      // Adicionar primeiro review
+      if (googleReviews.value[0]) {
+        allItems.push({ type: 'review', data: googleReviews.value[0] })
+      }
+
+      // Adicionar primeiro vídeo
+      if (testimonialVideos.value[0]) {
+        allItems.push({ type: 'video', data: testimonialVideos.value[0] })
+      }
+
+      // Adicionar segundo review
+      if (googleReviews.value[1]) {
+        allItems.push({ type: 'review', data: googleReviews.value[1] })
+      }
+
+      // Adicionar segundo vídeo
+      if (testimonialVideos.value[1]) {
+        allItems.push({ type: 'video', data: testimonialVideos.value[1] })
+      }
+
+      // Adicionar resto dos reviews
+      for (let i = 2; i < googleReviews.value.length; i++) {
+        allItems.push({ type: 'review', data: googleReviews.value[i] })
+      }
+
+      // Agrupar em slides de acordo com itemsPerSlide
+      for (let i = 0; i < allItems.length; i += itemsPerSlide) {
+        mixed.push(allItems.slice(i, i + itemsPerSlide))
+      }
+
+      return mixed
+    }
+
+    // Função para abrir dialog de vídeo
+    const openVideoDialog = (video) => {
+      currentVideo.value = video
+      showVideoDialog.value = true
+      videoReady.value = false
+    }
+
+    // Watch para pausar vídeo quando fechar o dialog
+    watch(showVideoDialog, (newValue) => {
+      if (!newValue && videoPlayerRef.value) {
+        videoPlayerRef.value.pause()
+        currentVideo.value = null
+        videoReady.value = false
+      }
+    })
+
     // Função para buscar avaliações do Google Places API
     const fetchGoogleReviews = async () => {
       isLoadingReviews.value = true
@@ -1051,17 +1211,6 @@ export default defineComponent({
 
     const toggleLeftDrawer = ref(false)
 
-    // Agrupa reviews de 2 em 2 para o carousel
-    function getReviewGroups() {
-      const groups = []
-      const isDesktop = $q.platform.is.desktop
-      const step = isDesktop ? 2 : 1
-      for (let i = 0; i < googleReviews.value.length; i += step) {
-        groups.push(googleReviews.value.slice(i, i + step))
-      }
-      return groups
-    }
-
     const scrollTo = (id, offset = 0) => {
       const el = document.getElementById(id)
       if (el) {
@@ -1128,6 +1277,12 @@ export default defineComponent({
       onVideoLoad,
       googleReviews,
       isLoadingReviews,
+      testimonialVideos,
+      showVideoDialog,
+      currentVideo,
+      videoPlayerRef,
+      videoReady,
+      openVideoDialog,
       toggleLeftDrawer,
       landingImages,
       landingTexts,
@@ -1150,7 +1305,7 @@ export default defineComponent({
       next,
       prev,
       t,
-      getReviewGroups,
+      getMixedTestimonials,
       scrollTo,
       navigateToSection,
 
@@ -2007,6 +2162,157 @@ export default defineComponent({
   .palette-card-hover:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Video Testimonials Styles */
+.video-testimonial-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-testimonial-card:hover {
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+.testimonial-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+}
+
+.video-placeholder {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.video-placeholder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.video-placeholder::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.video-placeholder:hover::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+.video-placeholder:hover::after {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.video-placeholder:hover {
+  transform: scale(1.01);
+}
+
+.video-placeholder:hover .play-icon {
+  transform: scale(1.15);
+}
+
+.play-icon {
+  position: relative;
+  z-index: 3;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.5));
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+
+.video-title {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  z-index: 3;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+  .video-title {
+    font-size: 16px;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+  }
+
+  .play-icon {
+    font-size: 60px !important;
+  }
+}
+
+/* Video Player Fullscreen */
+.video-player-fullscreen {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+  .video-player-fullscreen {
+    max-height: calc(100vh - 80px) !important;
   }
 }
 </style>

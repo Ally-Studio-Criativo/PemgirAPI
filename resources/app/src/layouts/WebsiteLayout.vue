@@ -9,6 +9,59 @@
       <div v-if="isProductsPage" class="absolute-full bg-black" style="opacity: 0.3"></div>
       <q-toolbar class="q-pa-md" style="position: relative; z-index: 1001">
         <img src="/icons/Logo.png" alt="Pemgir Logo" style="height: 50px; width: auto" />
+
+        <!-- Campo de pesquisa -->
+        <div class="q-mx-md search-container-desktop">
+          <q-input
+            v-model="searchQuery"
+            rounded outlined
+            dense
+            placeholder="Pesquise um produto por nome ou referência"
+            bg-color="white"
+            color="grey-8"
+            @focus="searchFocused = true"
+            @blur="handleSearchBlur"
+          >
+            <template v-slot:append>
+              <q-icon name="search" color="grey-8" />
+            </template>
+          </q-input>
+
+          <!-- Autocomplete dropdown -->
+          <q-card
+            v-if="searchFocused && searchResults.length > 0"
+            class="search-results-dropdown"
+            flat
+            bordered
+          >
+            <q-list separator>
+              <q-item
+                v-for="product in searchResults"
+                :key="product.id"
+                clickable
+                v-ripple
+                @mousedown="selectProduct(product)"
+                class="search-result-item"
+              >
+                <q-item-section avatar>
+                  <q-avatar rounded size="50px">
+                    <img :src="product.image" />
+                  </q-avatar>
+                </q-item-section>
+                <q-item-section>
+                  <q-item-label class="text-weight-medium">{{ product.name }}</q-item-label>
+                  <q-item-label caption>
+                    <span class="text-primary">{{ product.ref }}</span>
+                    <span v-if="product.categoryLabel" class="q-ml-sm text-grey-7">
+                      | {{ product.categoryLabel }}
+                    </span>
+                  </q-item-label>
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </q-card>
+        </div>
+
         <q-space />
 
         <div class="row q-gutter-x-md gt-sm">
@@ -60,6 +113,59 @@
 
       <!-- Lista de itens do menu -->
       <div class="mobile-menu-content">
+        <!-- Campo de pesquisa mobile -->
+        <div class="q-pa-md">
+          <div style="position: relative">
+            <q-input
+              v-model="searchQuery"
+              dense
+              rounded
+              placeholder="Pesquise por nome ou ref do produto"
+              bg-color="white"
+              @focus="searchFocused = true"
+              @blur="handleSearchBlur"
+            >
+              <template v-slot:append>
+                <q-icon name="search" color="grey-8" />
+              </template>
+            </q-input>
+
+            <!-- Autocomplete dropdown mobile -->
+            <q-card
+              v-if="searchFocused && searchResults.length > 0"
+              class="search-results-dropdown"
+              flat
+              bordered
+            >
+              <q-list separator>
+                <q-item
+                  v-for="product in searchResults"
+                  :key="product.id"
+                  clickable
+                  v-ripple
+                  @mousedown="selectProduct(product)"
+                  class="search-result-item"
+                >
+                  <q-item-section avatar>
+                    <q-avatar rounded size="50px">
+                      <img :src="product.image" />
+                    </q-avatar>
+                  </q-item-section>
+                  <q-item-section>
+                    <q-item-label class="text-weight-medium">{{ product.name }}</q-item-label>
+                    <q-item-label caption>
+                      <span class="text-primary">{{ product.ref }}</span>
+                      <span v-if="product.categoryLabel" class="q-ml-sm text-grey-7">
+                        | {{ product.categoryLabel }}
+                      </span>
+                    </q-item-label>
+                  </q-item-section>
+                </q-item>
+              </q-list>
+            </q-card>
+          </div>
+        </div>
+
         <q-list class="mobile-menu-list">
           <q-item
             class="mobile-menu-item"
@@ -148,6 +254,7 @@
     </q-page-container>
 
     <q-footer
+      id="footer"
       style="
         background-image: url('/images/rodape.jpg');
         background-size: cover;
@@ -333,6 +440,17 @@
                 </div>
               </q-item>
 
+              <q-item clickable @click="openLinkedIn">
+                <q-item-section side>
+                  <q-icon name="img:https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" color="white" size="18px" style="filter: brightness(0) invert(1);" />
+                </q-item-section>
+                <q-item-section>
+                  <div class="text-body1">
+                    LinkedIn
+                  </div>
+                </q-item-section>
+              </q-item>
+
               <q-item>
                 <q-item-section side>
                   <q-icon name="place" color="white" size="18px" />
@@ -384,11 +502,12 @@
 </template>
 
 <script>
-import { defineComponent, ref, computed } from 'vue'
+import { defineComponent, ref, computed, watch } from 'vue'
 import { useQuasar } from 'quasar'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import LanguageSwitcher from 'src/components/LanguageSwitcher.vue'
+import { productService } from 'src/services/productService'
 
 export default defineComponent({
   name: 'WebsiteLayout',
@@ -400,6 +519,10 @@ export default defineComponent({
     const { t } = useI18n()
     const $router = useRouter()
     const leftDrawerOpen = ref(false)
+    const searchQuery = ref('')
+    const searchFocused = ref(false)
+    const searchResults = ref([])
+    const allProducts = ref([])
 
     const scrollTo = (id, offset = 0) => {
       const el = document.getElementById(id)
@@ -448,6 +571,83 @@ export default defineComponent({
       window.open(`https://wa.me/5547992934775?text=${message}`, '_blank')
     }
 
+    const openLinkedIn = () => {
+      window.open('https://www.linkedin.com/in/pemgir-malhas-80a719395/', '_blank')
+    }
+
+    // Função para carregar todos os produtos
+    const loadAllProducts = async () => {
+      try {
+        const products = await productService.getAll()
+
+        // Função helper para limpar o path da imagem
+        const cleanImagePath = (path) => {
+          if (!path) return null
+          return path.replace(/^storage\//, '')
+        }
+
+        allProducts.value = products.map(p => ({
+          id: p.id,
+          name: p.name,
+          ref: p.reference || '',
+          categoryLabel: p.category?.name || '',
+          image: p.images && p.images.length > 0
+            ? `${process.env.API_URL_IMG}/${cleanImagePath(p.images[0].path)}`
+            : null,
+        }))
+      } catch (error) {
+        console.error('Erro ao carregar produtos para busca:', error)
+      }
+    }
+
+    // Carregar produtos ao montar o componente
+    loadAllProducts()
+
+    // Watch para buscar produtos quando o usuário digita
+    watch(searchQuery, (newValue) => {
+      if (!newValue || newValue.trim().length < 2) {
+        searchResults.value = []
+        return
+      }
+
+      const query = newValue.toLowerCase().trim()
+      searchResults.value = allProducts.value
+        .filter(product => {
+          const name = product.name.toLowerCase()
+          const ref = product.ref.toLowerCase()
+          return name.includes(query) || ref.includes(query)
+        })
+        .slice(0, 5) // Limitar a 5 resultados
+    })
+
+    // Watch para fechar/abrir drawer quando houver resultados de busca
+    watch([searchFocused, searchResults], ([focused, results]) => {
+      // Se o campo está focado e há resultados, emitir evento para fechar drawer
+      if (focused && results.length > 0) {
+        window.dispatchEvent(new CustomEvent('close-products-drawer'))
+      } else if (!focused || results.length === 0) {
+        // Se perdeu o foco ou não há resultados, reabrir drawer
+        window.dispatchEvent(new CustomEvent('open-products-drawer'))
+      }
+    })
+
+    // Função para selecionar um produto
+    const selectProduct = (product) => {
+      searchQuery.value = ''
+      searchFocused.value = false
+      searchResults.value = []
+      leftDrawerOpen.value = false // Fechar menu mobile se estiver aberto
+      $router.push(`/produtos/${product.id}`)
+    }
+
+    // Função para lidar com o blur do campo de busca
+    const handleSearchBlur = () => {
+      // Delay para permitir o clique no item
+      setTimeout(() => {
+        searchFocused.value = false
+      }, 200)
+    }
+
     return {
       leftDrawerOpen,
       $q,
@@ -456,6 +656,12 @@ export default defineComponent({
       isProductsPage,
       headerStyle,
       openWhatsApp,
+      openLinkedIn,
+      searchQuery,
+      searchFocused,
+      searchResults,
+      selectProduct,
+      handleSearchBlur,
     }
   },
 })
@@ -631,5 +837,113 @@ export default defineComponent({
 
 .whatsapp-float-btn img {
   filter: brightness(0) invert(1);
+}
+
+/* Fix para remover top e bottom indesejados no drawer */
+#q-app > div > div.q-page-container > main > div.q-drawer-container > aside {
+  top: 0 !important;
+  bottom: 0 !important;
+}
+
+/* Search Container Desktop */
+.search-container-desktop {
+  width: 450px;
+  position: relative;
+}
+
+@media (max-width: 1280px) {
+  .search-container-desktop {
+    width: 350px;
+  }
+}
+
+/* Search Input Styles */
+.search-input-header {
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.3s ease;
+}
+
+.search-input-header:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.search-input-header.q-field--focused {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.search-input-header .q-field__control {
+  height: 40px;
+  border-radius: 24px;
+  padding: 0 16px;
+}
+
+.search-input-header .q-field__native {
+  color: #212529 !important;
+  font-weight: 500;
+  padding-left: 8px;
+}
+
+.search-input-header input::placeholder {
+  color: #6c757d !important;
+  opacity: 0.8;
+  font-weight: 400;
+}
+
+.search-results-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 4px;
+  max-height: 400px;
+  overflow-y: auto;
+  background: white;
+  z-index: 10000 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+}
+
+@media (max-width: 599px) {
+  .search-results-dropdown {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    margin: 0;
+    border-radius: 0;
+    max-height: calc(100vh - 80px);
+  }
+}
+
+.search-result-item {
+  transition: background 0.2s ease;
+  padding: 12px 16px;
+}
+
+.search-result-item:hover {
+  background: #f5f5f5;
+}
+
+.search-result-item .q-item__label {
+  color: #212529 !important;
+  font-size: 14px;
+}
+
+.search-result-item .q-item__label--caption {
+  margin-top: 4px;
+  color: #6c757d !important;
+  font-size: 13px;
+}
+
+.search-result-item .q-item__label--caption .text-primary {
+  color: #1976d2 !important;
+  font-weight: 600;
+}
+
+.search-result-item .q-item__label--caption .text-grey-7 {
+  color: #6c757d !important;
 }
 </style>

@@ -5,7 +5,7 @@
       :side="$q.platform.is.desktop ? 'left' : 'right'"
       :behavior="$q.platform.is.desktop ? 'desktop' : 'mobile'"
       :width="$q.platform.is.desktop ? 320 : 300"
-      class="full-height bg-grey-2"
+      class="full-height bg-grey-2 products-drawer"
       :overlay="!$q.platform.is.desktop"
       :persistent="$q.platform.is.desktop"
     >
@@ -897,14 +897,21 @@ export default defineComponent({
           decodedParam = categoryParam
         }
 
-        // Buscar categoria pelo nome (case-insensitive)
-        const categoryFound = categories.value.find(
-          (cat) =>
-            cat.label.toLowerCase() === decodedParam.toLowerCase(),
-        )
+        // Verificar se é o filtro especial de LANÇAMENTOS
+        if (decodedParam.toUpperCase() === 'LANÇAMENTOS' || decodedParam.toUpperCase() === 'LANCAMENTOS') {
+          filter.value.isLaunchFilter = true
+          filter.value.category = null
+        } else {
+          // Buscar categoria pelo nome (case-insensitive)
+          const categoryFound = categories.value.find(
+            (cat) =>
+              cat.label.toLowerCase() === decodedParam.toLowerCase(),
+          )
 
-        if (categoryFound) {
-          filter.value.category = categoryFound.value
+          if (categoryFound) {
+            filter.value.isLaunchFilter = false
+            filter.value.category = categoryFound.value
+          }
         }
       }
 
@@ -962,6 +969,20 @@ export default defineComponent({
       await loadCategories()
       await loadProductFromUrl() // Carregar produto/categoria da URL primeiro
       await loadProducts()
+
+      // Listener para fechar drawer quando busca estiver ativa
+      window.addEventListener('close-products-drawer', () => {
+        if ($q.platform.is.desktop) {
+          drawerCategory.value = false
+        }
+      })
+
+      // Listener para reabrir drawer quando busca for limpa
+      window.addEventListener('open-products-drawer', () => {
+        if ($q.platform.is.desktop) {
+          drawerCategory.value = true
+        }
+      })
     })
 
     // Observar mudanças na rota (não executar imediatamente, pois já executa no onMounted)
@@ -1077,6 +1098,11 @@ export default defineComponent({
 #q-app > div > div.q-page-container > main > div.q-drawer-container > aside {
   top: 0 !important;
   bottom: 0 !important;
+}
+
+/* Forçar z-index do drawer de produtos abaixo do header */
+.products-drawer {
+  z-index: 500 !important;
 }
 
 .categories-drawer {
