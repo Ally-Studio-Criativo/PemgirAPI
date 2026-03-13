@@ -48,27 +48,29 @@ class ColorController extends Controller
             $extension = $request->file('image')->getClientOriginalExtension();
             $filename = 'color_temp_' . time() . '.' . $extension;
 
-            $publicPath = public_path('images/colors');
-            if (!file_exists($publicPath)) {
-                mkdir($publicPath, 0755, true);
+            $storagePath = storage_path('app/public/images/colors');
+            if (!file_exists($storagePath)) {
+                mkdir($storagePath, 0755, true);
             }
 
-            $request->file('image')->move($publicPath, $filename);
-            $validated['image'] = "images/colors/{$filename}";
+            $request->file('image')->move($storagePath, $filename);
+            $validated['image'] = "storage/images/colors/{$filename}";
         }
 
         $color = Color::create($validated);
 
         // Rename file with actual color ID
         if (isset($validated['image'])) {
-            $oldPath = public_path($validated['image']);
+            // Remove 'storage/' prefix to get actual file path in storage/app/public
+            $relativePath = str_replace('storage/', '', $validated['image']);
+            $oldPath = storage_path('app/public/' . $relativePath);
             $extension = pathinfo($oldPath, PATHINFO_EXTENSION);
             $newFilename = "color_{$color->id}.{$extension}";
-            $newPath = public_path("images/colors/{$newFilename}");
+            $newPath = storage_path("app/public/images/colors/{$newFilename}");
 
             if (file_exists($oldPath)) {
                 rename($oldPath, $newPath);
-                $color->update(['image' => "images/colors/{$newFilename}"]);
+                $color->update(['image' => "storage/images/colors/{$newFilename}"]);
             }
         }
 
@@ -106,7 +108,9 @@ class ColorController extends Controller
         if ($request->hasFile('image')) {
             // Delete old image
             if ($color->image) {
-                $oldImagePath = public_path($color->image);
+                // Remove 'storage/' prefix to get actual file path
+                $relativePath = str_replace('storage/', '', $color->image);
+                $oldImagePath = storage_path('app/public/' . $relativePath);
                 if (file_exists($oldImagePath)) {
                     unlink($oldImagePath);
                 }
@@ -115,9 +119,9 @@ class ColorController extends Controller
             $extension = $request->file('image')->getClientOriginalExtension();
             $filename = "color_{$color->id}.{$extension}";
 
-            $publicPath = public_path('images/colors');
-            $request->file('image')->move($publicPath, $filename);
-            $validated['image'] = "images/colors/{$filename}";
+            $storagePath = storage_path('app/public/images/colors');
+            $request->file('image')->move($storagePath, $filename);
+            $validated['image'] = "storage/images/colors/{$filename}";
         }
 
         $color->update($validated);
@@ -134,7 +138,9 @@ class ColorController extends Controller
 
         // Delete image file
         if ($color->image) {
-            $imagePath = public_path($color->image);
+            // Remove 'storage/' prefix to get actual file path
+            $relativePath = str_replace('storage/', '', $color->image);
+            $imagePath = storage_path('app/public/' . $relativePath);
             if (file_exists($imagePath)) {
                 unlink($imagePath);
             }
