@@ -6,6 +6,10 @@ RewriteEngine On
 RewriteRule ^\.env - [F,L]
 RewriteRule ^\.git - [F,L]
 
+# Permitir acesso direto à pasta storage (redirecionar para public/storage)
+RewriteCond %{REQUEST_URI} ^/storage/
+RewriteRule ^storage/(.*)$ /public/storage/$1 [L]
+
 # Se não começar com /public/, redirecionar arquivos e diretórios para public/
 RewriteCond %{REQUEST_URI} !^/public/
 RewriteCond %{REQUEST_FILENAME} !-d
