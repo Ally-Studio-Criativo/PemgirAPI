@@ -41,7 +41,7 @@ export default {
     },
     instagram: {
       subtitle: 'FOLLOW OUR',
-      title: 'Instagram',
+      title: 'Social Media',
     },
   },
 

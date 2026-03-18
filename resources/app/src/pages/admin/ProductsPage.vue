@@ -1,81 +1,188 @@
 <template>
   <q-page class="q-pa-md">
-    <div class="row items-center justify-between q-mb-xs">
+    <div class="row items-center justify-between q-mb-md">
       <div>
         <div class="text-h5 text-weight-bold">Produtos</div>
         <div class="text-body2 text-grey-7">Gerencie os produtos do catálogo</div>
       </div>
-      <div class="row q-gutter-sm items-center">
-        <q-select
-          v-model="selectedCategory"
-          :options="categoryOptions"
-          option-value="value"
-          option-label="label"
-          emit-value
-          map-options
-          label="Filtrar por categoria"
-          filled
-          dense
-          clearable
-          style="min-width: 220px"
-          @update:model-value="loadProducts"
-        >
-          <template v-slot:prepend>
-            <q-icon name="filter_list" color="grey-6" />
-          </template>
-        </q-select>
-        <q-btn-toggle
-          v-model="launchFilter"
-          toggle-color="primary"
-          :options="[
-            { label: 'Todos', value: null },
-            { label: 'Lançamentos', value: true }
-          ]"
-          @update:model-value="loadProducts"
-        />
-        <q-btn color="primary" icon="add" label="Novo Produto" @click="openProductDialog(null)" />
-      </div>
+      <q-btn color="primary" icon="add" label="Novo Produto" @click="openProductDialog(null)" />
     </div>
 
-    <div v-if="!loading" class="row q-col-gutter-md q-mt-sm">
-      <div v-for="product in products" :key="product.id" class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <q-card bordered flat class="product-card">
-          <q-img v-if="product.images && product.images.length > 0" :src="getImageUrl(product.images[0].path)" style="height: 200px">
-            <q-badge color="dark" text-color="white" :label="`${product.images.length} ${product.images.length === 1 ? 'foto' : 'fotos'}`" class="absolute-bottom-right q-ma-sm" style="padding: 10px !important;" />
-          </q-img>
-          <div v-else class="bg-grey-3 flex flex-center" style="height: 200px">
-            <q-icon name="image" size="64px" color="grey-5" />
+    <!-- Filtros -->
+    <q-card flat bordered class="q-mb-md">
+      <q-card-section class="q-py-md">
+        <div class="row q-col-gutter-md items-end">
+          <!-- Categoria -->
+          <div class="col-12 col-md-2">
+            <q-select
+              v-model="selectedCategory"
+              :options="categoryOptions"
+              option-value="value"
+              option-label="label"
+              emit-value
+              map-options
+              label="Categoria"
+              outlined
+              dense
+              @keyup.enter="loadProducts"
+            >
+              <template v-slot:prepend>
+                <q-icon name="category" />
+              </template>
+            </q-select>
           </div>
 
-          <q-card-section>
-            <div class="text-weight-bold text-body2 ellipsis-2-lines" style="min-height: 40px">{{ product.name }}</div>
-            <div class="text-caption text-grey-7 q-mt-xs">Ref: {{ product.reference || 'N/A' }}</div>
-            <div class="text-caption text-grey-7">
-              {{ product.categories && product.categories.length > 0
-                ? product.categories.map(c => c.name).join(', ')
-                : (product.category?.name || 'Sem categoria') }}
+          <!-- Nome do produto -->
+          <div class="col-12 col-md-2">
+            <q-input
+              v-model="nameFilter"
+              label="Nome do produto"
+              outlined
+              dense
+              @keyup.enter="loadProducts"
+            >
+              <template v-slot:prepend>
+                <q-icon name="inventory_2" />
+              </template>
+            </q-input>
+          </div>
+
+          <!-- REF -->
+          <div class="col-12 col-md-2">
+            <q-input
+              v-model="refFilter"
+              label="REF"
+              outlined
+              dense
+              @keyup.enter="loadProducts"
+            >
+              <template v-slot:prepend>
+                <q-icon name="tag" />
+              </template>
+            </q-input>
+          </div>
+
+          <!-- Com/Sem imagens -->
+          <div class="col-12 col-md-2">
+            <q-select
+              v-model="imageFilter"
+              :options="[
+                { label: 'Todas', value: null },
+                { label: 'Com imagens', value: true },
+                { label: 'Sem imagens', value: false }
+              ]"
+              option-value="value"
+              option-label="label"
+              emit-value
+              map-options
+              label="Imagens"
+              outlined
+              dense
+              @keyup.enter="loadProducts"
+            >
+              <template v-slot:prepend>
+                <q-icon name="image" />
+              </template>
+            </q-select>
+          </div>
+
+          <!-- Lançamento -->
+          <div class="col-12 col-md-2">
+            <q-select
+              v-model="launchFilter"
+              :options="[
+                { label: 'Todos', value: null },
+                { label: 'É lançamento', value: true },
+                { label: 'Não é lançamento', value: false }
+              ]"
+              option-value="value"
+              option-label="label"
+              emit-value
+              map-options
+              label="Lançamento"
+              outlined
+              dense
+              @keyup.enter="loadProducts"
+            >
+              <template v-slot:prepend>
+                <q-icon name="new_releases" />
+              </template>
+            </q-select>
+          </div>
+
+          <!-- Botão Filtrar -->
+          <div class="col-12 col-md-2">
+            <q-btn
+              color="primary"
+              icon="search"
+              label="Filtrar"
+              unelevated
+              no-caps
+              class="full-width"
+              @click="loadProducts"
+              :loading="loading"
+            />
+          </div>
+        </div>
+      </q-card-section>
+    </q-card>
+
+    <!-- Table with Grid Mode -->
+    <q-table
+      :rows="products"
+      :columns="columns"
+      row-key="id"
+      :loading="loading"
+      :rows-per-page-options="[8, 16, 24, 32]"
+      v-model:pagination="pagination"
+      grid
+      flat
+      class="products-grid-table"
+    >
+      <template v-slot:loading>
+        <q-inner-loading showing>
+          <q-spinner-dots size="50px" color="primary" />
+        </q-inner-loading>
+      </template>
+
+      <template v-slot:item="props">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 q-pa-sm">
+          <q-card bordered flat class="product-card">
+            <q-img v-if="props.row.images && props.row.images.length > 0" :src="getImageUrl(props.row.images[0].path)" style="height: 200px">
+              <q-badge color="dark" text-color="white" :label="`${props.row.images.length} ${props.row.images.length === 1 ? 'foto' : 'fotos'}`" class="absolute-bottom-right q-ma-sm" style="padding: 10px !important;" />
+            </q-img>
+            <div v-else class="bg-grey-3 flex flex-center" style="height: 200px">
+              <q-icon name="image" size="64px" color="grey-5" />
             </div>
-            <q-badge v-if="product.is_launch" color="orange" text-color="white" label="LANÇAMENTO" class="q-mt-xs" />
-          </q-card-section>
 
-          <q-separator />
-          <q-card-actions align="right" class="q-px-md q-py-sm">
-            <q-btn flat size="sm" icon="photo_library" label="Imagens" color="primary" @click="openImagesDialog(product)" no-caps />
-            <q-btn flat size="sm" icon="edit" label="Editar" color="primary" @click="openProductDialog(product)" no-caps />
-            <q-btn flat size="sm" icon="delete" color="negative" @click="confirmDelete(product)" no-caps />
-          </q-card-actions>
-        </q-card>
-      </div>
+            <q-card-section>
+              <div class="text-weight-bold text-body2 ellipsis-2-lines" style="min-height: 40px">{{ props.row.name }}</div>
+              <div class="text-caption text-grey-7 q-mt-xs">Ref: {{ props.row.reference || 'N/A' }}</div>
+              <div class="text-caption text-grey-7">
+                {{ props.row.categories && props.row.categories.length > 0
+                  ? props.row.categories.map(c => c.name).join(', ')
+                  : (props.row.category?.name || 'Sem categoria') }}
+              </div>
+              <q-badge v-if="props.row.is_launch" color="orange" text-color="white" label="LANÇAMENTO" class="q-mt-xs" />
+            </q-card-section>
 
-      <div v-if="products.length === 0" class="col-12 text-center q-pa-xl text-grey-6">Nenhum produto cadastrado</div>
-    </div>
+            <q-separator />
+            <q-card-actions align="right" class="q-px-md q-py-sm">
+              <q-btn flat size="sm" icon="photo_library" label="Imagens" color="primary" @click="openImagesDialog(props.row)" no-caps />
+              <q-btn flat size="sm" icon="edit" label="Editar" color="primary" @click="openProductDialog(props.row)" no-caps />
+              <q-btn flat size="sm" icon="delete" color="negative" @click="confirmDelete(props.row)" no-caps />
+            </q-card-actions>
+          </q-card>
+        </div>
+      </template>
 
-    <div v-else class="row q-col-gutter-md">
-      <div v-for="i in 8" :key="i" class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <q-skeleton height="200px" />
-        <q-skeleton height="80px" class="q-mt-sm" />
-      </div>
-    </div>
+      <template v-slot:no-data>
+        <div class="full-width text-center q-pa-xl text-grey-6">
+          <q-icon name="inventory_2" size="64px" color="grey-4" class="q-mb-md" />
+          <div class="text-h6">Nenhum produto encontrado</div>
+        </div>
+      </template>
+    </q-table>
 
     <q-dialog v-model="showProductDialog" persistent>
       <q-card style="min-width: 600px; max-width: 800px; max-height: 70vh; display: flex; flex-direction: column;">
@@ -456,6 +563,9 @@ export default defineComponent({
     const categories = ref([])
     const categoryOptions = ref([])
     const selectedCategory = ref(null)
+    const nameFilter = ref('')
+    const refFilter = ref('')
+    const imageFilter = ref(null)
     const launchFilter = ref(null)
     const loading = ref(false)
     const saving = ref(false)
@@ -473,6 +583,22 @@ export default defineComponent({
     const newImagePreview = ref(null)
     const editingImage = ref({ id: null, ref: '', color_name: '', image_type: '', in_2027_palette: false, has_cuff_collar: '' })
 
+    // Paginação
+    const pagination = ref({
+      sortBy: 'id',
+      descending: false,
+      page: 1,
+      rowsPerPage: 8
+    })
+
+    // Colunas (necessário para q-table mesmo em grid mode)
+    const columns = [
+      { name: 'id', label: 'ID', field: 'id', sortable: true },
+      { name: 'name', label: 'Nome', field: 'name', sortable: true },
+      { name: 'reference', label: 'Referência', field: 'reference', sortable: true },
+      { name: 'is_launch', label: 'Lançamento', field: 'is_launch', sortable: true }
+    ]
+
     const getImageUrl = (imagePath) => imagePath ? `${STORAGE_URL}/${imagePath}` : null
 
     const loadCategories = async () => {
@@ -486,13 +612,72 @@ export default defineComponent({
       loading.value = true
       try {
         const params = {}
-        if (selectedCategory.value) params.category_id = selectedCategory.value
-        if (launchFilter.value !== null) params.is_launch = launchFilter.value
-        products.value = await productService.getAll(params)
+
+        // Filtro por categoria
+        if (selectedCategory.value) {
+          params.category_id = selectedCategory.value
+        }
+
+        // Filtro por nome do produto
+        if (nameFilter.value && nameFilter.value.trim()) {
+          params.name = nameFilter.value.trim()
+        }
+
+        // Filtro por referência
+        if (refFilter.value && refFilter.value.trim()) {
+          params.reference = refFilter.value.trim()
+        }
+
+        // Filtro por imagens (true = com imagens, false = sem imagens)
+        if (imageFilter.value !== null && imageFilter.value !== undefined) {
+          params.has_images = imageFilter.value ? 1 : 0
+        }
+
+        // Filtro por lançamento
+        if (launchFilter.value !== null && launchFilter.value !== undefined) {
+          params.is_launch = launchFilter.value ? 1 : 0
+        }
+
+        console.log('🔍 Filtros enviados para API:', params)
+
+        const response = await productService.getAll(params)
+        products.value = response
+
+        console.log('📦 Produtos retornados da API:', products.value.length)
+
+        // Reset pagination to first page when filtering
+        if (pagination.value.page > 1) {
+          pagination.value.page = 1
+        }
+
+        $q.notify({
+          type: 'info',
+          message: `${products.value.length} produto(s) encontrado(s)`,
+          position: 'top',
+          timeout: 1500
+        })
       } catch (error) {
-        console.error('Erro ao carregar produtos:', error)
-        $q.notify({ type: 'negative', message: 'Erro ao carregar produtos', position: 'top' })
-      } finally { loading.value = false }
+        console.error('❌ Erro ao carregar produtos:', error)
+        $q.notify({
+          type: 'negative',
+          message: error.response?.data?.message || 'Erro ao carregar produtos',
+          position: 'top'
+        })
+      } finally {
+        loading.value = false
+      }
+    }
+
+    const clearFilters = () => {
+      selectedCategory.value = null
+      nameFilter.value = ''
+      refFilter.value = ''
+      imageFilter.value = null
+      launchFilter.value = null
+
+      console.log('🧹 Filtros limpos')
+
+      loadProducts()
     }
 
     const openProductDialog = (product) => {
@@ -659,7 +844,7 @@ export default defineComponent({
       await loadProducts()
     })
 
-    return { products, categories, categoryOptions, selectedCategory, launchFilter, loading, saving, uploading, loadingImages, showProductDialog, showImagesDialog, showAddImageDialog, showEditImageDialog, isEdit, currentProduct, productImages, productForm, newImage, newImagePreview, editingImage, getImageUrl, loadProducts, openProductDialog, closeProductDialog, saveProduct, confirmDelete, openImagesDialog, closeImagesDialog, onImageSelected, uploadImage, editImageMetadata, saveImageMetadata, deleteProductImage }
+    return { products, categories, categoryOptions, selectedCategory, nameFilter, refFilter, imageFilter, launchFilter, loading, saving, uploading, loadingImages, showProductDialog, showImagesDialog, showAddImageDialog, showEditImageDialog, isEdit, currentProduct, productImages, productForm, newImage, newImagePreview, editingImage, pagination, columns, getImageUrl, loadProducts, clearFilters, openProductDialog, closeProductDialog, saveProduct, confirmDelete, openImagesDialog, closeImagesDialog, onImageSelected, uploadImage, editImageMetadata, saveImageMetadata, deleteProductImage }
   }
 })
 </script>
@@ -667,18 +852,32 @@ export default defineComponent({
 <style scoped>
 .product-card {
   height: 100%;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
 .image-card {
   transition: transform 0.2s;
 }
+
 .image-card:hover {
   transform: scale(1.02);
 }
+
 .ellipsis-2-lines {
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+
+/* Grid table customization */
+.products-grid-table :deep(.q-table__grid-content) {
+  margin: -8px;
 }
 </style>

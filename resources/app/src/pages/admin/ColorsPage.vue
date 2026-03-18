@@ -6,16 +6,6 @@
         <div class="text-body2 text-grey-7">Gerencie as cores das paletas</div>
       </div>
       <div class="row q-gutter-sm items-center">
-        <q-btn
-          flat
-          round
-          dense
-          icon="settings"
-          color="grey-7"
-          @click="$router.push('/admin/paletas')"
-        >
-          <q-tooltip>Gerenciar paletas</q-tooltip>
-        </q-btn>
         <q-select
           v-model="selectedPalette"
           :options="paletteOptions"

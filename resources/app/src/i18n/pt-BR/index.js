@@ -40,8 +40,8 @@ export default {
       title: 'Cartela de cores',
     },
     instagram: {
-      subtitle: 'SIGA NOSSO',
-      title: 'Instagram',
+      subtitle: 'SIGA NOSSAS',
+      title: 'Redes Sociais',
     },
   },
 

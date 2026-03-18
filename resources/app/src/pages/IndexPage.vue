@@ -118,6 +118,11 @@
                 </div>
                 <div>
                   <q-btn color="white" text-color="black" class="q-mt-md q-mb-md"
+                    icon="img:https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" round
+                    @click="openFacebook" />
+                </div>
+                <div>
+                  <q-btn color="white" text-color="black" class="q-mt-md q-mb-md"
                     icon="img:https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" round
                     @click="openLinkedIn" />
                 </div>
@@ -207,7 +212,7 @@
         <div class="col-12 col-md-6">
           <q-card flat class="filter-card cursor-pointer clickable-card"
             :style="landingImages.lancamentos ? { backgroundImage: `url(${landingImages.lancamentos})` } : { backgroundColor: '#e0e0e0' }"
-            @click="$router.push('/produtos?lancamento=true')">
+            @click="$router.push('/produtos?categoria=LANÇAMENTOS')">
             <q-card-section class="flex flex-center" :style="cardHeight">
               <div class="row text-center text-white">
                 <div class="col-12 text-h6 text-weight-light">
@@ -251,7 +256,7 @@
                 <div class="col-12 text-h3 text-bold">{{ t('filter.colors.title') }}</div>
                 <div class="col-12 q-mt-md">
                   <div class="row q-gutter-sm justify-center">
-                    <q-btn v-for="palette in palettes" :key="palette.id" rounded outline color="white"
+                    <q-btn v-for="palette in palettesWithColors" :key="palette.id" rounded outline color="white"
                       text-color="white" :label="`Cartela ${palette.name}`" no-caps class="hover-btn palette-btn"
                       @click="openColorPaletteGalleryData(palette.name)" />
                   </div>
@@ -261,7 +266,7 @@
           </q-card>
         </div>
         <div class="col-12 col-md-6">
-          <q-card flat class="filter-card-4 cursor-pointer clickable-card" @click="openInstagram"
+          <q-card flat class="filter-card-4"
             :style="landingImages.instagram ? { backgroundImage: `url(${landingImages.instagram})` } : { backgroundColor: '#e0e0e0' }">
             <q-card-section class="flex flex-center" :style="cardHeight">
               <div class="row text-center text-white">
@@ -270,8 +275,20 @@
                 </div>
                 <div class="col-12 text-h3 text-bold">{{ t('filter.instagram.title') }}</div>
                 <div class="col-12 q-mt-md">
-                  <q-btn rounded outline color="white" text-color="white" label="Seguir Instagram" no-caps
-                    class="hover-btn" icon="launch" />
+                  <div class="row q-gutter-sm justify-center">
+                    <q-btn round color="white" text-color="black"
+                      icon="img:https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg"
+                      @click="openInstagram" class="social-media-btn" />
+                    <q-btn round color="white" text-color="black"
+                      icon="img:https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg"
+                      @click="openLinkedIn" class="social-media-btn" />
+                    <q-btn round color="white" text-color="black"
+                      icon="img:https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg"
+                      @click="openFacebook" class="social-media-btn" />
+                    <q-btn round color="white" text-color="black"
+                      icon="img:https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg"
+                      @click="openYouTube" class="social-media-btn" />
+                  </div>
                 </div>
               </div>
             </q-card-section>
@@ -1270,6 +1287,10 @@ export default defineComponent({
       window.open('https://www.linkedin.com/company/pemgir/', '_blank')
     }
 
+    const openFacebook = () => {
+      window.open('https://www.facebook.com/malhaspemgir/?locale=pt_BR', '_blank')
+    }
+
     return {
       slide,
       lorem,
@@ -1329,6 +1350,8 @@ export default defineComponent({
       openImageLightboxWithColorData,
       openInstagram,
       openYouTube,
+      openLinkedIn,
+      openFacebook,
       loadFeaturedProducts,
 
       // Campaign data
@@ -1351,6 +1374,13 @@ export default defineComponent({
   },
 
   computed: {
+    // Filtrar apenas paletas que tenham cores
+    palettesWithColors() {
+      return this.palettes.filter(palette =>
+        palette.colors && palette.colors.length > 0
+      )
+    },
+
     currentColorPaletteImagesData() {
       return this.colors.map(color => `${process.env.API_URL_IMG}/${color.image}`)
     },
@@ -1380,10 +1410,11 @@ export default defineComponent({
         const response = await api.get('/palettes', { params: { active: 1, with_colors: 1 } })
         this.palettes = response.data
 
-        // Definir primeira paleta como selecionada
-        if (this.palettes.length > 0) {
-          this.selectedPaletteYear = this.palettes[0].name
-          this.selectedPaletteId = this.palettes[0].id
+        // Definir primeira paleta com cores como selecionada
+        const palettesWithColors = this.palettes.filter(p => p.colors && p.colors.length > 0)
+        if (palettesWithColors.length > 0) {
+          this.selectedPaletteYear = palettesWithColors[0].name
+          this.selectedPaletteId = palettesWithColors[0].id
         }
       } catch (error) {
         console.error('Erro ao carregar paletas:', error)
@@ -2322,6 +2353,27 @@ export default defineComponent({
 @media (max-width: 768px) {
   .video-player-fullscreen {
     max-height: calc(100vh - 80px) !important;
+  }
+}
+
+/* Social Media Buttons */
+.social-media-btn {
+  opacity: 0.9;
+  transform: scale(0.95);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.social-media-btn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+}
+
+@media (max-width: 768px) {
+  .social-media-btn {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 </style>

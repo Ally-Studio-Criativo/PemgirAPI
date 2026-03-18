@@ -40,8 +40,8 @@ export default {
       title: 'Paleta de colores',
     },
     instagram: {
-      subtitle: 'SIGUE NUESTRO',
-      title: 'Instagram',
+      subtitle: 'SIGUE NUESTRAS',
+      title: 'Redes Sociales',
     },
   },
 

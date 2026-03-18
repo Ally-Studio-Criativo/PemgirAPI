@@ -22,6 +22,26 @@ class ProductController extends Controller
             });
         }
 
+        // Filter by product name
+        if ($request->has('name') && !empty($request->name)) {
+            $query->where('name', 'like', '%' . $request->name . '%');
+        }
+
+        // Filter by reference
+        if ($request->has('reference') && !empty($request->reference)) {
+            $query->where('reference', 'like', '%' . $request->reference . '%');
+        }
+
+        // Filter by images (has_images: true = with images, false = without images)
+        if ($request->has('has_images')) {
+            $hasImages = $request->boolean('has_images');
+            if ($hasImages) {
+                $query->whereHas('images');
+            } else {
+                $query->whereDoesntHave('images');
+            }
+        }
+
         // Filter by launch status
         if ($request->has('is_launch')) {
             $query->where('is_launch', $request->boolean('is_launch'));

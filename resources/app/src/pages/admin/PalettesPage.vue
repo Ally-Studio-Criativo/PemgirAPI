@@ -2,63 +2,75 @@
   <q-page class="q-pa-md">
     <div class="row items-center justify-between q-mb-xs">
       <div>
-        <div class="text-h5 text-weight-bold">Paletas de Cores</div>
-        <div class="text-body2 text-grey-7">Gerencie as paletas disponíveis</div>
+        <div class="text-h5 text-weight-bold">Paleta de cores</div>
+        <div class="text-body2 text-grey-7">Gerencie as paletas de cores disponíveis</div>
       </div>
-      <q-btn color="primary" icon="add" label="Nova Paleta" @click="openDialog(null)" />
+      <q-btn
+        color="primary"
+        icon="add"
+        label="Nova Paleta"
+        @click="openDialog(null)"
+      />
     </div>
 
-    <!-- Lista de Paletas -->
-    <div v-if="!loading" class="q-mt-md">
-      <q-list bordered separator>
-        <q-item v-for="palette in palettes" :key="palette.id" class="q-py-md">
-          <q-item-section avatar>
-            <q-avatar :color="palette.active ? 'primary' : 'grey'" text-color="white" icon="palette" />
-          </q-item-section>
-
-          <q-item-section>
-            <q-item-label class="text-weight-bold text-body1">{{ palette.name }}</q-item-label>
-            <q-item-label caption>
-              Ano: {{ palette.year }} • Ordem: {{ palette.order }} • {{ palette.colors?.length || 0 }} cores
-            </q-item-label>
-          </q-item-section>
-
-          <q-item-section side>
-            <div class="row q-gutter-xs items-center">
-              <q-badge :color="palette.active ? 'positive' : 'grey'" :label="palette.active ? 'Ativa' : 'Inativa'" />
-              <q-btn flat dense round icon="edit" color="primary" @click="openDialog(palette)">
-                <q-tooltip>Editar</q-tooltip>
-              </q-btn>
-              <q-btn flat dense round icon="delete" color="negative" @click="confirmDelete(palette)">
-                <q-tooltip>{{ palette.colors?.length > 0 ? 'Inativar' : 'Excluir' }}</q-tooltip>
-              </q-btn>
-            </div>
-          </q-item-section>
-        </q-item>
-
-        <q-item v-if="palettes.length === 0">
-          <q-item-section class="text-center text-grey-6">
-            Nenhuma paleta cadastrada
-          </q-item-section>
-        </q-item>
-      </q-list>
-    </div>
-
-    <!-- Loading -->
-    <div v-else class="q-mt-md">
-      <q-skeleton v-for="i in 5" :key="i" height="80px" class="q-mb-sm" />
-    </div>
+    <!-- Table -->
+    <q-table
+      :rows="palettes"
+      :columns="columns"
+      row-key="id"
+      :loading="loading"
+      flat
+      class="q-mt-md clickable-rows"
+    >
+      <template v-slot:body="props">
+        <q-tr :props="props" @click="openDialog(props.row)" class="cursor-pointer">
+          <q-td key="id" :props="props">
+            {{ props.row.id }}
+          </q-td>
+          <q-td key="name" :props="props">
+            {{ props.row.name }}
+          </q-td>
+          <q-td key="year" :props="props">
+            {{ props.row.year }}
+          </q-td>
+          <q-td key="order" :props="props">
+            {{ props.row.order }}
+          </q-td>
+          <q-td key="colors_count" :props="props">
+            {{ props.row.colors?.length || 0 }} cores
+          </q-td>
+          <q-td key="active" :props="props">
+            <q-badge :color="props.row.active ? 'positive' : 'grey'" :label="props.row.active ? 'Ativa' : 'Inativa'" />
+          </q-td>
+        </q-tr>
+      </template>
+    </q-table>
 
     <!-- Dialog Form -->
     <q-dialog v-model="showDialog" persistent>
       <q-card style="min-width: 500px; max-width: 600px">
         <!-- Header -->
         <q-card-section class="q-pb-sm">
-          <div class="text-h5 text-weight-medium q-mb-xs">
-            {{ isEdit ? 'Editar Paleta' : 'Criar Nova Paleta' }}
-          </div>
-          <div class="text-body2 text-grey-7">
-            {{ isEdit ? 'Atualize as informações da paleta abaixo' : 'Preencha os dados para criar uma nova paleta' }}
+          <div class="row items-start justify-between">
+            <div>
+              <div class="text-h5 text-weight-medium q-mb-xs">
+                {{ isEdit ? 'Editar Paleta' : 'Criar Nova Paleta' }}
+              </div>
+              <div class="text-body2 text-grey-7">
+                {{ isEdit ? 'Atualize as informações da paleta abaixo' : 'Preencha os dados para criar uma nova paleta' }}
+              </div>
+            </div>
+            <q-btn
+              v-if="isEdit"
+              flat
+              round
+              dense
+              icon="delete"
+              color="negative"
+              @click="confirmDelete(form)"
+            >
+              <q-tooltip>{{ form.colors?.length > 0 ? 'Inativar paleta' : 'Excluir paleta' }}</q-tooltip>
+            </q-btn>
           </div>
         </q-card-section>
 
@@ -86,6 +98,26 @@
                 </q-input>
               </div>
 
+              <!-- Ordem -->
+              <div class="col-12">
+                <div class="text-subtitle2 text-weight-medium q-mb-xs">Ordem de exibição</div>
+                <div class="text-caption text-grey-6 q-mb-sm">
+                  Define a ordem de apresentação da paleta
+                </div>
+                <q-input
+                  v-model.number="form.order"
+                  type="number"
+                  placeholder="0"
+                  filled
+                  dense
+                  hide-bottom-space
+                >
+                  <template v-slot:prepend>
+                    <q-icon name="sort" color="grey-6" />
+                  </template>
+                </q-input>
+              </div>
+
               <!-- Status Ativo -->
               <div class="col-12" v-if="isEdit">
                 <div class="text-subtitle2 text-weight-medium q-mb-xs">Status</div>
@@ -108,7 +140,7 @@
             color="grey-7"
             flat
             padding="sm lg"
-            @click="closeDialog"
+            @click="showDialog = false"
           />
           <q-btn
             label="Salvar"
@@ -144,8 +176,55 @@ export default defineComponent({
     const form = ref({
       id: null,
       year: null,
-      active: true
+      order: 0,
+      active: true,
+      colors: []
     })
+
+    const columns = [
+      {
+        name: 'id',
+        label: 'ID',
+        field: 'id',
+        align: 'left',
+        sortable: true
+      },
+      {
+        name: 'name',
+        label: 'Nome',
+        field: 'name',
+        align: 'left',
+        sortable: true
+      },
+      {
+        name: 'year',
+        label: 'Ano',
+        field: 'year',
+        align: 'left',
+        sortable: true
+      },
+      {
+        name: 'order',
+        label: 'Ordem',
+        field: 'order',
+        align: 'center',
+        sortable: true
+      },
+      {
+        name: 'colors_count',
+        label: 'Cores',
+        field: row => row.colors?.length || 0,
+        align: 'center',
+        sortable: true
+      },
+      {
+        name: 'active',
+        label: 'Status',
+        field: 'active',
+        align: 'center',
+        sortable: true
+      }
+    ]
 
     const openDialog = (palette) => {
       if (palette) {
@@ -153,35 +232,32 @@ export default defineComponent({
         form.value = {
           id: palette.id,
           year: palette.year,
-          active: palette.active
+          order: palette.order,
+          active: Boolean(palette.active),
+          colors: palette.colors || []
         }
       } else {
         isEdit.value = false
         form.value = {
           id: null,
           year: null,
-          active: true
+          order: 0,
+          active: true,
+          colors: []
         }
       }
       showDialog.value = true
-    }
-
-    const closeDialog = () => {
-      showDialog.value = false
     }
 
     const savePalette = async () => {
       saving.value = true
 
       try {
-        // Calcular ordem baseado no ano (ano - 2025 = ordem)
-        const order = form.value.year - 2025
-
         const paletteData = {
           name: form.value.year.toString(),
           year: form.value.year,
-          order: order,
-          active: form.value.active
+          order: form.value.order,
+          active: Boolean(form.value.active)
         }
 
         if (isEdit.value) {
@@ -196,13 +272,16 @@ export default defineComponent({
           position: 'top'
         })
 
-        closeDialog()
+        showDialog.value = false
         await loadPalettes()
       } catch (error) {
-        console.error('Erro ao salvar paleta:', error)
+        const errorMessage = error.response?.data?.message ||
+                           error.response?.data?.errors?.year?.[0] ||
+                           'Erro ao salvar paleta'
+
         $q.notify({
           type: 'negative',
-          message: error.response?.data?.message || 'Erro ao salvar paleta',
+          message: errorMessage,
           position: 'top'
         })
       } finally {
@@ -216,41 +295,43 @@ export default defineComponent({
       $q.dialog({
         title: hasColors ? 'Inativar Paleta' : 'Confirmar Exclusão',
         message: hasColors
-          ? `A paleta "${palette.name}" possui ${palette.colors.length} cores e será inativada. Deseja continuar?`
-          : `Deseja realmente excluir a paleta "${palette.name}"?`,
+          ? `A paleta "${palette.year}" possui ${palette.colors.length} cores e será inativada. Deseja continuar?`
+          : `Deseja realmente excluir a paleta "${palette.year}"?`,
         cancel: {
           label: 'Cancelar',
-          flat: true,
-          color: 'grey-7'
+          flat: true
         },
         ok: {
           label: hasColors ? 'Inativar' : 'Excluir',
-          color: 'negative',
-          unelevated: true
+          color: 'negative'
         },
         persistent: true
       }).onOk(async () => {
-        try {
-          const result = await paletteService.delete(palette.id)
-
-          $q.notify({
-            type: 'positive',
-            message: result.inactivated
-              ? 'Paleta inativada com sucesso!'
-              : 'Paleta excluída com sucesso!',
-            position: 'top'
-          })
-
-          await loadPalettes()
-        } catch (error) {
-          console.error('Erro ao excluir paleta:', error)
-          $q.notify({
-            type: 'negative',
-            message: error.response?.data?.message || 'Erro ao excluir paleta',
-            position: 'top'
-          })
-        }
+        await deletePalette(palette.id)
       })
+    }
+
+    const deletePalette = async (paletteId) => {
+      try {
+        const result = await paletteService.delete(paletteId)
+
+        $q.notify({
+          type: 'positive',
+          message: result.inactivated
+            ? 'Paleta inativada com sucesso!'
+            : 'Paleta excluída com sucesso!',
+          position: 'top'
+        })
+
+        showDialog.value = false
+        await loadPalettes()
+      } catch {
+        $q.notify({
+          type: 'negative',
+          message: 'Erro ao excluir paleta',
+          position: 'top'
+        })
+      }
     }
 
     const loadPalettes = async () => {
@@ -258,8 +339,7 @@ export default defineComponent({
 
       try {
         palettes.value = await paletteService.getAll()
-      } catch (error) {
-        console.error('Erro ao carregar paletas:', error)
+      } catch {
         $q.notify({
           type: 'negative',
           message: 'Erro ao carregar paletas',
@@ -270,23 +350,33 @@ export default defineComponent({
       }
     }
 
+    // Carregar dados ao montar
     onMounted(() => {
       loadPalettes()
     })
 
     return {
       palettes,
+      columns,
       loading,
       saving,
       showDialog,
       isEdit,
       form,
       openDialog,
-      closeDialog,
       savePalette,
-      confirmDelete,
-      loadPalettes
+      confirmDelete
     }
   }
 })
 </script>
+
+<style scoped>
+.clickable-rows :deep(tbody tr) {
+  transition: background-color 0.2s;
+}
+
+.clickable-rows :deep(tbody tr:hover) {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+</style>

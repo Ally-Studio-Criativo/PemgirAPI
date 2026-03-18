@@ -4,8 +4,8 @@
       v-model="drawerCategory"
       :side="$q.platform.is.desktop ? 'left' : 'right'"
       :behavior="$q.platform.is.desktop ? 'desktop' : 'mobile'"
-      :width="$q.platform.is.desktop ? 320 : 300"
-      class="full-height bg-grey-2 products-drawer"
+      :width="$q.platform.is.desktop ? 340 : 300"
+      class="full-height products-drawer"
       :overlay="!$q.platform.is.desktop"
       :persistent="$q.platform.is.desktop"
     >
@@ -48,7 +48,7 @@
         </q-input>
       </div>
 
-      <q-scroll-area class="categories-scroll bg-grey-2">
+      <q-scroll-area class="categories-scroll">
         <q-list class="categories-list">
           <!-- Item fixo LANÇAMENTOS -->
           <q-item
@@ -61,13 +61,12 @@
           >
             <q-item-section>
               <q-item-label class="category-label">
-                LANÇAMENTOS
                 <q-icon
                   name="new_releases"
                   size="16px"
-                  color="amber-7"
-                  class="q-ml-xs"
+                  class="q-mr-xs launch-icon"
                 />
+                LANÇAMENTOS
               </q-item-label>
             </q-item-section>
             <q-item-section side v-if="filter.isLaunchFilter">
@@ -423,12 +422,9 @@ export default defineComponent({
           value: cat.id,
         }))
 
-        // Definir LANÇAMENTOS como categoria padrão se não houver filtro de categoria na URL
-        if (!$route.query.categoria && filter.value.category === null) {
-          const lancamentos = categories.value.find(cat => cat.label === 'LANÇAMENTOS')
-          if (lancamentos) {
-            filter.value.category = lancamentos.value
-          }
+        // Definir LANÇAMENTOS como filtro padrão se não houver filtro na URL
+        if (!$route.query.categoria && !filter.value.isLaunchFilter && filter.value.category === null) {
+          filter.value.isLaunchFilter = true
         }
       } catch (error) {
         console.error('Erro ao carregar categorias:', error)
@@ -1103,6 +1099,8 @@ export default defineComponent({
 /* Forçar z-index do drawer de produtos abaixo do header */
 .products-drawer {
   z-index: 500 !important;
+  background: linear-gradient(180deg, #f8f9fa 0%, #eceff1 100%) !important;
+  border-right: 2px solid #e0e0e0 !important;
 }
 
 .categories-drawer {
@@ -1138,45 +1136,61 @@ export default defineComponent({
 }
 
 .categories-list {
-  padding: 8px;
+  padding: 12px;
 }
 
 .category-item {
-  margin-bottom: 4px;
-  border-radius: 8px;
-  transition: all 0.2s ease;
-  background: transparent;
+  margin-bottom: 8px;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: white;
+  border: 2px solid transparent;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  padding: 12px 16px !important;
+  min-height: 52px;
 }
 
 .category-item:hover {
-  background: rgba(25, 118, 210, 0.08);
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: rgba(25, 118, 210, 0.2);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(248, 250, 252, 1) 100%);
 }
 
 .featured-category {
-  background: linear-gradient(135deg, rgba(255, 193, 7, 0.08) 0%, rgba(255, 152, 0, 0.08) 100%) !important;
-  border-left: 3px solid #ffc107;
-  font-weight: 600 !important;
+  /* Mesmo layout das outras categorias */
 }
 
-.featured-category:hover {
-  background: linear-gradient(135deg, rgba(255, 193, 7, 0.15) 0%, rgba(255, 152, 0, 0.15) 100%) !important;
+.featured-category .category-label {
+  /* Apenas um peso de fonte maior para destaque */
+  font-weight: 700;
+  display: flex;
+  align-items: center;
 }
 
-.featured-category.active-category {
-  background: linear-gradient(135deg, rgba(255, 193, 7, 0.2) 0%, rgba(255, 152, 0, 0.2) 100%) !important;
-  border-left: 3px solid #ff9800;
+.launch-icon {
+  color: inherit;
 }
 
 .active-category {
-  background: rgba(25, 118, 210, 0.12) !important;
-  color: #1976d2 !important;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%) !important;
+  border: 2px solid #1976d2 !important;
+  box-shadow: 0 4px 16px rgba(25, 118, 210, 0.25) !important;
+  transform: translateX(0) !important;
+}
+
+.active-category .category-label {
+  color: #0d47a1 !important;
+  font-weight: 700 !important;
 }
 
 .category-label {
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
-  font-size: 0.85rem;
-  letter-spacing: 0.5px;
+  font-size: 0.8rem;
+  letter-spacing: 0.8px;
+  color: #37474f;
+  line-height: 1.4;
 }
 
 /* Products Content */
@@ -1196,7 +1210,7 @@ export default defineComponent({
 }
 
 .products-content.with-drawer {
-  margin-left: 320px;
+  margin-left: 340px;
   padding-left: 20px;
 }
 

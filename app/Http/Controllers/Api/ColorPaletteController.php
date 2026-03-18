@@ -41,6 +41,7 @@ class ColorPaletteController extends Controller
             'name' => 'required|string|max:255',
             'year' => 'required|integer|min:2020|max:2100',
             'order' => 'integer',
+            'active' => 'sometimes|boolean',
         ]);
 
         $palette = ColorPalette::create($validated);
@@ -69,6 +70,7 @@ class ColorPaletteController extends Controller
             'name' => 'sometimes|string|max:255',
             'year' => 'sometimes|integer|min:2020|max:2100',
             'order' => 'sometimes|integer',
+            'active' => 'sometimes|boolean',
         ]);
 
         $palette->update($validated);

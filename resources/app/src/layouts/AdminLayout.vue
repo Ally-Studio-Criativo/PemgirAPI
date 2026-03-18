@@ -112,6 +112,22 @@
             </q-item-section>
           </q-item>
 
+          <!-- Paleta de cores -->
+          <q-item
+            clickable
+            v-ripple
+            :active="$route.path.startsWith('/admin/paletas')"
+            active-class="text-primary bg-blue-1"
+            @click="$router.push('/admin/paletas')"
+          >
+            <q-item-section avatar>
+              <q-icon name="color_lens" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Paleta de cores</q-item-label>
+            </q-item-section>
+          </q-item>
+
           <!-- Cores -->
           <q-item
             clickable
