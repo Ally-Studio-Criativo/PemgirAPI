@@ -116,6 +116,11 @@
                     icon="img:https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" round
                     @click="openYouTube" />
                 </div>
+                <div>
+                  <q-btn color="white" text-color="black" class="q-mt-md q-mb-md"
+                    icon="img:https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" round
+                    @click="openLinkedIn" />
+                </div>
               </div>
             </div>
           </div>
@@ -202,7 +207,7 @@
         <div class="col-12 col-md-6">
           <q-card flat class="filter-card cursor-pointer clickable-card"
             :style="landingImages.lancamentos ? { backgroundImage: `url(${landingImages.lancamentos})` } : { backgroundColor: '#e0e0e0' }"
-            @click="$router.push('/produtos?categoria=LANÇAMENTOS')">
+            @click="$router.push('/produtos?lancamento=true')">
             <q-card-section class="flex flex-center" :style="cardHeight">
               <div class="row text-center text-white">
                 <div class="col-12 text-h6 text-weight-light">
@@ -1259,6 +1264,10 @@ export default defineComponent({
 
     const openYouTube = () => {
       window.open('https://www.youtube.com/@pemgirmalhas6699', '_blank')
+    }
+
+    const openLinkedIn = () => {
+      window.open('https://www.linkedin.com/company/pemgir/', '_blank')
     }
 
     return {
