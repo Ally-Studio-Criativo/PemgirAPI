@@ -54,8 +54,8 @@ export default defineConfig((ctx) => {
           }
         : {
             // Produção: API e frontend no mesmo domínio
-            API_URL: 'https://pemgirapi.persysten.com.br/api/v1',
-            API_URL_IMG: 'https://pemgirapi.persysten.com.br/storage'
+            API_URL: 'https://api.pemgir.com.br/api/v1',
+            API_URL_IMG: 'https://api.pemgir.com.br/storage'
           },
       // rawDefine: {}
       // ignorePublicFolder: true,
