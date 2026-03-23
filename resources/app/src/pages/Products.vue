@@ -319,8 +319,7 @@
                       <div class="col-12 q-mt-sm">
                         <div class="disclaimer-text">
                           <q-icon name="info" size="14px" class="q-mr-xs" />
-                          As imagens são meramente ilustrativas e podem apresentar variações de cor
-                          e tonalidade. As imagens com bordas vermelhas acompanham gola e punho
+                          As imagens são meramente ilustrativas e podem apresentar variações de cor e tonalidade
                         </div>
                       </div>
                     </div>

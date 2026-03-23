@@ -1284,7 +1284,7 @@ export default defineComponent({
     }
 
     const openLinkedIn = () => {
-      window.open('https://www.linkedin.com/company/pemgir/', '_blank')
+      window.open('https://www.linkedin.com/in/pemgir-malhas-80a719395/', '_blank')
     }
 
     const openFacebook = () => {

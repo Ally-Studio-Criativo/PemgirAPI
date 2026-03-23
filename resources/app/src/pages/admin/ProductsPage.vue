@@ -599,7 +599,12 @@ export default defineComponent({
       { name: 'is_launch', label: 'Lançamento', field: 'is_launch', sortable: true }
     ]
 
-    const getImageUrl = (imagePath) => imagePath ? `${STORAGE_URL}/${imagePath}` : null
+    const cleanImagePath = (path) => {
+      if (!path) return null
+      return path.replace(/^storage\//, '')
+    }
+
+    const getImageUrl = (imagePath) => imagePath ? `${STORAGE_URL}/${cleanImagePath(imagePath)}` : null
 
     const loadCategories = async () => {
       try {
