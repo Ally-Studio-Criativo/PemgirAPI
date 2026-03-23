@@ -147,7 +147,7 @@ export default {
   certifications: {
     title: 'Certificações',
     and: '&',
-    technology: 'Tecnologia',
+    technology: 'Tecnologias',
   },
 
   // Footer
